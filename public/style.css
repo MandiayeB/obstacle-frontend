@@ -1,14 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Segoe UI;
 }
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   background-color: #15202b;
 }
+
+h1, h2, h3, h4 {
+  font-weight: 400;
+  line-height: 1.2;
+  color: #B0C4DE;
+}
+
+/* Homepage.vue */
 .homepage {
   display: block;
   max-width: 900px;
@@ -18,19 +25,13 @@ body {
   border: 1px solid rgb(56, 68, 77);
   background-color: rgb(25, 39, 52);
 }
-h1 {
-  font-family: Segoe UI;
+
+#homepage_title {
   text-align: center;
-  font-weight: 400;
-  line-height: 1.2;
-  color: #B0C4DE;
 }
 
-h3 {
-  font-family: Segoe UI;
-  font-weight: 400;
-  line-height: 1.2;
-  color: #B0C4DE;
+/* Login.vue */
+#show_obj {
   padding-left: 30px;
   padding-top: 40px;
   padding-bottom: 30px;
@@ -48,9 +49,11 @@ h3 {
   font-weight: 500;
   margin-left: 125px;
 }
+
 .stringButton {
   color: #fff;
 }
+
 .designButton {
   background-color: rgb(36, 54, 71);
   border: none;
@@ -119,12 +122,9 @@ h3 {
   border: 1px solid rgb(56, 68, 77);
   background-color: rgb(25, 39, 52);
 }
-h2 {
-  font-family: Segoe UI;
+
+#profile_names {
   text-align: center;
-  font-weight: 400;
-  line-height: 1.2;
-  color: #B0C4DE;
 }
 
 /* Goal.vue */
@@ -146,20 +146,22 @@ h2 {
   margin-left: -20px;
   margin-bottom: 10px;
 }
-.goal:hover h4 {
+
+.goal:hover #goal_text {
   font-weight: 500;
 }
-.goal:hover img {
+
+.goal:hover #goal_img {
   height: 240px;
   width: 390px;
 }
-h4 {
-  font-family: Segoe UI;
+
+#goal_text {
   font-weight: 350;
-  color: #B0C4DE;
   padding-left: 20px;
 }
-img {
+
+#goal_img {
   height: 200px;
   width: 350px;
 }
@@ -172,7 +174,7 @@ img {
 }
 
 /* ProfileBody.vue */
-.body {
+.container {
   display: flex;
   width: 1000px;
   margin-top: 20px;
@@ -180,14 +182,11 @@ img {
   border: 1px solid rgb(56, 68, 77);
   padding-bottom: 5px;
 }
-h3 {
+.credentials {
   margin: 15px 0 10px 20px;
-  font-weight: 400;
-  color: #B0C4DE;
 }
 
 /* ProfileHeader.vue */
-
 .header {
   display: flex;
   width: 550px;
@@ -195,22 +194,21 @@ h3 {
   border-radius: 7px;
   border: 1px solid rgb(56, 68, 77);
 }
-h2 {
-  font-family: Segoe UI;
+
+#profile_names {
   white-space: nowrap;
   margin: 20px 0 0 20px;
-  font-weight: 400;
-  line-height: 1.2;
-  color: #B0C4DE;
 }
-h3 {
+
+#role {
   margin: 15px 0 0 20px;
-  font-weight: 400;
   color: #dec3b0;
 }
+
 #profilepic {
   width: 300px;
 }
+
 #settings {
   width: 25px;
   align-self: flex-end;

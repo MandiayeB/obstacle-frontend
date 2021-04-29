@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import '/public/style.scss';
 import ResponsiveNavigation from './components/ResponsiveNavigation.vue';
 
 export default {

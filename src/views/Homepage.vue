@@ -1,7 +1,7 @@
 <template>
     <div class="homepage">
-        <h1>Bonjour {{ name }} !</h1>
-        <h3>Voici les objectifs que vous vous êtes fixés :</h3>
+        <h1 id="homepage_title">Bonjour {{ name }} !</h1>
+        <h3 id="show_obj">Voici les objectifs que vous vous êtes fixés :</h3>
         <Goals :goals="goals"/>
     </div>
 </template>

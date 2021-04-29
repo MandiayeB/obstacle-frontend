@@ -32,22 +32,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.profile {
-    display: table;
-    max-width: 1200px;
-    margin: 100px auto;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid rgb(56, 68, 77);
-    background-color: rgb(25, 39, 52);
-}
-h2 {
-    font-family: Segoe UI;
-    text-align: center;
-    font-weight: 400;
-    line-height: 1.2;
-    color: #B0C4DE;
-}
-</style>

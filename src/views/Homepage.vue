@@ -43,31 +43,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.homepage {
-    display: block;
-    max-width: 900px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgb(56, 68, 77);
-    background-color: rgb(25, 39, 52);
-}
-h1 {
-    font-family: Segoe UI;
-    text-align: center;
-    font-weight: 400;
-    line-height: 1.2;
-    color: #B0C4DE;
-}
-h3 {
-    font-family: Segoe UI;
-    font-weight: 400;
-    line-height: 1.2;
-    color: #B0C4DE;
-    padding-left: 30px;
-    padding-top: 40px;
-    padding-bottom: 30px;
-}
-</style>

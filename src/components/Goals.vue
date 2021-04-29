@@ -19,11 +19,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.goals {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-</style>

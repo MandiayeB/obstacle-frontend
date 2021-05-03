@@ -1,6 +1,7 @@
 <template>
   <div class="ajustement_contenent">
     <div class="cadre">
+      <!-- <h1>{{ User.firstname }}</h1> -->
       <form @submit.prevent="handleSubmit" action="" method="post">
         <div class="cadreInput">
           <input
@@ -46,10 +47,13 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Login",
   data() {
     return {
+      User: {},
       user: "",
       password: "",
     };
@@ -62,12 +66,22 @@ export default {
       };
       console.log(data);
       if (this.user == "Allane" && this.password == "az") {
-        this.$router.push('/');
-      }
-      else{
+        this.$router.push("/");
+      } else {
         alert("Donnée incorrect !");
       }
     },
+  },
+  async mounted() {
+    await axios
+      .get("http://localhost:3000/profile")
+      .then((response) => {
+        console.log(response.data);
+        this.User = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>

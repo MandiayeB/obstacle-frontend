@@ -1,7 +1,7 @@
 <template>
-    <div class="body">
-        <h3>Email :</h3>
-        <h3>{{ user.email }}</h3>
+    <div class="container">
+        <h3 class="credentials">Email :</h3>
+        <h3 class="credentials">{{ user.email }}</h3>
     </div>
 </template>
 

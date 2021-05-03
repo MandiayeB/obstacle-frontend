@@ -1,7 +1,7 @@
 <template>
     <div class="goal">
-        <h4>{{ goal.text }}</h4>
-        <img :src="goal.img" :alt="goal.text">
+        <h4 id="goal_text">{{ goal.text }}</h4>
+        <img id="goal_img" :src="goal.img" :alt="goal.text">
     </div>
 </template>
 

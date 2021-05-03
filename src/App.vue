@@ -9,11 +9,13 @@
         link-color="#fff"
         hoverBackground="rgb(35, 66, 95)"
       />
-      <!--background l6 = nav background / link-color = li color -->
     </div>
-    <!-- <transition name="fade" mode="out-in"> -->
-        <router-view />
-    <!-- </transition> -->
+
+    <router-view v-slot="{ Component }">
+      <transition name="router-anim">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -46,3 +48,4 @@ export default {
   }),
 };
 </script>
+

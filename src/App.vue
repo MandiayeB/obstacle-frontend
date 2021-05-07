@@ -12,7 +12,7 @@
     </div>
 
     <router-view v-slot="{ Component }">
-      <transition name="router-anim">
+      <transition name="router-anim" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
@@ -49,4 +49,3 @@ export default {
   }),
 };
 </script>
-

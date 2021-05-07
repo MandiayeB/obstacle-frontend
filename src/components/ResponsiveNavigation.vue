@@ -14,12 +14,10 @@
           $event.currentTarget.style.background = background || '#fff'
         "
       >
-        <transition name="fade" mode="out-in">
-          <router-link :to="link.path" :style="{ color: linkColor || '#DDD' }">
-            {{ link.text }}
-            <i :class="link.icon" />
-          </router-link>
-        </transition>
+        <router-link :to="link.path" :style="{ color: linkColor || '#DDD' }">
+          {{ link.text }}
+          <i :class="link.icon" />
+        </router-link>
       </li>
       <!--<figure class="profile" @click="toggleProfile">
         <img src="exempleProfil.jpg" height="200px" width="400px" />

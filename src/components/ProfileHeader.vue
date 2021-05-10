@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="profile_header">
         <img :src="user.image" :alt="user.firstname" id="profilepic"/>
         <div class="names">
             <h2 id="profile_names">{{ user.firstname }} {{ user.lastname }}</h2>

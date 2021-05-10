@@ -187,7 +187,7 @@ h1, h2, h3, h4 {
 }
 
 /* ProfileHeader.vue */
-.header {
+.profile_header {
   display: flex;
   width: 550px;
   overflow: hidden;

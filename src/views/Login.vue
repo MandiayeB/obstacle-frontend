@@ -58,20 +58,23 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
+    async handleSubmit() {
       const data = {
         email: this.email,
         password: this.password,
       };
-      console.log(this.email);
-      axios
-      .post("http://localhost:3000/login", {
-        email : this.email,
-        password : this.password,
-      })
-      .catch((error) => {
-        
-      });
+      await axios
+        .post("http://localhost:3000/login", {
+          email: this.email,
+          password: this.password,
+        })
+        .catch((error) => {
+          if (error.response.status === 308 || error.response.status === 307) {
+            this.$router.push("/");
+          } else {
+            console.log(error);
+          }
+        });
     },
   },
 };

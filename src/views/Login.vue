@@ -5,10 +5,10 @@
       <form @submit.prevent="handleSubmit" action="" method="post">
         <div class="cadreInput">
           <input
-            type="text"
-            v-model="user"
+            type="email"
+            v-model="email"
             class="inputCadre tailleInput"
-            name="user"
+            name="email"
             placeholder="Adresse mail"
             autocomplete="off"
             required
@@ -20,7 +20,7 @@
             type="password"
             v-model="password"
             class="inputCadre tailleInput"
-            name="pass"
+            name="password"
             id="pass"
             placeholder="Mot de passe"
             autocomplete="off"
@@ -53,35 +53,29 @@ export default {
   name: "Login",
   data() {
     return {
-      User: {},
-      user: "",
+      email: "",
       password: "",
     };
   },
   methods: {
-    handleSubmit() {
+    async handleSubmit() {
       const data = {
-        user: this.user,
+        email: this.email,
         password: this.password,
       };
-      console.log(data);
-      if (this.user == "Allane" && this.password == "az") {
-        this.$router.push("/");
-      } else {
-        alert("Donnée incorrect !");
-      }
+      await axios
+        .post("http://localhost:3000/login", {
+          email: this.email,
+          password: this.password,
+        })
+        .catch((error) => {
+          if (error.response.status === 308 || error.response.status === 307) {
+            this.$router.push("/");
+          } else {
+            console.log(error);
+          }
+        });
     },
-  },
-  async mounted() {
-    await axios
-      .get("http://localhost:3000/profile")
-      .then((response) => {
-        console.log(response.data);
-        this.User = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
 };
 </script>

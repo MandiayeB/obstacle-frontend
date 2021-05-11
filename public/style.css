@@ -43,6 +43,39 @@ h1, h2, h3, h4 {
   width: 364px;
   margin-left:15px;
 }
+
+.cadreInputName {
+    display: flex;
+}
+
+.cadreInputFirstName, .cadreInputLastName {
+    display: block;
+    font-size: 17px;
+}
+
+.cadreInputFirstName {
+    padding: 6px 0;
+    margin-left:15px;
+}
+
+.cadreInputLastName {
+    width: 360px;
+    padding: 6px 0;
+    margin-left:10px;
+}
+
+.cadreInputFirstName .tailleInput {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 142.5px;
+    border-radius: 6px;
+}
+.cadreInputLastName .tailleInput {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 142.5px;
+    border-radius: 6px;
+}
 .passwordForget a {
   color: rgb(106, 108, 119);
   font-size: 14px;
@@ -88,6 +121,7 @@ h1, h2, h3, h4 {
   width: 330px;
   border-radius: 6px;
 }
+
 .cadre {
   align-items: center;
   background-color: rgb(25, 39, 52);

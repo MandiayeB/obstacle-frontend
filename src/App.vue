@@ -11,9 +11,9 @@
       />
     </div>
 
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="slot">
       <transition name="router-anim" mode="out-in">
-        <component :is="Component" />
+        <component :is="slot.Component" />
       </transition>
     </router-view>
   </div>

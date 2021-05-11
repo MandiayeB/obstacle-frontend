@@ -58,12 +58,12 @@ export default {
     };
   },
   methods: {
-    async handleSubmit() {
+    handleSubmit() {
       const data = {
         email: this.email,
         password: this.password,
       };
-      await axios
+      axios
         .post("http://localhost:3000/login", {
           email: this.email,
           password: this.password,

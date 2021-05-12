@@ -10,7 +10,7 @@
                         v-model="user"
                         class="inputCadre tailleInput"
                         name="user"
-                        placeholder="First name"
+                        placeholder="Prénom"
                         autocomplete="off"
                         required
                         />
@@ -21,7 +21,7 @@
                         v-model="user"
                         class="inputCadre tailleInput"
                         name="user"
-                        placeholder="Last name"
+                        placeholder="Nom"
                         autocomplete="off"
                         required
                         />
@@ -46,14 +46,37 @@
                     class="inputCadre tailleInput"
                     name="pass"
                     id="pass"
-                    placeholder="Password"
+                    placeholder="Mot De Passe"
                     autocomplete="off"
                     required
                     />
                 </div>
+                <br />
+                <div class="genderDate">
+                    <div class="div_select_gender">
+                        <select class="select_gender">
+                            <option disabled selected>Choix du Genre</option>
+                            <option value="Man">Homme</option>
+                            <option value="Woman">Femme</option>
+                            <option value="Others">Autres</option>
+                        </select>
+                    </div>
+                    <div class="cadreInputDate">
+                        <input
+                        type="date"
+                        max="today"
+                        v-model="date"
+                        class="inputCadre tailleInput date"
+                        name="date"
+                        placeholder=""
+                        autocomplete="off"
+                        required
+                        />
+                    </div>
+                </div>
                 <div class="unButton">
                     <button value="" class="designButton" type="submit">
-                        Register now
+                        S'inscrire
                     </button>
                 </div>
             </form>

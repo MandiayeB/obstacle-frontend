@@ -47,7 +47,6 @@ h1, h2, h3, h4 {
 .cadreInputName {
     display: flex;
 }
-
 .cadreInputFirstName, .cadreInputLastName {
     display: block;
     font-size: 17px;
@@ -59,7 +58,6 @@ h1, h2, h3, h4 {
 }
 
 .cadreInputLastName {
-    width: 360px;
     padding: 6px 0;
     margin-left:10px;
 }
@@ -76,11 +74,67 @@ h1, h2, h3, h4 {
     width: 142.5px;
     border-radius: 6px;
 }
+
 .passwordForget a {
   color: rgb(106, 108, 119);
   font-size: 14px;
   font-weight: 500;
   margin-left: 125px;
+}
+.genderDate {
+    display: flex;
+}
+/* .gender {
+    display: column;
+    background-color: rgb(43, 48, 58);
+    border: 1px solid #6c6f72;
+    border-radius: 8px;
+    margin-right: 10px ;
+    margin-left: 16px;
+    color: #c9d0dd;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+} */
+.div_select_gender{
+    display: flex;
+    padding-top: 6px;
+}
+.select_gender{
+    margin-left: 15px;
+    padding: 14px 16px;
+    color: #7d7f81;
+    background-color: rgb(43, 48, 58);
+    border: 1px solid #6c6f72;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    text-align-last:center;
+}
+
+.select_gender:focus,
+.select_gender:hover{
+    outline: none;
+    box-shadow: 0 0 0 1px #6c6f72;
+}
+
+.cadreInputDate {
+    padding-top: 6px;
+    margin-left: 15px;
+}
+.cadreInputDate .tailleInput{
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 142.5px;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+.date {
+    color: rgb(59, 59, 59);
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 .designButton {
@@ -129,10 +183,11 @@ h1, h2, h3, h4 {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   box-sizing: border-box;
-  margin: 100px auto;
+  margin: 250px auto;
   padding: 20px 0 28px;
   width: 396px;
 }
+
 .separateur {
   align-items: center;
   border-bottom: 1px solid rgb(56, 68, 77);
@@ -152,7 +207,13 @@ h1, h2, h3, h4 {
   padding: 0 8px;
   vertical-align: middle;
 }
-
+.inputCadre::placeholder{
+    color: #7d7f81;
+}
+.inputCadre:hover{
+    outline: none;
+    box-shadow: 0 0 0 1px #6c6f72;
+}
 /* Profile.vue */
 .profile {
   display: table;

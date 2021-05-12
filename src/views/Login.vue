@@ -6,9 +6,9 @@
                 <div class="cadreInput">
                     <input
                     type="text"
-                    v-model="user"
+                    v-model="email"
                     class="inputCadre tailleInput"
-                    name="user"
+                    name="email"
                     placeholder="Adresse mail"
                     autocomplete="off"
                     required
@@ -20,7 +20,7 @@
                     type="password"
                     v-model="password"
                     class="inputCadre tailleInput"
-                    name="pass"
+                    name="password"
                     id="pass"
                     placeholder="Mot de passe"
                     autocomplete="off"

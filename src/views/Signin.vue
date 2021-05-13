@@ -1,10 +1,10 @@
 <template>
       <div class="ajustement_contenent">
-        <div class="cadre">
+        <div class="cadre_signin">
             <!-- <h1>{{ User.firstname }}</h1> -->
             <div class="title_signin">
                 <h5 class="h5_title_signin">
-                    S’inscrire
+                    Inscription
                 </h5>
             </div>
             <div class="separateur"></div>
@@ -12,49 +12,49 @@
                 <div class="cadreInputName">
                     <div class="cadreInputFirstName">
                         <input
-                        type="text"
-                        v-model="firstname"
-                        class="inputCadre tailleInput"
-                        name="firstname"
-                        placeholder="Prénom"
-                        autocomplete="off"
-                        required
+                            type="text"
+                            v-model="firstname"
+                            class="inputCadre tailleInput"
+                            name="firstname"
+                            placeholder="Prénom"
+                            autocomplete="off"
+                            required
                         />
                     </div>
                     <div class="cadreInputLastName">
                         <input
-                        type="text"
-                        v-model="lastname"
-                        class="inputCadre tailleInput"
-                        name="lastname"
-                        placeholder="Nom"
-                        autocomplete="off"
-                        required
+                            type="text"
+                            v-model="lastname"
+                            class="inputCadre tailleInput"
+                            name="lastname"
+                            placeholder="Nom"
+                            autocomplete="off"
+                            required
                         />
                     </div>
                 </div>
                 <div class="cadreInput">
                     <input
-                    type="email"
-                    v-model="email"
-                    class="inputCadre tailleInput"
-                    name="email"
-                    placeholder="E-mail"
-                    autocomplete="off"
-                    required
+                        type="email"
+                        v-model="email"
+                        class="inputCadre tailleInput"
+                        name="email"
+                        placeholder="E-mail"
+                        autocomplete="off"
+                        required
                     />
                 </div>
                 <br />
                 <div class="cadreInput">
                     <input
-                    type="password"
-                    v-model="password"
-                    class="inputCadre tailleInput"
-                    name="pass"
-                    id="pass"
-                    placeholder="Mot De Passe"
-                    autocomplete="off"
-                    required
+                        type="password"
+                        v-model="password"
+                        class="inputCadre tailleInput"
+                        name="pass"
+                        id="pass"
+                        placeholder="Mot de passe"
+                        autocomplete="off"
+                        required
                     />
                 </div>
                 <br />
@@ -83,7 +83,7 @@
                             <option disabled selected>Genre</option>
                             <option value="Man">Homme</option>
                             <option value="Woman">Femme</option>
-                            <option value="Others">Autres</option>
+                            <option value="Others">Autre</option>
                         </select>
                     </div>
                 </div>

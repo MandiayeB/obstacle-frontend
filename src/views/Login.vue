@@ -1,7 +1,6 @@
 <template>
     <div class="ajustement_contenent">
         <div class="cadre">
-            <!-- <h1>{{ User.firstname }}</h1> -->
             <form @submit.prevent="handleSubmit" action="" method="post">
                 <div class="cadreInput">
                     <input

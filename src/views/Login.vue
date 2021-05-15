@@ -19,7 +19,6 @@
                         required
                     />
                 </div>
-                <br />
                 <div class="cadreInput">
                     <input
                         type="password"
@@ -43,9 +42,11 @@
             </div>
             <div class="separateur"></div>
             <div class="unButton">
-                <button value="" class="designButton" type="submit">
-                    Créer un compte
-                </button>
+                <form @submit.prevent="redirectToSignin" action="" method="post">
+                    <button value="" class="designButton" type="submit">
+                        Créer un compte
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -64,10 +65,6 @@ export default {
     },
   methods: {
     handleSubmit() {
-        const data = {
-            email: this.email,
-            password: this.password,
-        };
         axios
             .post("http://localhost:3000/login", {
                 email: this.email,
@@ -81,6 +78,9 @@ export default {
                 }
             });
     },
+    redirectToSignin() {
+        this.$router.push("/signin");
+    }
   },
 };
 </script>

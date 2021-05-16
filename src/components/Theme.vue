@@ -1,7 +1,7 @@
 <template>
     <div class="themes">
         <div class="designButton">
-            <h1>Sport</h1>
+            <h1><slot></slot></h1>
             <img 
                 id="theme" 
                 class="expand_icon" 
@@ -11,12 +11,16 @@
         </div>
         <div v-show="displayActivities">
             <Activity 
+                v-for="(activity, index) in activities"
+                :key="index"
                 @toggle="() => { this.$emit('toggle', 'activity') }"
-                @display="() => { this.$emit('display') }"
-                :challenge="challenge"
+                @display="display"
+                :challenges="activity.challenge"
                 :displayActivities="displayActivities"
                 :displayChallenges="displayChallenges"
-            />
+            >
+            {{ activity.name }}
+            </Activity>
         </div>
     </div>
 </template>
@@ -26,11 +30,17 @@ import Activity from './Activity.vue';
 
 export default {
     name: 'Theme',
+    emits: ['toggle','display'],
     components: { Activity },
     props: {
-        challenge: { type: Object },
+        activities: { type: Object },
         displayActivities: { type: Boolean },
         displayChallenges: { type: Boolean }
     },
+    methods: {
+        display(difficulty) {
+            this.$emit('display', difficulty);
+        }
+    }
 }
 </script>

@@ -2,11 +2,11 @@
     <div class="cadre">
         <div class="screen">
             <img 
-                v-show="displayScreen && !content"
+                v-show="displayScreen && !smthDisplayed"
                 src="https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif"
                 alt="Screen" 
             />
-            <ScreenDisplay v-show="displayScreen" :challenge="challenge"/>
+            <ScreenDisplay v-show="displayScreen" :actualChallenge="actualChallenge"/>
         </div>
         <div class="buttons">
             <img 
@@ -16,7 +16,7 @@
                 alt="power"
             >
             <div 
-                v-show="displayScreen && content" 
+                v-show="displayScreen && smthDisplayed" 
                 class="designButton">
                 Démarrer
             </div>
@@ -25,15 +25,15 @@
 </template>
 
 <script>
-import ScreenDisplay from '../components/ScreenDisplay';
+import ScreenDisplay from './ScreenDisplay.vue';
 
 export default {
     name: 'Screen',
     components: { ScreenDisplay },
     props: {
-        challenge: { type: Object },
+        actualChallenge: { type: Object },
         displayScreen: { type: Boolean },
-        content: { type: Boolean }
+        smthDisplayed: { type: Boolean }
     },
 }
 </script>

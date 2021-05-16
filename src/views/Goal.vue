@@ -1,18 +1,24 @@
 <template>
     <div class="goal_container">
-        <Theme 
-            @click="toggle('theme')"
-            @toggle="toggle"
-            @display="display"
-            :challenge="challenge"
-            :displayActivities="displayActivities"
-            :displayChallenges="displayChallenges"
-        />
+        <div>
+            <Theme
+                v-for="(theme, index) in data"
+                :key="index"
+                @click="toggle('theme')"
+                @toggle="toggle"
+                @display="display"
+                :activities="theme.activity"
+                :displayActivities="displayActivities"
+                :displayChallenges="displayChallenges"
+            >
+            {{ theme.name }}
+            </Theme>
+        </div>
         <Screen 
             @screen="screen"
-            :challenge="challenge"
+            :actualChallenge="actualChallenge"
             :displayScreen="displayScreen"
-            :content="content"
+            :smthDisplayed="smthDisplayed"
         />
     </div>
 </template>
@@ -20,6 +26,7 @@
 <script>
 import Theme from '../components/Theme';
 import Screen from '../components/Screen.vue';
+import axios from "axios";
 
 export default {
     name: 'Goal',
@@ -32,14 +39,22 @@ export default {
             displayActivities: false,
             displayChallenges: false,
             displayScreen: false,
-            content: false,
-            challenge: {
-                name: 'Shooter à 3 points',
-                image: "https://media.giphy.com/media/xT1XGCwOkQ2Ua5Zv5C/giphy.gif",
-                length: 30,
-                difficulty: 'difficile'
-            }
+            smthDisplayed: false,
+            data: Object,
+            actualChallenge: Object
         }
+    },
+    mounted() {
+        axios
+            .get('http://localhost:3000/goal')
+            .then(response => {this.data = response.data; console.log(this.data);})
+            .catch((error) => {
+                if (error.response.status === 307) {
+                    this.$router.push("/");
+                } else {
+                    console.log(error);
+                }
+            });
     },
     methods: {
         toggle(id) {
@@ -59,12 +74,13 @@ export default {
         },
         screen() {
             this.displayScreen = this.displayScreen ? false : true;
-            if (!this.displayScreen) this.content = false;
+            if (!this.displayScreen) this.smthDisplayed = false;
         },
-        display() {
+        display(actualChallenge) {
             this.displayActivities = this.displayActivities ? true : false;
             this.displayChallenges = this.displayChallenges ? false : true;
-            this.content = true;
+            this.smthDisplayed = true;
+            this.actualChallenge = actualChallenge;
         },
         turnArrow(bool, id) {
             if (bool) {

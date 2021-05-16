@@ -1,9 +1,9 @@
 <template>
     <div class="screen_display">
-        <img :src="challenge.image" alt="">
-        <h2>{{ challenge.name }}</h2>
-        <div class="length">- Durée : {{ challenge.length }} jours</div>
-        <div class="difficulty">- Difficulté : <span :class="challenge.difficulty">{{ challenge.difficulty }}</span></div>
+        <img :src="actualChallenge.image" alt="">
+        <h2>{{ actualChallenge.title }}</h2>
+        <div class="length">- Durée : {{ actualChallenge.length }} jours</div>
+        <div class="difficulty">- Difficulté : <span :class="actualChallenge.level">{{ actualChallenge.level }}</span></div>
     </div>
 </template>
 
@@ -11,7 +11,7 @@
 export default {
     name: 'ScreenDisplay',
     props: {
-        challenge: Object
+        actualChallenge: { type: Object }
     }
 }
 </script>

@@ -8,48 +8,31 @@
             :displayActivities="displayActivities"
             :displayChallenges="displayChallenges"
         />
-        <div class="cadre">
-            <div class="screen">
-                <img 
-                    v-show="displayScreen && content == null"
-                    src="https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif"
-                    alt="Screen" 
-                />
-                <ScreenDisplay v-show="displayScreen" :challenge="challenge"/>
-            </div>
-            <div class="buttons">
-                <img 
-                    @click="screen" 
-                    class="power" 
-                    src="../assets/images/power_settings_new_white_24dp.svg" 
-                    alt="power"
-                >
-                <div 
-                    v-show="displayScreen && content != null" 
-                    class="designButton">
-                    Démarrer
-                </div>
-            </div>
-        </div>
+        <Screen 
+            @screen="screen"
+            :challenge="challenge"
+            :displayScreen="displayScreen"
+            :content="content"
+        />
     </div>
 </template>
 
 <script>
 import Theme from '../components/Theme';
-import ScreenDisplay from '../components/ScreenDisplay';
+import Screen from '../components/Screen.vue';
 
 export default {
     name: 'Goal',
     components: {
         Theme,
-        ScreenDisplay,
+        Screen,
     },
     data() {
         return {
             displayActivities: false,
             displayChallenges: false,
             displayScreen: false,
-            content: null,
+            content: false,
             challenge: {
                 name: 'Shooter à 3 points',
                 image: "https://media.giphy.com/media/xT1XGCwOkQ2Ua5Zv5C/giphy.gif",
@@ -76,12 +59,12 @@ export default {
         },
         screen() {
             this.displayScreen = this.displayScreen ? false : true;
-            if (!this.displayScreen) this.content = null;
+            if (!this.displayScreen) this.content = false;
         },
         display() {
             this.displayActivities = this.displayActivities ? true : false;
             this.displayChallenges = this.displayChallenges ? false : true;
-            this.content = this.challenge.name;
+            this.content = true;
         },
         turnArrow(bool, id) {
             if (bool) {

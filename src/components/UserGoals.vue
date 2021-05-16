@@ -1,5 +1,5 @@
 <template>
-    <div class="goals">
+    <div class="user_goals">
         <div :key="goal.id" v-for="goal in goals">
             <Goal :goal="goal"/>
         </div>
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Goal from './Goal'
+import Goal from './UserGoal'
 
 export default {
     name: 'Goals',

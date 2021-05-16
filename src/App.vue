@@ -24,33 +24,32 @@ import "/public/style.scss";
 import ResponsiveNavigation from "./components/ResponsiveNavigation.vue";
 
 export default {
-  components: {
-    ResponsiveNavigation,
-  },
-
-  data: () => ({
-    navLinks: [
-        {
-        text: "Home",
-        path: "/",
-        icon: "ion-ios-home",
-        },
-        {
-        text: "Profile",
-        path: "/profile",
-        icon: "ion-ios-person",
-        },
-        {
-        text: "Login",
-        path: "/login",
-        icon: "ion-ios-log-in",
-        },
-        {
-        text: "Sign-In",
-        path: "/signin",
-        icon: "ion-ios-log-in",
-        },
-    ],
-  }),
+    components: {
+        ResponsiveNavigation,
+    },
+    data: () => ({
+        navLinks: [
+            {
+                text: "Home",
+                path: "/",
+                icon: "ion-ios-home",
+            },
+            {
+                text: "Profile",
+                path: "/profile",
+                icon: "ion-ios-person",
+            },
+            {
+                text: "Login",
+                path: "/login",
+                icon: "ion-ios-log-in",
+            },
+            {
+                text: "Sign-In",
+                path: "/signin",
+                icon: "ion-ios-log-in",
+            },
+        ],
+    }),
 };
 </script>

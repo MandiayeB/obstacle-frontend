@@ -7,13 +7,10 @@
 </template>
 
 <script>
-import Goals from '../components/Goals';
+import Goals from '../components/UserGoals';
 
 export default {
     name: 'Home',
-    props: {
-        name: String,
-    },
     components: {
         Goals,
     },

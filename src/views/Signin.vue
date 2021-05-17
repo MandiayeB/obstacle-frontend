@@ -1,7 +1,6 @@
 <template>
-      <div class="ajustement_contenent">
-        <div class="cadre_signin">
-            <!-- <h1>{{ User.firstname }}</h1> -->
+      <div class="signin_container">
+        <div class="cadre">
             <div class="title_signin">
                 <h5 class="h5_title_signin">
                     Inscription
@@ -72,15 +71,15 @@
                     </div>
                     <div class="cadreInputDate">
                         <select v-model="day" class="select_day_birth" required>
-                            <option disabled selected>Jour</option>
+                            <option disabled value>Jour</option>
                             <option  :key="day.id" v-for="day in 31" :value="day">{{ day }}</option>
                         </select>
                          <select v-model="month" class="select_month_birth" required>
-                             <option disabled selected>Mois</option>
+                             <option disabled value>Mois</option>
                             <option :key="month.id" v-for="month in months" :value="month">{{ month }}</option>
                         </select>
                         <select v-model="year" class="select_year_birth" required>
-                            <option disabled selected>Année</option>
+                            <option disabled value>Année</option>
                             <option :key="year.id" v-for="year in years" :value="year">{{ year }}</option>
                         </select>
                     </div>
@@ -91,7 +90,7 @@
                     </div>
                     <div class="div_select_gender">
                         <select v-model="gender" class="select_gender" name="gender" required>
-                            <option disabled selected>Genre</option>
+                            <option disabled value>Genre</option>
                             <option :key="gender.id" v-for="gender in genders" :value="gender">{{ gender }}</option>
                         </select>
                     </div>
@@ -142,7 +141,7 @@ export default {
             return d;
         },
         handleSubmit() {
-            const birthdate = `${this.year.toString()}-${this.getMonth(this.month, this.months)}-${this.getDay(this.day)}`;
+            const birthdate = `${this.year}-${this.getMonth(this.month, this.months)}-${this.getDay(this.day)}`;
             axios
                 .post("http://localhost:3000/signin", {
                     firstname: this.firstname,

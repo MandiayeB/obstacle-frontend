@@ -36,6 +36,7 @@ h1, h2, h3, h4 {
   padding-top: 40px;
   padding-bottom: 30px;
 }
+
 .cadreInput {
   display: inline-block;
   padding: 6px 0;
@@ -47,6 +48,7 @@ h1, h2, h3, h4 {
 .cadreInputName {
     display: flex;
 }
+
 .cadreInputFirstName, .cadreInputLastName {
     display: block;
     font-size: 17px;
@@ -68,6 +70,7 @@ h1, h2, h3, h4 {
     width: 142.5px;
     border-radius: 6px;
 }
+
 .cadreInputLastName .tailleInput {
     font-size: 17px;
     padding: 14px 16px;
@@ -110,6 +113,27 @@ h1, h2, h3, h4 {
     font-size: 30px; 
     font-weight: 500;
 }
+.cadreInputDate{
+    padding-right: 10px;
+    width: 100%;
+    display: inline-flex;
+}
+.label_date_signin, .label_gender_signin{
+    color: #7d7f81;
+    padding-bottom: 6px;
+    font-size: 17px;
+}
+.title_signin{
+    color: #7d7f81;
+    display: flex;
+}
+.h5_title_signin{
+    margin: 0 auto;
+    padding-bottom: 6px;
+    font-size: 30px; 
+    font-weight: 500;
+}
+
 .select_gender{
     width: 363px;
 }
@@ -150,6 +174,7 @@ h1, h2, h3, h4 {
     padding: 14px 16px;
     border-radius: 6px;
 }
+
 .date {
     color: rgb(59, 59, 59);
 }
@@ -186,10 +211,7 @@ h1, h2, h3, h4 {
   font-size: 14px;
   font-weight: 500;
 }
-.ajustement_contenent {
-  /* padding-bottom: 24px;
-  padding-top: 10px; */
-}
+
 .cadreInput .tailleInput {
   font-size: 17px;
   padding: 14px 16px;
@@ -197,23 +219,23 @@ h1, h2, h3, h4 {
   border-radius: 6px;
 }
 
-.cadre_login, .cadre_signin {
-  align-items: center;
-  background-color: rgb(25, 39, 52);
-  border: 1px solid rgb(40, 47, 53);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-  box-sizing: border-box;
-  padding: 20px 0 28px;
-  width: 396px;
-}
+.cadre {
+    align-items: center;
+    background-color: rgb(25, 39, 52);
+    border: 1px solid rgb(40, 47, 53);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    padding: 20px 0 28px;
+    width: 396px;
+  }
 
-.cadre_login{
+.login_container .cadre {
     margin-top: 250px;
     margin-left: auto;
     margin-right: auto;
 }
-.cadre_signin{
+.signin_container .cadre{
     margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -226,6 +248,7 @@ h1, h2, h3, h4 {
   margin-bottom: 5px;
   text-align: center;
 }
+
 .inputCadre {
   background: rgb(43, 48, 58) url(/rsrc.php/v3/yO/r/YQNfPR9MJfx.png) repeat-x;
   border: 1px solid #6c6f72;
@@ -237,14 +260,17 @@ h1, h2, h3, h4 {
   padding: 0 8px;
   vertical-align: middle;
 }
+
 .inputCadre::placeholder{
     color: #7d7f81;
 }
+
 .inputCadre:focus,
 .inputCadre:hover{
     outline: none;
     box-shadow: 0 0 0 1px #6c6f72;
 }
+
 /* Profile.vue */
 .profile {
   display: table;
@@ -260,8 +286,8 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-/* Goal.vue */
-.goal {
+/* UserGoal.vue */
+.user_goal {
   border: 1px solid rgb(56, 68, 77);
   width: 350px;
   height: 260px;
@@ -269,7 +295,7 @@ h1, h2, h3, h4 {
   border-radius: 7px;
   margin-bottom: 50px;
 }
-.goal:hover {
+.user_goal:hover {
   background-color: rgb(36, 54, 71);
   box-shadow: rgb(136 153 166 / 5%) 0px 0px 15px,
   rgb(136 153 166 / 15%) 0px 0px 3px 1px;
@@ -280,11 +306,11 @@ h1, h2, h3, h4 {
   margin-bottom: 10px;
 }
 
-.goal:hover #goal_text {
+.user_goal:hover #goal_text {
   font-weight: 500;
 }
 
-.goal:hover #goal_img {
+.user_goal:hover #goal_img {
   height: 240px;
   width: 390px;
 }
@@ -300,7 +326,7 @@ h1, h2, h3, h4 {
 }
 
 /* Goals.vue */
-.goals {
+.user_goals {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -347,4 +373,155 @@ h1, h2, h3, h4 {
   align-self: flex-end;
   margin-bottom: 10px;
   filter: invert(50%);
+}
+
+/* Goal.vue */
+
+.goal_container {
+    display: flex;
+    max-width: 1200px;
+    margin: 200px auto auto auto;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
+    justify-content: space-between;
+}
+
+.goal_container .designButton {
+    width: initial;
+    height: 80px;
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: visible;
+    display: flex;
+    position: relative;
+    align-items: center;
+    
+}
+.goal_container .designButton h1 {
+    margin-left: 20px;
+    font-size: 25px;
+}
+
+.goal_container .designButton .expand_icon {
+    transform: rotate(90deg);
+    width: 40px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.goal_container .activities .designButton {
+    max-width: 280px;
+}
+
+.goal_container .challenges .designButton {
+    max-width: 240px;
+}
+
+.goal_container .cadre {
+    margin: initial;
+    width: 785px;
+    height: 530px;
+}
+
+.goal_container .cadre .screen {
+    background-color: rgb(15, 23, 31);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    height: 400px;
+    border: 1px solid rgb(40, 47, 53);
+    overflow: hidden;
+}
+
+.goal_container .cadre .screen img {
+    width:100%;
+    height:100%;
+}
+
+.goal_container .cadre .buttons {
+    position: relative;
+    width: 700px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.goal_container .cadre .buttons .designButton {
+    margin: initial;
+    height: 50px;
+    width: 85px;
+    position: absolute;
+    left: 0px;
+}
+
+.goal_container .cadre .buttons img {
+    width: 45px;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid rgb(40, 47, 53);
+    border-radius: 100%;
+}
+
+.goal_container .cadre .buttons img:hover {
+    background-color: rgb(33, 50, 66);
+}
+
+.goal_container .cadre .buttons img:active {
+    background-color: rgb(47, 71, 94);
+}
+
+.screen_display {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.screen_display .challenge-infos {
+    position: absolute;
+    background-color: #193047;
+    border-radius: 5px;
+    padding: 10px;
+    top: 10px;
+    left: 10px;
+}
+
+.screen_display h2, 
+.screen_display .length, 
+.screen_display .difficulty {
+    font-family: Tahoma, Geneva, sans-serif;
+    color: rgb(53, 194, 230);
+    text-shadow: deepskyblue 1px 0 10px;
+}
+
+.screen_display h2 {
+    margin-top: initial;
+}
+
+.screen_display .length, 
+.screen_display .difficulty {
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.screen_display .difficulty .facile {
+    color: rgb(0, 255, 64);
+    text-shadow: rgb(53, 230, 112)1px 0 10px;
+}
+
+.screen_display .difficulty .moyenne {
+    color: rgb(255, 123, 0);
+    text-shadow: rgb(230, 103, 53)1px 0 10px;
+}
+
+.screen_display .difficulty .difficile {
+    color: rgb(255, 51, 0);
+    text-shadow: rgb(230, 79, 53)1px 0 10px;
 }

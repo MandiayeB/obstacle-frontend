@@ -5,6 +5,7 @@
         :nav-links="navLinks"
         :image-path="require('./assets/images/menuLogo.png')"
         :image-profile="require('./assets/images/exempleProfil.jpg')"
+        :isAuthenticated="isAuthenticated"
         background="rgb(25, 39, 52)"
         link-color="#fff"
         hoverBackground="rgb(35, 66, 95)"
@@ -24,33 +25,38 @@ import "/public/style.scss";
 import ResponsiveNavigation from "./components/ResponsiveNavigation.vue";
 
 export default {
-  components: {
-    ResponsiveNavigation,
-  },
-
-  data: () => ({
-    navLinks: [
-        {
-        text: "Home",
-        path: "/",
-        icon: "ion-ios-home",
+    components: {
+        ResponsiveNavigation,
+    },
+    data: () => ({
+        isConnected: false,
+        navLinks: [
+            {
+                text: "Activité",
+                path: "/",
+                icon: "ion-ios-home",
+            },
+            {
+                text: "Profil",
+                path: "/profile",
+                icon: "ion-ios-person",
+            },
+            {
+                text: "Objectifs",
+                path: "/goal",
+                icon: "ion-ios-podium",
+            }
+        ],
+    }),
+    methods: {
+        connect() {
+            this.isConnected = true;
         },
-        {
-        text: "Profile",
-        path: "/profile",
-        icon: "ion-ios-person",
-        },
-        {
-        text: "Login",
-        path: "/login",
-        icon: "ion-ios-log-in",
-        },
-        {
-        text: "Sign-In",
-        path: "/signin",
-        icon: "ion-ios-log-in",
-        },
-    ],
-  }),
+        isAuthenticated() {
+            if (!this.isConnected) {
+                this.$router.push("/login");
+            }
+        }
+    }
 };
 </script>

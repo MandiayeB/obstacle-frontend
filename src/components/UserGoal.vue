@@ -1,5 +1,5 @@
 <template>
-    <div class="goal">
+    <div class="user_goal">
         <h4 id="goal_text">{{ goal.text }}</h4>
         <img id="goal_img" :src="goal.img" :alt="goal.text">
     </div>

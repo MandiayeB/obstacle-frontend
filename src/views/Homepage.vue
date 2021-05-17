@@ -7,13 +7,11 @@
 </template>
 
 <script>
-import Goals from '../components/Goals';
+import axios from "axios";
+import Goals from '../components/UserGoals';
 
 export default {
     name: 'Home',
-    props: {
-        name: String,
-    },
     components: {
         Goals,
     },
@@ -40,6 +38,9 @@ export default {
                 img: "https://www.youschool.fr/wp-content/uploads/2019/08/comment-travaille-cuisinier-2.jpg"
             },
         ];
-    }
+    },
+    mounted() {
+        this.$root.isAuthenticated();
+    },
 }
 </script>

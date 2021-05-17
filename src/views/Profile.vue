@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import ProfileHeader from '../components/ProfileHeader';
 import ProfileBody from '../components/ProfileBody';
 
@@ -29,6 +30,9 @@ export default {
             role: 'Tryharder',
             image: 'https://photos.lci.fr/images/613/344/kanyewest2020afp-5b6354-0@1x.jpeg'
         };
-    }
+    },
+    mounted() {
+        this.$root.isAuthenticated();
+    },
 }
 </script>

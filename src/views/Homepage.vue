@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Goals from '../components/UserGoals';
 
 export default {
@@ -37,6 +38,9 @@ export default {
                 img: "https://www.youschool.fr/wp-content/uploads/2019/08/comment-travaille-cuisinier-2.jpg"
             },
         ];
-    }
+    },
+    mounted() {
+        this.$root.isAuthenticated();
+    },
 }
 </script>

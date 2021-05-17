@@ -28,6 +28,7 @@ export default {
         ResponsiveNavigation,
     },
     data: () => ({
+        isConnected: false,
         navLinks: [
             {
                 text: "Activité",
@@ -40,6 +41,11 @@ export default {
                 icon: "ion-ios-person",
             },
             {
+                text: "Objectifs",
+                path: "/goal",
+                icon: "ion-ios-podium",
+            },
+            {
                 text: "Connexion",
                 path: "/login",
                 icon: "ion-ios-log-in",
@@ -48,13 +54,19 @@ export default {
                 text: "Inscription",
                 path: "/signin",
                 icon: "ion-ios-log-in",
-            },
-            {
-                text: "Objectif",
-                path: "/goal",
-                icon: "ion-ios-log-in",
             }
+            
         ],
     }),
+    methods: {
+        connect() {
+            this.isConnected = true;
+        },
+        isAuthenticated() {
+            if (!this.isConnected) {
+                this.$router.push("/login");
+            }
+        }
+    }
 };
 </script>

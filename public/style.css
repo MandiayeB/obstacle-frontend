@@ -113,6 +113,26 @@ h1, h2, h3, h4 {
     font-size: 30px; 
     font-weight: 500;
 }
+.cadreInputDate{
+    padding-right: 10px;
+    width: 100%;
+    display: inline-flex;
+}
+.label_date_signin, .label_gender_signin{
+    color: #7d7f81;
+    padding-bottom: 6px;
+    font-size: 17px;
+}
+.title_signin{
+    color: #7d7f81;
+    display: flex;
+}
+.h5_title_signin{
+    margin: 0 auto;
+    padding-bottom: 6px;
+    font-size: 30px; 
+    font-weight: 500;
+}
 
 .select_gender{
     width: 363px;
@@ -199,23 +219,23 @@ h1, h2, h3, h4 {
   border-radius: 6px;
 }
 
-.cadre_login, .cadre_signin {
-  align-items: center;
-  background-color: rgb(25, 39, 52);
-  border: 1px solid rgb(40, 47, 53);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-  box-sizing: border-box;
-  padding: 20px 0 28px;
-  width: 396px;
-}
+.cadre {
+    align-items: center;
+    background-color: rgb(25, 39, 52);
+    border: 1px solid rgb(40, 47, 53);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    padding: 20px 0 28px;
+    width: 396px;
+  }
 
-.cadre_login{
+.login_container .cadre {
     margin-top: 250px;
     margin-left: auto;
     margin-right: auto;
 }
-.cadre_signin{
+.signin_container .cadre{
     margin-top: 200px;
     margin-left: auto;
     margin-right: auto;

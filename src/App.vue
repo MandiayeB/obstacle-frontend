@@ -30,21 +30,26 @@ export default {
 
   data: () => ({
     navLinks: [
-      {
+        {
         text: "Home",
         path: "/",
         icon: "ion-ios-home",
-      },
-      {
-        text: "Login",
-        path: "/login",
-        icon: "ion-ios-log-in",
-      },
-      {
+        },
+        {
         text: "Profile",
         path: "/profile",
         icon: "ion-ios-person",
-      },
+        },
+        {
+        text: "Login",
+        path: "/login",
+        icon: "ion-ios-log-in",
+        },
+        {
+        text: "Sign-In",
+        path: "/signin",
+        icon: "ion-ios-log-in",
+        },
     ],
   }),
 };

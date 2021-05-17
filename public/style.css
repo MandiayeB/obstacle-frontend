@@ -43,11 +43,119 @@ h1, h2, h3, h4 {
   width: 364px;
   margin-left:15px;
 }
+
+.cadreInputName {
+    display: flex;
+}
+.cadreInputFirstName, .cadreInputLastName {
+    display: block;
+    font-size: 17px;
+}
+
+.cadreInputFirstName {
+    padding: 6px 0;
+    margin-left:15px;
+}
+
+.cadreInputLastName {
+    padding: 6px 0;
+    margin-left:10px;
+}
+
+.cadreInputFirstName .tailleInput {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 142.5px;
+    border-radius: 6px;
+}
+.cadreInputLastName .tailleInput {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 142.5px;
+    border-radius: 6px;
+}
+
 .passwordForget a {
   color: rgb(106, 108, 119);
   font-size: 14px;
   font-weight: 500;
   margin-left: 125px;
+}
+
+.birthdate_signin, .gender_signin{
+    margin-left: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.div_select_gender{
+    display: flex;
+}
+.cadreInputDate{
+    padding-right: 10px;
+    width: 100%;
+    display: inline-flex;
+}
+.label_date_signin, .label_gender_signin{
+    color: #7d7f81;
+    padding-bottom: 6px;
+    font-size: 17px;
+}
+.title_signin{
+    color: #7d7f81;
+    display: flex;
+}
+.h5_title_signin{
+    margin: 0 auto;
+    padding-bottom: 6px;
+    font-size: 30px; 
+    font-weight: 500;
+}
+.select_gender{
+    width: 363px;
+}
+.select_gender, .select_day_birth, .select_month_birth, .select_year_birth{
+    padding: 14px 16px;
+    color: #7d7f81;
+    background-color: rgb(43, 48, 58);
+    border: 1px solid #6c6f72;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+.select_day_birth, .select_month_birth, .select_year_birth {
+    display: inline-block;
+    flex: 1 100%;
+}
+.select_month_birth, .select_year_birth {
+    margin-left: 10px;
+}
+.select_year_birth{
+    margin-right: 15px;
+}
+.select_gender:focus,
+.select_gender:hover , 
+.select_day_birth:focus,
+.select_day_birth:hover,
+.select_month_birth:focus,
+.select_month_birth:hover, 
+.select_year_birth:focus,
+.select_year_birth:hover{
+    outline: none;
+    box-shadow: 0 0 0 1px #6c6f72;
+}
+.cadreInputDate .tailleInput{
+    font-size: 17px;
+    padding: 14px 16px;
+    border-radius: 6px;
+}
+.date {
+    color: rgb(59, 59, 59);
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 .designButton {
@@ -79,8 +187,8 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 .ajustement_contenent {
-  padding-bottom: 24px;
-  padding-top: 10px;
+  /* padding-bottom: 24px;
+  padding-top: 10px; */
 }
 .cadreInput .tailleInput {
   font-size: 17px;
@@ -88,16 +196,27 @@ h1, h2, h3, h4 {
   width: 330px;
   border-radius: 6px;
 }
-.cadre {
+
+.cadre_login, .cadre_signin {
   align-items: center;
   background-color: rgb(25, 39, 52);
   border: 1px solid rgb(40, 47, 53);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   box-sizing: border-box;
-  margin: 100px auto;
   padding: 20px 0 28px;
   width: 396px;
+}
+
+.cadre_login{
+    margin-top: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cadre_signin{
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .separateur {
   align-items: center;
@@ -110,7 +229,7 @@ h1, h2, h3, h4 {
 .inputCadre {
   background: rgb(43, 48, 58) url(/rsrc.php/v3/yO/r/YQNfPR9MJfx.png) repeat-x;
   border: 1px solid #6c6f72;
-  color: #c9d0dd;
+  color: #c9d0ddc2;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
   height: 22px;
@@ -118,7 +237,14 @@ h1, h2, h3, h4 {
   padding: 0 8px;
   vertical-align: middle;
 }
-
+.inputCadre::placeholder{
+    color: #7d7f81;
+}
+.inputCadre:focus,
+.inputCadre:hover{
+    outline: none;
+    box-shadow: 0 0 0 1px #6c6f72;
+}
 /* Profile.vue */
 .profile {
   display: table;

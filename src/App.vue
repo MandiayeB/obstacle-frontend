@@ -5,6 +5,7 @@
         :nav-links="navLinks"
         :image-path="require('./assets/images/menuLogo.png')"
         :image-profile="require('./assets/images/exempleProfil.jpg')"
+        :isAuthenticated="isAuthenticated"
         background="rgb(25, 39, 52)"
         link-color="#fff"
         hoverBackground="rgb(35, 66, 95)"
@@ -44,18 +45,7 @@ export default {
                 text: "Objectifs",
                 path: "/goal",
                 icon: "ion-ios-podium",
-            },
-            {
-                text: "Connexion",
-                path: "/login",
-                icon: "ion-ios-log-in",
-            },
-            {
-                text: "Inscription",
-                path: "/signin",
-                icon: "ion-ios-log-in",
             }
-            
         ],
     }),
     methods: {

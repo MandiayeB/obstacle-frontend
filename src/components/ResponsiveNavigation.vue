@@ -1,5 +1,5 @@
 <template>
-  <nav :style="{ background: background || '#333' }">
+  <nav v-if="this.$root.isConnected" :style="{ background: background || '#333' }">
     <div class="header">
         <ul :style="{ background: background || '#333' }" ref="nav">
             <figure class="image-logo" @click="toggleNav">
@@ -58,10 +58,6 @@ export default {
       const nav = this.$refs.nav.classList;
       nav.contains("active") ? nav.remove("active") : nav.add("active");
     },
-    returnHome() {
-        // const 
-        // nav.contains("active") ? nav.remove("active") : nav.add("active");
-    }
   },
 };
 </script>

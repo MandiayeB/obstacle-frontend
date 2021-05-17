@@ -377,7 +377,7 @@ h1, h2, h3, h4 {
 }
 
 .goal_container .challenges .designButton {
-    max-width: 260px;
+    max-width: 240px;
 }
 
 .goal_container .cadre {
@@ -442,32 +442,32 @@ h1, h2, h3, h4 {
     position: relative;
 }
 
+.screen_display .challenge-infos {
+    position: absolute;
+    background-color: #193047;
+    border-radius: 5px;
+    padding: 10px;
+    top: 10px;
+    left: 10px;
+}
+
 .screen_display h2, 
 .screen_display .length, 
 .screen_display .difficulty {
-    position: absolute;
     font-family: Tahoma, Geneva, sans-serif;
     color: rgb(53, 194, 230);
     text-shadow: deepskyblue 1px 0 10px;
 }
 
 .screen_display h2 {
-    top: -5px;
-    left: 20px;
+    margin-top: initial;
 }
 
 .screen_display .length, 
 .screen_display .difficulty {
     letter-spacing: 1px;
     font-size: 18px;
-    left: 30px;
-}
-.screen_display .length {
-    top: 60px;
-}
-
-.screen_display .difficulty {
-    top: 90px;
+    margin-left: 10px;
 }
 
 .screen_display .difficulty .facile {

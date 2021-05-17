@@ -50,7 +50,7 @@ export default {
             .then(response => {this.data = response.data; console.log(this.data);})
             .catch((error) => {
                 if (error.response.status === 307) {
-                    this.$router.push("/");
+                    this.$router.push("/login");
                 } else {
                     console.log(error);
                 }

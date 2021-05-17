@@ -1,7 +1,7 @@
 <template>
     <div
-        v-for="(difficulty, index) in challenge"
-        :key="index"
+        v-for="difficulty in challenge"
+        :key="difficulty.id"
         @click="() => { this.$emit('display', difficulty); }" 
         class="designButton">
             <h1>{{ difficulty.title }}</h1>

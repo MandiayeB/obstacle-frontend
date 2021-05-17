@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import ProfileHeader from '../components/ProfileHeader';
 import ProfileBody from '../components/ProfileBody';
 
@@ -29,6 +30,17 @@ export default {
             role: 'Tryharder',
             image: 'https://photos.lci.fr/images/613/344/kanyewest2020afp-5b6354-0@1x.jpeg'
         };
-    }
+    },
+    // mounted() {
+    //     axios
+    //         .get('http://localhost:3000/profile')
+    //         .catch((error) => {
+    //             if (error.response.status === 307) {
+    //                 this.$router.push("/login");
+    //             } else {
+    //                 console.log(error);
+    //             }
+    //         });
+    // },
 }
 </script>

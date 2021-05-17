@@ -1,6 +1,6 @@
 <template>
-    <div class="ajustement_contenent">
-        <div class="cadre_login">
+    <div class="login_container">
+        <div class="cadre">
             <div class="title_signin">
                 <h5 class="h5_title_signin">
                     Connexion

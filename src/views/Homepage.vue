@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import Goals from '../components/UserGoals';
 
 export default {

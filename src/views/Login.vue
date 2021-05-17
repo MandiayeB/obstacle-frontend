@@ -1,5 +1,10 @@
 <template>
     <div class="login_container">
+        <div class="logo_form">
+            <figure class="logo_form">
+                <img src="../assets/images/logoObstacle.png" />
+            </figure>
+        </div>
         <div class="cadre">
             <div class="title_signin">
                 <h5 class="h5_title_signin">

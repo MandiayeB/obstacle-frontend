@@ -78,12 +78,7 @@ h1, h2, h3, h4 {
     border-radius: 6px;
 }
 
-.passwordForget a {
-  color: rgb(106, 108, 119);
-  font-size: 14px;
-  font-weight: 500;
-  margin-left: 125px;
-}
+
 
 .birthdate_signin, .gender_signin{
     margin-left: 15px;
@@ -208,8 +203,16 @@ h1, h2, h3, h4 {
 .passwordForget {
   margin-top: 16px;
   color: rgb(106, 108, 119);
-  font-size: 14px;
-  font-weight: 500;
+  width: 100%;
+  display: flex;
+}
+
+.passwordForget a {
+    color: rgb(106, 108, 119);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cadreInput .tailleInput {
@@ -231,12 +234,12 @@ h1, h2, h3, h4 {
   }
 
 .login_container .cadre {
-    margin-top: 250px;
+    margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
 }
 .signin_container .cadre{
-    margin-top: 200px;
+    margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -270,109 +273,118 @@ h1, h2, h3, h4 {
     outline: none;
     box-shadow: 0 0 0 1px #6c6f72;
 }
-
+.logo_form{
+    margin: 0 auto;
+    display: flex;
+}
+.logo_form .logo_form{   
+    margin-top: 60px;
+}
+.logo_form .logo_form img{
+    width: 430px;
+}
 /* Profile.vue */
 .profile {
-  display: table;
-  max-width: 1200px;
-  margin: 100px auto;
-  padding: 30px;
-  border-radius: 10px;
-  border: 1px solid rgb(56, 68, 77);
-  background-color: rgb(25, 39, 52);
+    display: table;
+    max-width: 1200px;
+    margin: 100px auto; 
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
 }
 
 #profile_names {
-  text-align: center;
+    text-align: center;
 }
 
 /* UserGoal.vue */
 .user_goal {
-  border: 1px solid rgb(56, 68, 77);
-  width: 350px;
-  height: 260px;
-  overflow: hidden;
-  border-radius: 7px;
-  margin-bottom: 50px;
+    border: 1px solid rgb(56, 68, 77);
+    width: 350px;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 7px;
+    margin-bottom: 50px;
 }
 .user_goal:hover {
-  background-color: rgb(36, 54, 71);
-  box-shadow: rgb(136 153 166 / 5%) 0px 0px 15px,
-  rgb(136 153 166 / 15%) 0px 0px 3px 1px;
-  width: 390px;
-  height: 300px;
-  margin-right: -20px;
-  margin-left: -20px;
-  margin-bottom: 10px;
+    background-color: rgb(36, 54, 71);
+    box-shadow: rgb(136 153 166 / 5%) 0px 0px 15px,
+    rgb(136 153 166 / 15%) 0px 0px 3px 1px;
+    width: 390px;
+    height: 300px;
+    margin-right: -20px;
+    margin-left: -20px;
+    margin-bottom: 10px;
 }
 
 .user_goal:hover #goal_text {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 .user_goal:hover #goal_img {
-  height: 240px;
-  width: 390px;
+    height: 240px;
+    width: 390px;
 }
 
 #goal_text {
-  font-weight: 350;
-  padding-left: 20px;
+    font-weight: 350;
+    padding-left: 20px;
 }
 
 #goal_img {
-  height: 200px;
-  width: 350px;
+    height: 200px;
+    width: 350px;
 }
 
 /* Goals.vue */
 .user_goals {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 /* ProfileBody.vue */
 .container {
-  display: flex;
-  width: 1000px;
-  margin-top: 20px;
-  border-radius: 7px;
-  border: 1px solid rgb(56, 68, 77);
-  padding-bottom: 5px;
+    display: flex;
+    width: 1000px;
+    margin-top: 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(56, 68, 77);
+    padding-bottom: 5px;
 }
 .credentials {
-  margin: 15px 0 10px 20px;
+    margin: 15px 0 10px 20px;
 }
 
 /* ProfileHeader.vue */
 .profile_header {
-  display: flex;
-  width: 550px;
-  overflow: hidden;
-  border-radius: 7px;
-  border: 1px solid rgb(56, 68, 77);
+    display: flex;
+    width: 550px;
+    overflow: hidden;
+    border-radius: 7px;
+    border: 1px solid rgb(56, 68, 77);
 }
 
 #profile_names {
-  white-space: nowrap;
-  margin: 20px 0 0 20px;
+    white-space: nowrap;
+    margin: 20px 0 0 20px;
 }
 
 #role {
-  margin: 15px 0 0 20px;
-  color: #dec3b0;
+    margin: 15px 0 0 20px;
+    color: #dec3b0;
 }
 
 #profilepic {
-  width: 300px;
+    width: 300px;
 }
 
 #settings {
-  width: 25px;
-  align-self: flex-end;
-  margin-bottom: 10px;
-  filter: invert(50%);
+    width: 25px;
+    align-self: flex-end;
+    margin-bottom: 10px;
+    filter: invert(50%);
 }
 
 /* Goal.vue */

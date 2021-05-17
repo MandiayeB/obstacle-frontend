@@ -2,13 +2,12 @@
   <div class="ajustement_contenent">
     <div class="cadre">
       <!-- <h1>{{ User.firstname }}</h1> -->
-      <form @submit.prevent="handleSubmit" action="" method="post">
+      <form @submit.prevent="handleSubmit">
         <div class="cadreInput">
           <input
             type="email"
             v-model="email"
             class="inputCadre tailleInput"
-            name="email"
             placeholder="Adresse mail"
             autocomplete="off"
             required
@@ -20,7 +19,6 @@
             type="password"
             v-model="password"
             class="inputCadre tailleInput"
-            name="password"
             id="pass"
             placeholder="Mot de passe"
             autocomplete="off"
@@ -73,6 +71,7 @@ export default {
             this.$router.push("/");
           } else {
             console.log(error);
+            alert(" Wrong credentials ");
           }
         });
     },

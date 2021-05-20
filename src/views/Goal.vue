@@ -35,8 +35,8 @@ export default {
         return {
             displayScreen: false,
             smthDisplayed: false,
-            data: Object,
-            actualChallenge: Object,
+            data: { type: Object },
+            actualChallenge: { type: Object },
             styleObject: {
                 transform: 'initial'
             }

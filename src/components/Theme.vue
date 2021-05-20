@@ -1,5 +1,5 @@
 <template>
-    <div @click="toggle('theme', this.name)" class="themes">
+    <div @click="toggle('theme')" class="themes">
         <div class="designButton">
             <h1><slot></slot></h1>
             <img

@@ -6,7 +6,10 @@
                 src="https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif"
                 alt="Screen" 
             />
-            <ScreenDisplay v-show="displayScreen" :actualChallenge="actualChallenge"/>
+            <ScreenDisplay 
+                v-show="displayScreen" 
+                :actualChallenge="this.actualChallenge"
+            />
         </div>
         <div class="buttons">
             <img 

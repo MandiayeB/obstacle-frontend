@@ -1,10 +1,10 @@
 <template>
-    <div class="themes">
+    <div @click="toggle('theme', this.name)" class="themes">
         <div class="designButton">
             <h1><slot></slot></h1>
-            <img 
-                id="theme" 
-                class="expand_icon" 
+            <img
+                class="expand_icon"
+                :style="[displayActivities ? this.styleObject : '']" 
                 src="../assets/images/expand_more_white_24dp.svg" 
                 alt="expand"
             >
@@ -13,11 +13,11 @@
             <Activity 
                 v-for="(activity, index) in activities"
                 :key="index"
-                @toggle="() => { this.$emit('toggle', 'activity') }"
+                @toggle="toggle('activity', activity.name)"
                 @display="display"
                 :challenges="activity.challenge"
-                :displayActivities="displayActivities"
                 :displayChallenges="displayChallenges"
+                :styleObject="styleObject"
             >
             {{ activity.name }}
             </Activity>
@@ -30,15 +30,34 @@ import Activity from './Activity.vue';
 
 export default {
     name: 'Theme',
-    emits: ['toggle','display'],
+    emits: ['display'],
     components: { Activity },
+    data() {
+        return {
+            displayActivities: false,
+            displayChallenges: false,
+        }
+    },
     props: {
         activities: { type: Object },
-        displayActivities: { type: Boolean },
-        displayChallenges: { type: Boolean }
+        styleObject: { type: Object }
     },
     methods: {
+        toggle(category) {
+            switch (category) {
+                case 'theme':
+                    this.displayActivities = this.displayActivities ? false : true;
+                    if (!this.displayActivities) this.displayChallenges = false;
+                    break;
+                case 'activity':
+                    this.displayActivities = this.displayActivities ? false : true;
+                    this.displayChallenges = this.displayChallenges ? false : true;
+                    break;
+            }
+        },
         display(difficulty) {
+            this.displayActivities = this.displayActivities ? true : false;
+            this.displayChallenges = this.displayChallenges ? false : true;
             this.$emit('display', difficulty);
         }
     }

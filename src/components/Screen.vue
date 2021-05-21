@@ -18,7 +18,8 @@
                 src="../assets/images/power_settings_new_white_24dp.svg" 
                 alt="power"
             >
-            <div 
+            <div
+                @click="() => { this.$emit('create') }" 
                 v-show="displayScreen && smthDisplayed" 
                 class="designButton">
                 Démarrer

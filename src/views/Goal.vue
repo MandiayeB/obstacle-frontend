@@ -11,8 +11,9 @@
             {{ theme.name }}
             </Theme>
         </div>
-        <Screen 
+        <Screen
             @screen="screen"
+            @create="create"
             :actualChallenge="actualChallenge"
             :displayScreen="displayScreen"
             :smthDisplayed="smthDisplayed"
@@ -63,6 +64,21 @@ export default {
         display(actualChallenge) {
             this.smthDisplayed = true;
             this.actualChallenge = actualChallenge;
+        },
+        create() {
+            axios
+                .post(
+                    'http://localhost:3000/goal',
+                    {
+                        creation_date: Date.now(), 
+                        supposed_end_date: Date.now() + this.actualChallenge.length * 24*60*60*1000,
+                        user_id: 1,
+                        difficulty_id: this.actualChallenge.id
+                    }
+                )
+                .catch((error) => {
+                    console.log(error);
+                });
         }
     }
 }

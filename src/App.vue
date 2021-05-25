@@ -45,18 +45,25 @@ export default {
                 text: "Objectifs",
                 path: "/goal",
                 icon: "ion-ios-podium",
+            },
+            {
+                text: "Déconnexion",
+                path: "/login",
+                icon: "ion-ios-podium",
             }
         ],
     }),
     methods: {
-        connect() {
-            this.isConnected = true;
+        connect(id) {
+            if(id === 3){
+                this.isConnected = this.isConnected ? false : true;
+            }
         },
         isAuthenticated() {
             if (!this.isConnected) {
                 this.$router.push("/login");
             }
-        }
+        },
     }
 };
 </script>

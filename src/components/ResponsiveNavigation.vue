@@ -15,10 +15,12 @@
                     $event.currentTarget.style.background = background || '#fff'
                 "
             >
+            <div @click="() => {  this.$root.connect(index); }">
                 <router-link :to="link.path" :style="{ color: linkColor || '#DDD' }">
                     {{ link.text }}
                     <i :class="link.icon" />
                 </router-link>
+            </div>
             </li>
 
         </ul>

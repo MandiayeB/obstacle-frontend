@@ -13,7 +13,7 @@
     </div>
 
     <router-view v-slot="slot">
-      <transition name="router-anim" mode="out-in">
+      <transition v-if="this.isConnected || this.getPath" name="router-anim" mode="out-in">
         <component :is="slot.Component" />
       </transition>
     </router-view>
@@ -55,6 +55,13 @@ export default {
         isAuthenticated() {
             if (!this.isConnected) {
                 this.$router.push("/login");
+            }
+        },
+        getPath() {
+            if (window.location.href.includes('login') || window.location.href.includes('signin')) {
+                return true;
+            } else {
+                return false;
             }
         }
     }

@@ -13,17 +13,9 @@
             </div>
             <div class="separateur"></div>
             <form @submit.prevent="handleSubmit" action="" method="post">
-                <div class="cadreInput">
-                    <input
-                        type="text"
-                        v-model="email"
-                        class="inputCadre tailleInput"
-                        name="email"
-                        placeholder="Adresse mail"
-                        autocomplete="off"
-                        required
-                    />
-                </div>
+                <Email
+                    @sucess='getEmail'
+                 />
                 <div class="cadreInput">
                     <input
                         type="password"
@@ -59,6 +51,7 @@
 
 <script>
 import axios from "axios";
+import Email from "../components/Login components/Email.vue";
 
 export default {
     name: "Login",
@@ -68,25 +61,32 @@ export default {
             password: "",
         };
     },
-  methods: {
-    handleSubmit() {
-        axios
-            .post("http://localhost:3000/login", {
-                email: this.email,
-                password: this.password,
-            })
-            .catch((error) => {
-                if (error.response.status === 308 || error.response.status === 307) {
-                    this.$root.connect();
-                    this.$router.push("/");
-                } else {
-                    console.log(error);
-                }
-            });
+    emits: ['sucess'],    
+    components: {
+        Email
     },
-    redirectToSignin() {
-        this.$router.push("/signin");
-    }
-  },
+    methods: {
+        getEmail(value){
+            this.email = value;
+        },
+        handleSubmit() {
+            axios
+                .post("http://localhost:3000/login", {
+                    email: this.email,
+                    password: this.password,
+                })
+                .catch((error) => {
+                    if (error.response.status === 308 || error.response.status === 307) {
+                        this.$root.connect();
+                        this.$router.push("/");
+                    } else {
+                        console.log(error);
+                    }
+                });
+        },
+        redirectToSignin() {
+            this.$router.push("/signin");
+        }
+    },
 };
 </script>

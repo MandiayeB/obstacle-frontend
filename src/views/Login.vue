@@ -65,13 +65,13 @@ export default {
     handleSubmit() {
       axios
         .post("http://localhost:3000/login", {
-          email: this.email,
+          email: this.email.toLowerCase(),
           password: this.password,
         })
         .catch((error) => {
-          if (error.response.status === 308 || error.response.status === 307) {
-            this.$root.connect(3);
-            this.$router.push("/");
+            if (error.response.status === 308 || error.response.status === 307) {
+                this.$root.connect(3);
+                this.$router.push("/");
           } else {
             console.log(error);
           }

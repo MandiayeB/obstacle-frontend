@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import ProfileHeader from '../components/ProfileHeader';
 import ProfileBody from '../components/ProfileBody';
 

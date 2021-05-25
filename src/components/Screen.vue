@@ -6,7 +6,10 @@
                 src="https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif"
                 alt="Screen" 
             />
-            <ScreenDisplay v-show="displayScreen" :actualChallenge="actualChallenge"/>
+            <ScreenDisplay 
+                v-show="displayScreen" 
+                :actualChallenge="this.actualChallenge"
+            />
         </div>
         <div class="buttons">
             <img 
@@ -15,7 +18,8 @@
                 src="../assets/images/power_settings_new_white_24dp.svg" 
                 alt="power"
             >
-            <div 
+            <div
+                @click="() => { this.$emit('create') }" 
                 v-show="displayScreen && smthDisplayed" 
                 class="designButton">
                 Démarrer

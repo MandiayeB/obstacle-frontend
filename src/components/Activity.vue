@@ -3,8 +3,8 @@
         <div class="designButton">
             <h1><slot></slot></h1>
             <img 
-                id="activity"
-                class="expand_icon" 
+                class="expand_icon"
+                :style="[displayChallenges ? this.styleObject : '']" 
                 src="../assets/images/expand_more_white_24dp.svg" 
                 alt="expand"
             >
@@ -29,7 +29,8 @@ export default {
     components: { Challenge },
     props: {
         challenges: { type: Object },
-        displayChallenges : { type: Boolean }
+        displayChallenges : { type: Boolean },
+        styleObject: { type: Object }
     },
     methods: {
         display(difficulty) {

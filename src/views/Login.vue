@@ -70,11 +70,11 @@ export default {
         })
         .catch((error) => {
             if (error.response.status === 308 || error.response.status === 307) {
-                this.$root.connect(3);
+                this.$session.start();
                 this.$router.push("/");
-          } else {
-            console.log(error);
-          }
+            } else {
+                console.log(error);
+            }
         });
     },
     redirectToSignin() {

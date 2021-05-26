@@ -47,7 +47,7 @@ export default {
         this.$root.isAuthenticated();
         axios
             .get('http://localhost:3000/goal')
-            .then(response => {this.data = response.data; console.log(this.data);})
+            .then(response => {this.data = response.data;})
             .catch((error) => {
                 if (error.response.status === 307) {
                     this.$router.push("/login");

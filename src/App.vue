@@ -1,11 +1,11 @@
 <template>
   <div id="container">
-    <div id="app">
+    <div v-if="isAuthenticated" id="app">
       <ResponsiveNavigation
+        
         :nav-links="navLinks"
         :image-path="require('./assets/images/menuLogo.png')"
         :image-profile="require('./assets/images/exempleProfil.jpg')"
-        :isAuthenticated="isAuthenticated"
         background="rgb(25, 39, 52)"
         link-color="#fff"
         hoverBackground="rgb(35, 66, 95)"
@@ -28,42 +28,42 @@ export default {
     components: {
         ResponsiveNavigation,
     },
-    data: () => ({
-        isConnected: false,
-        navLinks: [
-            {
-                text: "Activité",
-                path: "/",
-                icon: "ion-ios-home",
-            },
-            {
-                text: "Profil",
-                path: "/profile",
-                icon: "ion-ios-person",
-            },
-            {
-                text: "Objectifs",
-                path: "/goal",
-                icon: "ion-ios-podium",
-            },
-            {
-                text: "Déconnexion",
-                path: "/login",
-                icon: "ion-ios-podium",
-            }
-        ],
-    }),
-    methods: {
-        connect(id) {
-            if(id === 3){
-                this.isConnected = this.isConnected ? false : true;
-            }
-        },
+    data() {
+        return {
+            navLinks: [
+                {
+                    text: "Activité",
+                    path: "/",
+                    icon: "ion-ios-home",
+                },
+                {
+                    text: "Profil",
+                    path: "/profile",
+                    icon: "ion-ios-person",
+                },
+                {
+                    text: "Objectifs",
+                    path: "/goal",
+                    icon: "ion-ios-podium",
+                },
+                {
+                    text: "Déconnexion",
+                    path: "/login",
+                    icon: "ion-ios-podium",
+                }
+            ],
+            connected: false
+        }
+    },
+    mounted() {
+        window.addEventListener('isAuthenticated-sessionStorage-changed', (event) => {
+            this.connected = event.detail.storage;
+        });
+    },
+    computed: {
         isAuthenticated() {
-            if (!this.isConnected) {
-                this.$router.push("/login");
-            }
-        },
-    }
+            return this.connected;
+        }
+    },
 };
 </script>

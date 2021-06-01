@@ -4,12 +4,12 @@
             type="text"
             v-model="email"
             class="inputCadre tailleInput"
+            id="emailId"
             name="email"
             placeholder="Adresse mail"
             autocomplete="off"
             required
         />
-        <span v-if="msg.email"></span>
     </div>
 </template>
 
@@ -19,7 +19,6 @@ export default {
     data(){
         return {
             email: '',
-            msg: [],
         }
     },
     emits: ['sucess'],
@@ -31,13 +30,17 @@ export default {
         }
     },
     methods:{
+        validEmail: function (email) {
+            var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
         validateEmail(value){
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-                this.msg['email'] = '';
                 this.$emit('sucess', value);
-            } else{
-                this.msg['email'] = 'Invalid Email Address';
-            } 
+            } else {
+                emailValue = document.getElementById("mail");
+                setErrorFor(emailId, 'Wrong Email');
+            }
         },
     },
 }

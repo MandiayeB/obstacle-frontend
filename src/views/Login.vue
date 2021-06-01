@@ -12,10 +12,19 @@
                 </h5>
             </div>
             <div class="separateur"></div>
-            <form @submit.prevent="handleSubmit" action="" method="post">
-                <Email
-                    @sucess='getEmail'
-                 />
+            <form @submit.prevent="handleSubmit" action="" method="post" novalidate="true" id="login" >
+                <div class="cadreInput">
+                    <input
+                        type="text"
+                        v-model="email"
+                        class="inputCadre tailleInput"
+                        id="emailId"
+                        name="email"
+                        placeholder="Adresse mail"
+                        autocomplete="off"
+                        required
+                    />
+                </div> 
                 <div class="cadreInput">
                     <input
                         type="password"
@@ -29,7 +38,7 @@
                     />
                 </div>
                 <div class="unButton">
-                    <button value="" class="designButton" type="submit">
+                    <button class="designButton" type="submit" id="button">
                         Se connecter
                     </button>
                 </div>
@@ -51,25 +60,20 @@
 
 <script>
 import axios from "axios";
-import Email from "../components/Login components/Email.vue";
 
 export default {
     name: "Login",
     data() {
         return {
+            errors: [],
             email: "",
             password: "",
+            count: 0,
         };
     },
-    emits: ['sucess'],    
-    components: {
-        Email
-    },
     methods: {
-        getEmail(value){
-            this.email = value;
-        },
-        handleSubmit() {
+        handleSubmit(e) {
+
             axios
                 .post("http://localhost:3000/login", {
                     email: this.email,
@@ -77,15 +81,23 @@ export default {
                 })
                 .catch((error) => {
                     if (error.response.status === 308 || error.response.status === 307) {
-                        this.$root.connect();
+                        this.$root.connect(3);
                         this.$router.push("/");
                     } else {
                         console.log(error);
                     }
-                });
+                }); 
         },
         redirectToSignin() {
             this.$router.push("/signin");
+        },
+        validEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
+        validPassword(password){
+            var re = /^(?=.*[A-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@#])\S{6,12}$/;
+            return re.test(password);
         }
     },
 };

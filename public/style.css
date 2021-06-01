@@ -14,7 +14,21 @@ h1, h2, h3, h4 {
   line-height: 1.2;
   color: #B0C4DE;
 }
-
+input::-webkit-input-placeholder{
+    color:#afafaf;
+}
+input:-moz-placeholder {
+    color:#afafaf;
+}
+::placeholder {
+    color:#afafaf;
+}
+select {
+    color: #afafaf;
+}
+option:not(:first-of-type) {
+    color: #afafaf;
+}
 /* Homepage.vue */
 .homepage {
   display: block;
@@ -44,7 +58,21 @@ h1, h2, h3, h4 {
   width: 364px;
   margin-left:15px;
 }
+span{
+    color: #ee2e2e;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-top: 2px;
 
+}
+.name_span{
+    display: grid;
+    width: 166.5px;
+}
+.age_span{
+    display: grid;
+    position:relative;
+}
 .cadreInputName {
     display: flex;
 }
@@ -78,8 +106,6 @@ h1, h2, h3, h4 {
     border-radius: 6px;
 }
 
-
-
 .birthdate_signin, .gender_signin{
     margin-left: 15px;
     padding-top: 6px;
@@ -92,14 +118,15 @@ h1, h2, h3, h4 {
     padding-right: 10px;
     width: 100%;
     display: inline-flex;
+    flex-direction: row;
 }
 .label_date_signin, .label_gender_signin{
-    color: #7d7f81;
+    color: #c7c7c7;
     padding-bottom: 6px;
     font-size: 17px;
 }
 .title_signin{
-    color: #7d7f81;
+    color: #c7c7c7;
     display: flex;
 }
 .h5_title_signin{
@@ -112,15 +139,6 @@ h1, h2, h3, h4 {
     padding-right: 10px;
     width: 100%;
     display: inline-flex;
-}
-.label_date_signin, .label_gender_signin{
-    color: #7d7f81;
-    padding-bottom: 6px;
-    font-size: 17px;
-}
-.title_signin{
-    color: #7d7f81;
-    display: flex;
 }
 .h5_title_signin{
     margin: 0 auto;
@@ -134,7 +152,7 @@ h1, h2, h3, h4 {
 }
 .select_gender, .select_day_birth, .select_month_birth, .select_year_birth{
     padding: 14px 16px;
-    color: #7d7f81;
+    color: #afafaf;
     background-color: rgb(43, 48, 58);
     border: 1px solid #6c6f72;
     cursor: pointer;
@@ -262,10 +280,6 @@ h1, h2, h3, h4 {
   line-height: 16px;
   padding: 0 8px;
   vertical-align: middle;
-}
-
-.inputCadre::placeholder{
-    color: #7d7f81;
 }
 
 .inputCadre:focus,

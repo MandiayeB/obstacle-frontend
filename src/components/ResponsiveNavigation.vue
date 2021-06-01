@@ -26,17 +26,13 @@
         </ul>
         <div class="image-obstacle">
             <figure class="image-obstacle">
-                <router-link 
-                    :to="'/'"
-                >
+                <router-link :to="'/'" >
                     <img src="../assets/images/logoObstacle.png" />
                 </router-link>
             </figure>
         </div>
         <div class="profile_header_icon">
-            <router-link 
-                :to="'Profile'"
-            >
+            <router-link :to="'Profile'" >
                 <img src="../assets/images/exempleProfil.jpg" />
             </router-link>
         </div>

@@ -64,9 +64,6 @@ export default {
     components: {
         Email
     },
-    created() {
-        console.log(sessionStorage.getItem('isAuthenticated'));
-    },
     methods: {
         getEmail(value){
             this.email = value;
@@ -89,7 +86,7 @@ export default {
                         }));
                         
                         this.$router.push("/");
-                        
+
                     } else {
                         console.log(error);
                     }

@@ -13,7 +13,7 @@
             </div>
             <div class="separateur"></div>
             <form @submit.prevent="handleSubmit" action="" method="post">
-                <div class="cadreInputName">
+                <!-- <div class="cadreInputName">
                     <div class="cadreInputFirstName">
                         <input
                             type="text"
@@ -36,18 +36,13 @@
                             required
                         />
                     </div>
-                </div>
-                <div class="cadreInput">
-                    <input
-                        type="email"
-                        v-model="email"
-                        class="inputCadre tailleInput"
-                        name="email"
-                        placeholder="E-mail"
-                        autocomplete="off"
-                        required
-                    />
-                </div>
+                </div> -->
+                <Names 
+                    @sucessNames='getNames'
+                />
+                <Email
+                    @sucess='getEmail'
+                 />
                 <div class="cadreInput">
                     <input
                         type="password"
@@ -115,6 +110,9 @@
 
 <script>
 import axios from "axios";
+import Email from "../components/Login components/Email.vue";
+import Names from "../components/Login components/Names.vue";
+
 export default {
     name: 'Signin',
     data() {
@@ -131,6 +129,10 @@ export default {
             month: "",
             year: "",
         }
+    },   
+    components: {
+        Email,
+        Names,
     },
     computed : {
         years () {
@@ -147,6 +149,13 @@ export default {
         getDay(day){
             let d = day < 10 ? '0' + day.toString() : day;
             return d;
+        },
+        getEmail(value){
+            this.email = value;
+        },
+        getNames(valueFirstname, valueLastname){
+            this.firstname = valueFirstname;
+            this.lastname = valueLastname;
         },
         handleSubmit() {
             const birthdate = `${this.year}-${this.getMonth(this.month, this.months)}-${this.getDay(this.day)}`;

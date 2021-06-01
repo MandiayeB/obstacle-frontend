@@ -20,6 +20,11 @@ export default {
             user: Object
         }
     },
+    beforeCreate() {
+        if (!sessionStorage.getItem('isAuthenticated')) {
+            this.$router.push("/login");
+        }
+    },
     created() {
         this.user = {
             id: 1,
@@ -29,9 +34,6 @@ export default {
             role: 'Tryharder',
             image: 'https://photos.lci.fr/images/613/344/kanyewest2020afp-5b6354-0@1x.jpeg'
         };
-    },
-    mounted() {
-        this.$root.isAuthenticated();
     },
 }
 </script>

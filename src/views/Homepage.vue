@@ -19,6 +19,11 @@ export default {
             goals: [],
         }
     },
+    beforeCreate() {
+        if (!sessionStorage.getItem('isAuthenticated')) {
+            this.$router.push("/login");
+        }
+    },
     created() {
         this.goals = [
             {
@@ -37,9 +42,6 @@ export default {
                 img: "https://www.youschool.fr/wp-content/uploads/2019/08/comment-travaille-cuisinier-2.jpg"
             },
         ];
-    },
-    mounted() {
-        this.$root.isAuthenticated();
     },
 }
 </script>

@@ -61,7 +61,6 @@ export default {
             password: "",
         };
     },
-    emits: ['sucess'],    
     components: {
         Email
     },
@@ -77,8 +76,24 @@ export default {
                 })
                 .catch((error) => {
                     if (error.response.status === 308 || error.response.status === 307) {
-                        this.$root.connect();
+
+                        sessionStorage.setItem('isAuthenticated', true);
+                        sessionStorage.setItem('birthdate', error.response.data.birthdate);
+                        sessionStorage.setItem('email', error.response.data.email);
+                        sessionStorage.setItem('firstname', error.response.data.firstname);
+                        sessionStorage.setItem('lastname', error.response.data.lastname);
+                        sessionStorage.setItem('gender', error.response.data.gender);
+                        sessionStorage.setItem('role', error.response.data.role);
+                        sessionStorage.setItem('user_id', error.response.data.user_id);
+                        
+                        window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
+                            detail: {
+                                storage: sessionStorage.getItem('isAuthenticated')
+                            }
+                        }));
+                        
                         this.$router.push("/");
+
                     } else {
                         console.log(error);
                     }

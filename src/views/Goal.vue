@@ -43,8 +43,12 @@ export default {
             }
         }
     },
+    beforeCreate() {
+        if (!sessionStorage.getItem('isAuthenticated')) {
+            this.$router.push("/login");
+        }
+    },
     mounted() {
-        this.$root.isAuthenticated();
         axios
             .get('http://localhost:3000/goal')
             .then(response => {this.data = response.data;})

@@ -12,7 +12,6 @@
                 </h5>
             </div>
             <div class="separateur"></div>
-            <!-- <form @submit.prevent="handleSubmit" action="" method="post"> -->
                 <div class="cadreInputName">
                     <div class="cadreInputFirstName">
                         <input
@@ -105,9 +104,6 @@
                             <option :key="year.id" v-for="year in years" :value="year">{{ year }}</option>
                         </select>
                     </div>
-                    <span class="age_span" v-if="v$.age.$error">
-                        {{ v$.age.$errors[0].$message }}
-                    </span>
                 </div>
                 <div class="gender_signin">
                     <div class="label_gender_signin">
@@ -125,7 +121,6 @@
                         S'inscrire
                     </button>
                 </div>
-            <!-- </form> -->
             <div class="passwordForget">
                 <a href="/login"> Déjà inscrit ? Se connecter </a>
             </div>
@@ -138,15 +133,13 @@ import axios from "axios";
 import useValidate from '@vuelidate/core';
 import { required, minLength, maxLength, sameAs, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
-
-        
+ 
 const firstnameRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
         return true
     }
     return /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/.test(value)
 }
-
 const lastnameRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
         return true
@@ -159,7 +152,6 @@ const passwordRegex = value => {
     }
     return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(value)
 }
-
 const mailAdressRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
         return true
@@ -167,25 +159,6 @@ const mailAdressRegex = value => {
     return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value)
 }
 
-const getAge = value => {
-    let diff_ms = Date.now() - dob.getTime();
-    let age_dt = new Date(diff_ms); 
-
-    let age = Math.abs(age_dt.getUTCFullYear() - 1970);
-    console.log(age);
-    if(age<11){
-        return true;
-        
-    } else {
-        return false;
-    }
-}
-
-const ageValidation = value => {
-    if(this.state.month != null && this.state.year != null && this.state.day != null){
-        return getAge(new Date(this.state.year, this.getMonth(this.state.month, this.state.months), this.getDay(this.state.day)));
-    }
-}
 export default {
     name: 'Signin',
     setup(){
@@ -236,12 +209,9 @@ export default {
                 day: { required },
                 month: { required },
                 year: { required },
-                age: {
-                    ageValidation: helpers.withMessage('*Vous devez avoir au moins 12 ans.',ageValidation),
-                }
+
             }
         })
-
         const v$ = useValidate(rules, state);
         return{
             state, 
@@ -255,6 +225,7 @@ export default {
         },
     },
     methods: {
+
         getMonth(month, months) {
             let index = months.indexOf(month) + 1;
             let m = index < 10 ? '0' + index.toString() : index;

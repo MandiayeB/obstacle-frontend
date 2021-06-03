@@ -14,21 +14,27 @@ h1, h2, h3, h4 {
   line-height: 1.2;
   color: #B0C4DE;
 }
+
 input::-webkit-input-placeholder{
     color:#afafaf;
 }
+
 input:-moz-placeholder {
     color:#afafaf;
 }
+
 ::placeholder {
     color:#afafaf;
 }
+
 select {
     color: #afafaf;
 }
+
 option:not(:first-of-type) {
     color: #afafaf;
 }
+
 /* Homepage.vue */
 .homepage {
   display: block;
@@ -58,6 +64,7 @@ option:not(:first-of-type) {
   width: 364px;
   margin-left:15px;
 }
+
 span{
     color: #ee2e2e;
     font-size: 13px;
@@ -65,14 +72,12 @@ span{
     padding-top: 2px;
 
 }
+
 .name_span{
     display: grid;
     width: 166.5px;
 }
-.age_span{
-    display: grid;
-    position:relative;
-}
+
 .cadreInputName {
     display: flex;
 }

@@ -73,6 +73,9 @@ export default {
                 .post("http://localhost:3000/login", {
                     email: this.email,
                     password: this.password,
+                }, 
+                { 
+                    withCredentials: true 
                 })
                 .catch((error) => {
                     if (error.response.status === 308 || error.response.status === 307) {

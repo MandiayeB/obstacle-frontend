@@ -165,7 +165,7 @@ export default {
                     lastname: this.lastname,
                     email: this.email,
                     password: this.password,
-                    pw_confirmation: this.pw_confirmation,
+                    confirm: this.pw_confirmation,
                     gender: this.gender,
                     birthdate: birthdate,
                 })

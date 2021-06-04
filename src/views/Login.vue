@@ -12,39 +12,44 @@
                 </h5>
             </div>
             <div class="separateur"></div>
-                <div class="cadreInput">
-                    <input
-                        type="text"
-                        v-model="state.email"
-                        class="inputCadre tailleInput"
-                        id="emailId"
-                        name="email"
-                        placeholder="Adresse mail"
-                        autocomplete="off"
-                        required
-                    />
-                    <span v-if="v$.email.$error">
-                        {{ v$.email.$errors[0].$message }}
-                    </span>
-                </div> 
+                <form @submit.prevent="handleSubmit" action="" method="post">
+                    <div class="cadreInput">
+                        <input
+                            type="text"
+                            v-model="state.email"
+                            class="inputCadre tailleInput"
+                            id="emailId"
+                            name="email"
+                            placeholder="Adresse mail"
+                            autocomplete="off"
+                            required
+                        />
+                        <span v-if="v$.email.$error">
+                            {{ v$.email.$errors[0].$message }}
+                        </span>
+                    </div> 
 
-                <div class="cadreInput">
-                    <input
-                        type="password"
-                        v-model="state.password"
-                        class="inputCadre tailleInput"
-                        name="password"
-                        id="pass"
-                        placeholder="Mot de passe"
-                        autocomplete="off"
-                        required
-                    />
-                </div>
-                <div class="unButton">
-                    <button @click="handleSubmit" class="designButton" type="submit" id="button">
-                        Se connecter
-                    </button>
-                </div>
+                    <div class="cadreInput">
+                        <input
+                            type="password"
+                            v-model="state.password"
+                            class="inputCadre tailleInput"
+                            name="password"
+                            id="pass"
+                            placeholder="Mot de passe"
+                            autocomplete="off"
+                            required
+                        />
+                    </div>
+                    <span class="error_span" v-if="state.displayError">
+                        * {{ state.errorMsg.msg }}
+                    </span>
+                    <div class="unButton">
+                        <button class="designButton" type="submit" id="button">
+                            Se connecter
+                        </button>
+                    </div>
+                </form>
             <div class="passwordForget">
                 <a href=""> Mot de passe oublié&nbsp;?</a>
             </div>
@@ -81,6 +86,8 @@ export default {
             email: "",
             password: "",
             count: 0,
+            displayError: false,
+            errorMsg: String,
         })
 
         const rules = computed(() => {
@@ -111,7 +118,8 @@ export default {
                             this.$root.connect(3);
                             this.$router.push("/");
                         } else {
-                            console.log(error);
+                            this.state.errorMsg = error.response.data;
+                            this.state.displayError = true;
                         }
                     }); 
             } else {

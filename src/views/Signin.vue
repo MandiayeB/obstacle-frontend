@@ -12,115 +12,120 @@
                 </h5>
             </div>
             <div class="separateur"></div>
-                <div class="cadreInputName">
-                    <div class="cadreInputFirstName">
+                <form @submit.prevent="handleSubmit" action="" method="post">
+                    <div class="cadreInputName">
+                        <div class="cadreInputFirstName">
+                            <input
+                                type="text"
+                                v-model="state.firstname"
+                                class="inputCadre tailleInput"
+                                name="firstname"
+                                placeholder="Prénom"
+                                autocomplete="off"
+                                required
+                            />
+                            <span class="name_span" v-if="v$.firstname.$error">
+                                {{ v$.firstname.$errors[0].$message }}
+                            </span>
+                        </div>
+                        <div class="cadreInputLastName">
+                            <input
+                                type="text"
+                                v-model="state.lastname"
+                                class="inputCadre tailleInput"
+                                name="lastname"
+                                placeholder="Nom"
+                                autocomplete="off"
+                                required
+                            />
+                            <span class="name_span" v-if="v$.lastname.$error">
+                                {{ v$.lastname.$errors[0].$message }}
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <div class="cadreInput">
                         <input
                             type="text"
-                            v-model="state.firstname"
+                            v-model="state.email"
                             class="inputCadre tailleInput"
-                            name="firstname"
-                            placeholder="Prénom"
+                            id="emailId"
+                            name="email"
+                            placeholder="Adresse mail"
                             autocomplete="off"
                             required
                         />
-                        <span class="name_span" v-if="v$.firstname.$error">
-                            {{ v$.firstname.$errors[0].$message }}
+                        <span v-if="v$.email.$error">
+                            {{ v$.email.$errors[0].$message }}
                         </span>
-                    </div>
-                    <div class="cadreInputLastName">
+                    </div> 
+                    <div class="cadreInput">
                         <input
-                            type="text"
-                            v-model="state.lastname"
+                            type="password"
+                            v-model="state.password.password"
                             class="inputCadre tailleInput"
-                            name="lastname"
-                            placeholder="Nom"
+                            name="pass"
+                            placeholder="Mot de passe"
                             autocomplete="off"
                             required
                         />
-                        <span class="name_span" v-if="v$.lastname.$error">
-                            {{ v$.lastname.$errors[0].$message }}
+                        <span v-if="v$.password.password.$error">
+                            {{ v$.password.password.$errors[0].$message }}
                         </span>
                     </div>
-                    
-                </div>
-                <div class="cadreInput">
-                    <input
-                        type="text"
-                        v-model="state.email"
-                        class="inputCadre tailleInput"
-                        id="emailId"
-                        name="email"
-                        placeholder="Adresse mail"
-                        autocomplete="off"
-                        required
-                    />
-                    <span v-if="v$.email.$error">
-                        {{ v$.email.$errors[0].$message }}
+                    <div class="cadreInput">
+                        <input
+                            type="password"
+                            v-model="state.password.confirm"
+                            class="inputCadre tailleInput"
+                            name="confirm"
+                            placeholder="Confirmer le mot de passe"
+                            autocomplete="off"
+                            required
+                        />
+                        <span v-if="v$.password.confirm.$error">
+                            {{ v$.password.confirm.$errors[0].$message }}
+                        </span>
+                    </div>
+                    <div class="birthdate_signin">
+                        <div class="label_date_signin">
+                            <label for="date">Date de naissance</label>
+                        </div>
+                        <div class="cadreInputDate">
+                            <select v-model="state.day" class="select_day_birth" required>
+                                <option disabled value>Jour</option>
+                                <option  :key="day.id" v-for="day in 31" :value="day">{{ day }}</option>
+                            </select>
+                            <select v-model="state.month" class="select_month_birth" required>
+                                <option disabled value>Mois</option>
+                                <option :key="month.id" v-for="month in state.months" :value="month">{{ month }}</option>
+                            </select>
+                            <select v-model="state.year" class="select_year_birth" required>
+                                <option disabled value>Année</option>
+                                <option :key="year.id" v-for="year in years" :value="year">{{ year }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="gender_signin">
+                        <div class="label_gender_signin">
+                            <label for="gender">Genre</label>
+                        </div>
+                        <div class="div_select_gender">
+                            <select v-model="state.gender" class="select_gender" required>
+                                <option disabled value>Genre</option>
+                                <option :key="gender.id" v-for="gender in state.genders" :value="gender">{{ gender }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <span class="error_span" v-if="state.displayError">
+                        * {{ state.errorMsg.msg }}
                     </span>
-                </div> 
-                <div class="cadreInput">
-                    <input
-                        type="password"
-                        v-model="state.password.password"
-                        class="inputCadre tailleInput"
-                        name="pass"
-                        placeholder="Mot de passe"
-                        autocomplete="off"
-                        required
-                    />
-                    <span v-if="v$.password.password.$error">
-                        {{ v$.password.password.$errors[0].$message }}
-                    </span>
-                </div>
-                <div class="cadreInput">
-                    <input
-                        type="password"
-                        v-model="state.password.confirm"
-                        class="inputCadre tailleInput"
-                        name="confirm"
-                        placeholder="Confirmer le mot de passe"
-                        autocomplete="off"
-                        required
-                    />
-                    <span v-if="v$.password.confirm.$error">
-                        {{ v$.password.confirm.$errors[0].$message }}
-                    </span>
-                </div>
-                <div class="birthdate_signin">
-                    <div class="label_date_signin">
-                        <label for="date">Date de naissance</label>
+                    <div class="unButton">
+                        <button class="designButton" type="submit">
+                            S'inscrire
+                        </button>
                     </div>
-                    <div class="cadreInputDate">
-                        <select v-model="state.day" class="select_day_birth" required>
-                            <option disabled value>Jour</option>
-                            <option  :key="day.id" v-for="day in 31" :value="day">{{ day }}</option>
-                        </select>
-                         <select v-model="state.month" class="select_month_birth" required>
-                            <option disabled value>Mois</option>
-                            <option :key="month.id" v-for="month in state.months" :value="month">{{ month }}</option>
-                        </select>
-                        <select v-model="state.year" class="select_year_birth" required>
-                            <option disabled value>Année</option>
-                            <option :key="year.id" v-for="year in years" :value="year">{{ year }}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="gender_signin">
-                    <div class="label_gender_signin">
-                        <label for="gender">Genre</label>
-                    </div>
-                    <div class="div_select_gender">
-                        <select v-model="state.gender" class="select_gender" required>
-                            <option disabled value>Genre</option>
-                            <option :key="gender.id" v-for="gender in state.genders" :value="gender">{{ gender }}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="unButton">
-                    <button @click="handleSubmit" class="designButton" type="submit">
-                        S'inscrire
-                    </button>
-                </div>
+                </form>
             <div class="passwordForget">
                 <a href="/login"> Déjà inscrit ? Se connecter </a>
             </div>
@@ -158,6 +163,21 @@ const mailAdressRegex = value => {
     }
     return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value)
 }
+// const verifydisponibility = value => {
+//     axios
+//         .post("http://localhost:3000/signin/verifyEmail", {
+//             email: value,
+//         })
+//         .catch((error) => {
+//             if (error.response.status === 308 || error.response.status === 307) {
+//                 console.log('Lets go')
+//                 return true;
+//             } else {
+//                 console.log(error);
+//                 return false;
+//             }
+//         });
+// }
 
 export default {
     name: 'Signin',
@@ -177,6 +197,8 @@ export default {
             month: "",
             year: "",
             age:"",
+            displayError: false,
+            errorMsg: String,
         })
 
         const rules = computed(() => {
@@ -189,11 +211,12 @@ export default {
                 lastname: { 
                     required: helpers.withMessage('*Champ obligatoire.',required), 
                     maxLength: helpers.withMessage('*Votre nom ne doit pas dépasser 20 lettres.',maxLength(20)), 
-                    lastnameRegex: helpers.withMessage('*Il manque une majuscule au début du mot.', lastnameRegex)
+                    lastnameRegex: helpers.withMessage('*Il manque une majuscule au début du mot.', lastnameRegex),
                 },
                 email: { 
                     required: helpers.withMessage('*Champ obligatoire.',required), 
-                    mailAdressRegex: helpers.withMessage("*L'adresse email n'est pas valide.", mailAdressRegex)
+                    mailAdressRegex: helpers.withMessage("*L'adresse email n'est pas valide.", mailAdressRegex),
+                    // verifydisponibility: helpers.withMessage("*Cette adresse email est déjà utilisée.", verifydisponibility),
                 },
                 password: {
                     password: { 
@@ -254,6 +277,8 @@ export default {
                             this.$router.push("/login");
                         } else {
                             console.log(error);
+                            this.state.errorMsg = error.response.data;
+                            this.state.displayError = true;
                         }
                     });
             } else {

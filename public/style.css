@@ -78,6 +78,10 @@ span{
     width: 166.5px;
 }
 
+.error_span{
+    padding-left: 3px;
+}
+
 .cadreInputName {
     display: flex;
 }

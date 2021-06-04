@@ -12,28 +12,44 @@
                 </h5>
             </div>
             <div class="separateur"></div>
-            <form @submit.prevent="handleSubmit" action="" method="post">
-                <Email
-                    @sucess='getEmail'
-                 />
-                <div class="cadreInput">
-                    <input
-                        type="password"
-                        v-model="password"
-                        class="inputCadre tailleInput"
-                        name="password"
-                        id="pass"
-                        placeholder="Mot de passe"
-                        autocomplete="off"
-                        required
-                    />
-                </div>
-                <div class="unButton">
-                    <button value="" class="designButton" type="submit">
-                        Se connecter
-                    </button>
-                </div>
-            </form>
+                <form @submit.prevent="handleSubmit" action="" method="post">
+                    <div class="cadreInput">
+                        <input
+                            type="text"
+                            v-model="state.email"
+                            class="inputCadre tailleInput"
+                            id="emailId"
+                            name="email"
+                            placeholder="Adresse mail"
+                            autocomplete="off"
+                            required
+                        />
+                        <span v-if="v$.email.$error">
+                            {{ v$.email.$errors[0].$message }}
+                        </span>
+                    </div> 
+
+                    <div class="cadreInput">
+                        <input
+                            type="password"
+                            v-model="state.password"
+                            class="inputCadre tailleInput"
+                            name="password"
+                            id="pass"
+                            placeholder="Mot de passe"
+                            autocomplete="off"
+                            required
+                        />
+                    </div>
+                    <span class="error_span" v-if="state.displayError">
+                        * {{ state.errorMsg.msg }}
+                    </span>
+                    <div class="unButton">
+                        <button class="designButton" type="submit" id="button">
+                            Se connecter
+                        </button>
+                    </div>
+                </form>
             <div class="passwordForget">
                 <a href=""> Mot de passe oublié&nbsp;?</a>
             </div>
@@ -51,53 +67,79 @@
 
 <script>
 import axios from "axios";
-import Email from "../components/Login components/Email.vue";
+import useValidate from '@vuelidate/core';
+import { required, helpers } from '@vuelidate/validators';
+import { reactive, computed } from 'vue';
+
+const mailAdressRegex = value => {
+    if (typeof value === 'undefined' || value === null || value === '') {
+        return true
+    }
+    return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value)
+}
 
 export default {
     name: "Login",
-    data() {
-        return {
+    setup(){
+        const state = reactive({
+            errors: [],
             email: "",
             password: "",
-        };
-    },
-    components: {
-        Email
+            count: 0,
+            displayError: false,
+            errorMsg: String,
+        })
+
+        const rules = computed(() => {
+            return {
+                email: {
+                    required: helpers.withMessage('*Champ obligatoire.',required),
+                    mailAdressRegex: helpers.withMessage("*Le format de l'adresse email n'est pas valide.", mailAdressRegex)
+                }
+            }
+        })
+        const v$ = useValidate(rules, state);
+        return{
+            state, 
+            v$,
+        }
     },
     methods: {
-        getEmail(value){
-            this.email = value;
-        },
-        handleSubmit() {
-            axios
-                .post("http://localhost:3000/login", {
-                    email: this.email,
-                    password: this.password,
-                })
-                .catch((error) => {
-                    if (error.response.status === 308 || error.response.status === 307) {
+        handleSubmit(e) {
+            this.v$.$validate();
+            if(!this.v$.$error){
+                axios
+                    .post("http://localhost:3000/login", {
+                        email: this.state.email,
+                        password: this.state.password,
+                    })
+                    .catch((error) => {
+                        if (error.response.status === 308 || error.response.status === 307) {
 
-                        sessionStorage.setItem('isAuthenticated', true);
-                        sessionStorage.setItem('birthdate', error.response.data.birthdate);
-                        sessionStorage.setItem('email', error.response.data.email);
-                        sessionStorage.setItem('firstname', error.response.data.firstname);
-                        sessionStorage.setItem('lastname', error.response.data.lastname);
-                        sessionStorage.setItem('gender', error.response.data.gender);
-                        sessionStorage.setItem('role', error.response.data.role);
-                        sessionStorage.setItem('user_id', error.response.data.user_id);
-                        
-                        window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
-                            detail: {
-                                storage: sessionStorage.getItem('isAuthenticated')
-                            }
-                        }));
-                        
-                        this.$router.push("/");
-
-                    } else {
-                        console.log(error);
-                    }
-                });
+                            sessionStorage.setItem('isAuthenticated', true);
+                            sessionStorage.setItem('birthdate', error.response.data.birthdate);
+                            sessionStorage.setItem('email', error.response.data.email);
+                            sessionStorage.setItem('firstname', error.response.data.firstname);
+                            sessionStorage.setItem('lastname', error.response.data.lastname);
+                            sessionStorage.setItem('gender', error.response.data.gender);
+                            sessionStorage.setItem('role', error.response.data.role);
+                            sessionStorage.setItem('user_id', error.response.data.user_id);
+                            
+                            window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
+                                detail: {
+                                    storage: sessionStorage.getItem('isAuthenticated')
+                                }
+                            }));
+                            
+                            this.$router.push("/");
+                        } else {
+                            this.state.errorMsg = error.response.data;
+                            this.state.displayError = true;
+                        }
+                    }); 
+            } else {
+                console.log(this.v$.errors);
+            }
         },
         redirectToSignin() {
             this.$router.push("/signin");

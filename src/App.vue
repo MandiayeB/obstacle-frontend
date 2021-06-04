@@ -51,12 +51,13 @@ export default {
                     icon: "ion-ios-podium",
                 }
             ],
-            connected: false
+            connected: sessionStorage.getItem('isAuthenticated')
         }
     },
     mounted() {
         window.addEventListener('isAuthenticated-sessionStorage-changed', (event) => {
             this.connected = event.detail.storage;
+            console.log(event.detail.storage);
         });
     },
     computed: {

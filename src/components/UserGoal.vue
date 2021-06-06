@@ -9,7 +9,7 @@
 export default {
     name: 'Goal',
     props: {
-        goal: Object
+        goal: { type: Object }
     },
 }
 </script>

@@ -27,11 +27,6 @@ const routes = [
         component: Signin
     },
     {
-        path: '/profile',
-        name: 'Profile',
-        component: Profile
-    },
-    {
         path: '/goal',
         name: 'Goal',
         component: Goal

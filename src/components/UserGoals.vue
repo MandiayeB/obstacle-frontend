@@ -11,11 +11,11 @@ import Goal from './UserGoal'
 
 export default {
     name: 'Goals',
-    props: {
-        goals: Array
-    },
     components: {
         Goal,
+    },
+    props: {
+        goals: { type: Object }
     },
 }
 </script>

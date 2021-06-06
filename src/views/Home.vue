@@ -1,8 +1,12 @@
 <template>
     <div class="homepage">
-        <h1 id="homepage_title">Salut {{ firstname }} !</h1>
-        <h3 id="show_obj">Voici les objectifs que vous vous êtes fixés :</h3>
-        <Goals :goals="goals"/>
+        <h1 id="homepage_title">Salut <span>{{ firstname }}</span> !</h1>
+        <div class="homepage_content">
+            <h3 v-if="goals" class="homepage_text">Voici les objectifs que tu t'es fixés :</h3>
+            <h3 v-else class="homepage_text">La première étape pour atteindre un objectif c'est de s'en fixer un :</h3>
+            <Goals v-if="goals" :goals="goals"/>
+            <button v-else @click="goToGoals" class="designButton">Voir les challenges disponibles</button>
+        </div>
     </div>
 </template>
 
@@ -17,7 +21,7 @@ export default {
     },
     data() {
         return {
-            goals: [],
+            goals: { type: Array },
             firstname: sessionStorage.getItem('firstname')
         }
     },
@@ -29,29 +33,15 @@ export default {
     mounted() {
         axios
             .get('http://localhost:3000/', { withCredentials: true })
-            .then(response => {this.goals = response.data; console.log(response.data);})
+            .then(response => {this.goals = response.data; console.log(response.data)})
             .catch((error) => {
                 console.log(error);
             });
     },
-    created() {
-        // this.goals = [
-        //     {
-        //         id: 1,
-        //         text: "Courir 10km",
-        //         img: "https://stadion-actu.fr/wp-content/uploads/2021/01/Tadesse-Abraham-On-Running-scaled.jpg"
-        //     },
-        //     {
-        //         id: 2,
-        //         text: "Apprendre le PHP",
-        //         img: "https://miro.medium.com/max/12000/1*pUi3vkj06Vqp_sXeiI-UbQ.jpeg"
-        //     },
-        //     {
-        //         id: 3,
-        //         text: "Découvrir la cuisine française",
-        //         img: "https://www.youschool.fr/wp-content/uploads/2019/08/comment-travaille-cuisinier-2.jpg"
-        //     },
-        // ];
-    },
+    methods: {
+        goToGoals() {
+            this.$router.push('/goal');
+        }
+    }
 }
 </script>

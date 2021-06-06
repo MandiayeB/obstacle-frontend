@@ -1,7 +1,7 @@
 <template>
     <div class="user_goal">
-        <h4 id="goal_text">{{ goal.text }}</h4>
-        <img id="goal_img" :src="goal.img" :alt="goal.text">
+        <h4 id="goal_text">{{ goal.title }}</h4>
+        <img id="goal_img" :src="goal.image" :alt="goal.title">
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
     name: 'Goal',
     props: {
-        goal: Object
+        goal: { type: Object }
     },
 }
 </script>

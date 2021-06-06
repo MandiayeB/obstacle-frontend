@@ -50,7 +50,7 @@ export default {
     },
     mounted() {
         axios
-            .get('http://localhost:3000/goal')
+            .get('http://localhost:3000/goal', { withCredentials: true })
             .then(response => {this.data = response.data;})
             .catch((error) => {
                 if (error.response.status === 307) {
@@ -76,8 +76,10 @@ export default {
                     {
                         creation_date: Date.now(), 
                         supposed_end_date: Date.now() + this.actualChallenge.length * 24*60*60*1000,
-                        user_id: 1,
                         difficulty_id: this.actualChallenge.id
+                    }, 
+                    { 
+                        withCredentials: true 
                     }
                 )
                 .catch((error) => {

@@ -105,13 +105,19 @@ export default {
         }
     },
     methods: {
-        handleSubmit(e) {
+        getEmail(value){
+            this.email = value;
+        },
+        handleSubmit() {
             this.v$.$validate();
             if(!this.v$.$error){
                 axios
                     .post("http://localhost:3000/login", {
                         email: this.state.email,
                         password: this.state.password,
+                    }, 
+                    { 
+                        withCredentials: true 
                     })
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
@@ -122,8 +128,6 @@ export default {
                             sessionStorage.setItem('firstname', error.response.data.firstname);
                             sessionStorage.setItem('lastname', error.response.data.lastname);
                             sessionStorage.setItem('gender', error.response.data.gender);
-                            sessionStorage.setItem('role', error.response.data.role);
-                            sessionStorage.setItem('user_id', error.response.data.user_id);
                             
                             window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
                                 detail: {
@@ -132,6 +136,7 @@ export default {
                             }));
                             
                             this.$router.push("/");
+                            
                         } else {
                             this.state.errorMsg = error.response.data;
                             this.state.displayError = true;

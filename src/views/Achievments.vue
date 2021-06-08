@@ -10,17 +10,20 @@
         hoverBackground="rgb(35, 66, 95)"
       />
     </div>
-
     <router-view v-slot="slot">
       <transition name="router-anim" mode="out-in">
         <component :is="slot.Component" />
       </transition>
     </router-view>
+    <div class="achievments">
+        
+    </div>
   </div>
+
 </template>
 
 <script>
-import "/public/style.scss";
+import axios from "axios";
 import ResponsiveNavigation from "./components/ResponsiveNavigation.vue";
 
 export default {
@@ -76,5 +79,5 @@ export default {
             return false;
         }
     },
-};
+}
 </script>

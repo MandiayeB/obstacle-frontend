@@ -50,6 +50,9 @@ option:not(:first-of-type) {
   text-align: center;
 }
 
+.dashboard {
+    
+}
 /* Login.vue */
 #show_obj {
   padding-left: 30px;

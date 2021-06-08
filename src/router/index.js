@@ -4,6 +4,8 @@ import Home from '../views/Homepage';
 import Profile from '../views/Profile';
 import Login from '../views/Login';
 import Goal from '../views/Goal';
+import Dashboard from '../views/Dashboard';
+import Achievments from '../views/Achievments';
 
 const routes = [
     {
@@ -12,14 +14,19 @@ const routes = [
         component: Home
     },
     {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: Dashboard
+    },
+    {
+        path: '/achievments',
+        name: 'Achievments',
+        component: Achievments
+    },
+    {
         path: '/login',
         name: 'Login',
         component: Login
-    },
-    {
-        path: '/profile',
-        name: 'Profile',
-        component: Profile
     },
     {
         path: '/signin',

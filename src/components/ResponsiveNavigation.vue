@@ -57,7 +57,7 @@ export default {
             nav.contains("active") ? nav.remove("active") : nav.add("active");
         },
         disconnect(index) {
-            if (index === 3) {
+            if (index === 4) {
                 sessionStorage.removeItem('isAuthenticated');
                 window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
                     detail: {

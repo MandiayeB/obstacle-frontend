@@ -15,7 +15,7 @@
                     $event.currentTarget.style.background = background || '#fff'
                 "
             >
-                <div @click="disconnect(index)">
+                <div @click="disconnect(link.text)">
                     <router-link :to="link.path" :style="{ color: linkColor || '#DDD' }">
                         {{ link.text }}
                         <i :class="link.icon" />
@@ -42,6 +42,7 @@
 
 <script>
 export default {
+    name: 'ResponsiveNavigation',
     props: [
         "navLinks",
         "background",
@@ -56,8 +57,8 @@ export default {
             const nav = this.$refs.nav.classList;
             nav.contains("active") ? nav.remove("active") : nav.add("active");
         },
-        disconnect(index) {
-            if (index === 4) {
+        disconnect(text) {
+            if (text === "Déconnexion") {
                 sessionStorage.removeItem('isAuthenticated');
                 window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
                     detail: {

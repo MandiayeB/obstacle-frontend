@@ -5,7 +5,7 @@ import Profile from '../views/Profile';
 import Login from '../views/Login';
 import Goal from '../views/Goal';
 import Dashboard from '../views/Dashboard';
-import Achievments from '../views/Achievments';
+import DailyContent from '../views/DailyContent';
 
 const routes = [
     {
@@ -19,9 +19,9 @@ const routes = [
         component: Dashboard
     },
     {
-        path: '/achievments',
-        name: 'Achievments',
-        component: Achievments
+        path: '/dailycontent',
+        name: 'DailyContent',
+        component: DailyContent
     },
     {
         path: '/login',

@@ -1,13 +1,12 @@
 <template>
-    <div class="homepage">
+    <div>
         
     </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
-    name: 'Dashboard',
+    name: 'Content',
+
 }
 </script>

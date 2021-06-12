@@ -10,7 +10,6 @@
         hoverBackground="rgb(35, 66, 95)"
       />
     </div>
-
     <router-view v-slot="slot">
       <transition name="router-anim" mode="out-in">
         <component :is="slot.Component" />

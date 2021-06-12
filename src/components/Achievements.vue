@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit" action="" method="post" class="daily_content_center">
-            <Sport />
+            <Sport v-if="theme === 'Sport'"/>
             <!-- <Computing />
             <Cooking /> -->
             <button class="designButton" type="submit">
@@ -14,11 +14,16 @@ import useValidate from '@vuelidate/core';
 import { required, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
 import Sport from './achievements/Sport.vue';
-
+import axios from 'axios';
 
 export default {
     name: 'Achievements',
     components: { Sport },
+    data(){
+        return{
+            theme: String,
+        };
+    },
     setup(){
         const state = reactive({
             duree: Number,

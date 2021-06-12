@@ -163,21 +163,6 @@ const mailAdressRegex = value => {
     }
     return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value)
 }
-// const verifydisponibility = value => {
-//     axios
-//         .post("http://localhost:3000/signin/verifyEmail", {
-//             email: value,
-//         })
-//         .catch((error) => {
-//             if (error.response.status === 308 || error.response.status === 307) {
-//                 console.log('Lets go')
-//                 return true;
-//             } else {
-//                 console.log(error);
-//                 return false;
-//             }
-//         });
-// }
 
 export default {
     name: 'Signin',

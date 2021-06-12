@@ -4,6 +4,8 @@ import Home from '../views/Home';
 import Profile from '../views/Profile';
 import Login from '../views/Login';
 import Goal from '../views/Goal';
+import Dashboard from '../views/Dashboard';
+import DailyContent from '../views/DailyContent';
 
 const routes = [
     {
@@ -12,14 +14,19 @@ const routes = [
         component: Home
     },
     {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: Dashboard
+    },
+    {
+        path: '/dailycontent',
+        name: 'DailyContent',
+        component: DailyContent
+    },
+    {
         path: '/login',
         name: 'Login',
         component: Login
-    },
-    {
-        path: '/profile',
-        name: 'Profile',
-        component: Profile
     },
     {
         path: '/signin',
@@ -30,6 +37,11 @@ const routes = [
         path: '/goal',
         name: 'Goal',
         component: Goal
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
     }
 ]
 

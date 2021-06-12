@@ -15,7 +15,7 @@
                     $event.currentTarget.style.background = background || '#fff'
                 "
             >
-                <div @click="disconnect(index)">
+                <div @click="disconnect(link.text)">
                     <router-link :to="link.path" :style="{ color: linkColor || '#DDD' }">
                         {{ link.text }}
                         <i :class="link.icon" />
@@ -41,7 +41,10 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
+    name: 'ResponsiveNavigation',
     props: [
         "navLinks",
         "background",
@@ -56,8 +59,11 @@ export default {
             const nav = this.$refs.nav.classList;
             nav.contains("active") ? nav.remove("active") : nav.add("active");
         },
-        disconnect(index) {
-            if (index === 3) {
+        disconnect(text) {
+            if (text === "Déconnexion") {
+                axios
+                .delete('http://localhost:3000/disconnection', { withCredentials: true })
+                .catch((error) => console.log(error));
                 sessionStorage.removeItem('isAuthenticated');
                 window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
                     detail: {

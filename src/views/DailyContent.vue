@@ -2,7 +2,11 @@
     <div class="achievements">
         <h1 class="daily_content_h1">Bienvenue sur votre défi journalier !</h1>
         <Content :content="content"/>
-        <Achievement :theme="theme" :goal_id="goal_id"/>
+        <Achievement 
+            :theme="theme" 
+            :goal_id="goal_id" 
+            :gdc_id="gdc_id"
+        />
     </div>
 </template>
 
@@ -21,6 +25,7 @@ export default {
     data(){
         return{
             goal_id: Number,
+            gdc_id: Number,
             content: Object,
             theme: String,
         };
@@ -33,6 +38,7 @@ export default {
                 { withCredentials: true })
             .then((response) => {
                 this.content = response.data.content;
+                this.gdc_id = response.data.content.gdc_id;
                 this.theme = response.data.theme;
                 console.log(response);
             })

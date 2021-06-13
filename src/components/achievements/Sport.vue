@@ -48,7 +48,8 @@ import axios from "axios";
 export default {
     name: 'Sport',
     props: {
-        goal_id: Number
+        goal_id: Number,
+        gdc_id: Number
     },
     setup(){
         const state = reactive({
@@ -89,10 +90,12 @@ export default {
                                 "duration": this.state.duration,
                                 "observation": this.state.observation
                             },
-                            goal_id: this.goal_id
+                            goal_id: this.goal_id,
+                            gdc_id: this.gdc_id
                         },
                         { withCredentials: true }
                     )
+                    .then(() => this.$router.push('/'))
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
                             this.$router.push("/login");

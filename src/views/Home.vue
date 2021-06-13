@@ -25,11 +25,6 @@ export default {
             firstname: sessionStorage.getItem('firstname')
         }
     },
-    beforeCreate() {
-        if (!sessionStorage.getItem('isAuthenticated')) {
-            this.$router.push("/login");
-        }
-    },
     mounted() {
         axios
             .get('http://localhost:3000/', { withCredentials: true })

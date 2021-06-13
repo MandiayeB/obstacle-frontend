@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Signin from '../views/Signin';
 import Home from '../views/Home';
 import Profile from '../views/Profile';
@@ -6,6 +6,7 @@ import Login from '../views/Login';
 import Goal from '../views/Goal';
 import Dashboard from '../views/Dashboard';
 import DailyContent from '../views/DailyContent';
+import axios from "axios";
 
 const routes = [
     {
@@ -48,6 +49,11 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
+});
+
+router.beforeEach((to, from, next) => {
+    if (to.name !== 'Login' && !sessionStorage.getItem('isAuthenticated')) next({ name: 'Login' }); 
+    else next();
 });
 
 export default router;

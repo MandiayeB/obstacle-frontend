@@ -19,10 +19,8 @@ import axios from 'axios';
 export default {
     name: 'Achievements',
     components: { Sport },
-    data(){
-        return{
-            theme: String,
-        };
+    props: {
+        theme: String,
     },
     setup(){
         const state = reactive({

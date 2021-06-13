@@ -424,6 +424,10 @@ span{
 }
 
 /* UserGoal.vue */
+.router_link_no_underline {
+    text-decoration: none;
+}
+
 .user_goal {
     border: 1px solid rgb(56, 68, 77);
     width: 350px;

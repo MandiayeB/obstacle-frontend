@@ -20,11 +20,6 @@ export default {
             user: Object
         }
     },
-    beforeCreate() {
-        if (!sessionStorage.getItem('isAuthenticated')) {
-            this.$router.push("/login");
-        }
-    },
     created() {
         this.user = {
             id: 1,

@@ -28,7 +28,6 @@ export default {
             displayError: false,
             errorMsg: String,
         })
-
         const rules = computed(() => {
             return {
                 duree: {

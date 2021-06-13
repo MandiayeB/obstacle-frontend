@@ -155,7 +155,7 @@ const passwordRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
         return true
     }
-    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(value)
+    return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^¨£§µ¤])[A-Za-z\d@$!%*#?&^¨£§µ¤]{8,}$/.test(value)
 }
 const mailAdressRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {

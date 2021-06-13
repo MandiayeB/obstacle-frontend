@@ -45,7 +45,6 @@ option:not(:first-of-type) {
   border: 1px solid rgb(56, 68, 77);
   background-color: rgb(25, 39, 52);
 }
-
 #homepage_title {
     text-align: center;
 }
@@ -90,7 +89,7 @@ option:not(:first-of-type) {
 /* Login.vue */
 
 .cadreInput {
-  display: inline-block;
+  display: flex;
   padding: 6px 0;
   font-size: 17px;
   width: 364px;
@@ -153,6 +152,7 @@ span{
     padding-top: 6px;
     padding-bottom: 6px;
 }
+
 .div_select_gender{
     display: flex;
 }
@@ -339,7 +339,9 @@ span{
 .logo_form .logo_form img{
     width: 430px;
 }
+
 /* Profile.vue */
+
 .profile {
     display: table;
     max-width: 1200px;
@@ -354,7 +356,48 @@ span{
     text-align: center;
 }
 
+/* Profile Editing */
+
+.picture_profil img { 
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+.picture_profil{
+    width: 225px;
+    height: 225px;
+    margin-left: 345px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+.adjumentmentInputNom{
+    margin-left: 50px;
+}
+.adjumentmentInputPrenom{
+    margin-left:25px;
+}
+.adjumentmentInputEmail{
+    margin-left:45px;
+}
+
+.adjumentmentCredentials {
+    margin-left: 40px;
+}
+
+.emplacementButton{
+    margin:0px 280px 0px 280px;
+}
+
+.cadreCredentials{
+    margin:0px 200px 0px 230px;
+}
+
 /* UserGoal.vue */
+
 .user_goal {
     border: 1px solid rgb(56, 68, 77);
     width: 350px;

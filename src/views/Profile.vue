@@ -28,10 +28,10 @@ export default {
     created() {
         this.user = {
             id: 1,
-            firstname: 'Mandiaye',
-            lastname: 'Badiane',
-            email: 'mandiaye@gmail.com',
-            role: 'Tryharder',
+            firstname: sessionStorage.getItem('firstname'),
+            lastname: sessionStorage.getItem('lastname'),
+            email: sessionStorage.getItem('email'),
+            role: sessionStorage.getItem('role'),
             image: 'https://photos.lci.fr/images/613/344/kanyewest2020afp-5b6354-0@1x.jpeg'
         };
     },

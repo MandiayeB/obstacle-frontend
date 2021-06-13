@@ -4,6 +4,8 @@ import Home from '../views/Home';
 import Profile from '../views/Profile';
 import Login from '../views/Login';
 import Goal from '../views/Goal';
+import ProfileEditing from '../views/ProfileEditing';
+import ProfilePassword from '../views/ProfilePassword';
 
 const routes = [
     {
@@ -30,6 +32,16 @@ const routes = [
         path: '/goal',
         name: 'Goal',
         component: Goal
+    },
+    {
+        path: '/profile/edit',
+        name: 'ProfileEditing',
+        component: ProfileEditing
+    },
+    {
+        path: '/profile/edit/password',
+        name: 'ProfilePassword',
+        component: ProfilePassword
     }
 ]
 

@@ -6,7 +6,6 @@ import Login from '../views/Login';
 import Goal from '../views/Goal';
 import Dashboard from '../views/Dashboard';
 import DailyContent from '../views/DailyContent';
-import axios from "axios";
 
 const routes = [
     {

@@ -1,11 +1,11 @@
 <template>
-    <div class="achievement_container">
+    <form @submit.prevent="handleSubmit" method="post" class="achievement_container">
         <div class="duration_feeling_achievement">
             <div class="input_container">
                 <div class="input_title_achievement">Combien de temps a duré ce défi ?</div>
                 <input
                     type="number"
-                    v-model="state.duree"
+                    v-model="state.duration"
                     class="inputCadre tailleInput"
                     name="duration"
                     min="0"
@@ -33,22 +33,28 @@
                 autocomplete="off"
             />
         </div>
-    </div>
+        <button class="designButton" type="submit">
+            Valider mon défi !
+        </button>
+    </form>
 </template>
 
 <script>
 import useValidate from '@vuelidate/core';
 import { required, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
-
+import axios from "axios";
 
 export default {
     name: 'Sport',
+    props: {
+        goal_id: Number
+    },
     setup(){
         const state = reactive({
             feelings: [ 'Très Bon', 'Bon', 'Moyen', 'Pas top' ],
             feeling: String,
-            duree: Number,
+            duration: Number,
             observation: "",
             displayError: false,
             errorMsg: String,
@@ -56,7 +62,7 @@ export default {
 
         const rules = computed(() => {
             return {
-                duree: {
+                duration: {
                     required: helpers.withMessage('*Champ obligatoire.',required),
                 },
                 feeling: {
@@ -65,20 +71,28 @@ export default {
             }
         })
         const v$ = useValidate(rules, state);
-        return{
+        return {
             state, 
             v$,
         }
     },
     methods: {
-
         handleSubmit() {
             this.v$.$validate()
-            if(!this.v$.$error){
+            if (!this.v$.$error) {
                 axios
-                    .post("http://localhost:3000/signin", {
-
-                    })
+                    .post("http://localhost:3000/dailycontent/achievement",
+                        { 
+                            theme: "Sport",
+                            fields: {
+                                "feeling": this.state.feeling,
+                                "duration": this.state.duration,
+                                "observation": this.state.observation
+                            },
+                            goal_id: this.goal_id
+                        },
+                        { withCredentials: true }
+                    )
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
                             this.$router.push("/login");

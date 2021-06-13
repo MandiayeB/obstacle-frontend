@@ -2,41 +2,41 @@
     <div class="achievements">
         <h1 class="daily_content_h1">Bienvenue sur votre défi journalier !</h1>
         <Content :content="content"/>
-        <Achievements :theme="theme"/>
+        <Achievement :theme="theme" :goal_id="goal_id"/>
     </div>
 </template>
 
 <script>
 
-import Achievements from "../components/Achievements.vue";
+import Achievement from "../components/Achievement.vue";
 import Content from "../components/Content.vue";
 import axios from "axios";
 
 export default {
     name: 'DailyContent',
     components: {
-        Achievements,
+        Achievement,
         Content,
     },
     data(){
         return{
             goal_id: Number,
-            content: String,
+            content: Object,
             theme: String,
         };
     },
     mounted(){
         this.goal_id = this.$route.params.goal_id;
         axios
-        .post('http://localhost:3000/dailycontent', 
-            { goal_id: this.goal_id },
-            { withCredentials: true })
-        .then((response) => {
-            this.content = response.data.content;
-            this.theme = response.data.theme;
-            console.log(response);
-        })
-        .catch((error) => console.log(error));
+            .post('http://localhost:3000/dailycontent', 
+                { goal_id: this.goal_id },
+                { withCredentials: true })
+            .then((response) => {
+                this.content = response.data.content;
+                this.theme = response.data.theme;
+                console.log(response);
+            })
+            .catch((error) => console.log(error));
     }
 }
 </script>

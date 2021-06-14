@@ -127,7 +127,7 @@
                     </div>
                 </form>
             <div class="passwordForget">
-                <router-link class="router_link_no_underline" to="/login">
+                <router-link to="/login">
                     Déjà inscrit ? Se connecter
                 </router-link>
             </div>

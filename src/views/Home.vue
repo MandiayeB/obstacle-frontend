@@ -1,8 +1,8 @@
 <template>
-    <div class="homepage">
-        <h1 id="homepage_title">Salut <span>{{ firstname }}</span> !</h1>
+    <div class="page_container">
+        <h1 class="title">Salut <span>{{ firstname }}</span> !</h1>
         <div class="homepage_content">
-            <h3 v-if="goals" class="homepage_text">Voici les objectifs que tu t'es fixés :</h3>
+            <h3 v-if="goals.length > 0" class="homepage_text">Voici les objectifs que tu t'es fixés :</h3>
             <h3 v-else class="homepage_text">La première étape pour atteindre un objectif c'est de s'en fixer un</h3>
             <Goals v-if="goals.length > 0" :goals="goals"/>
             <button v-else @click="goToGoals" class="designButton">Voir les challenges disponibles</button>

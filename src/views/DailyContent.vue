@@ -1,6 +1,6 @@
 <template>
-    <div class="achievements">
-        <h1 class="daily_content_h1">Bienvenue sur votre défi journalier !</h1>
+    <div class="page_container">
+        <h1 class="title">Bienvenue sur votre défi journalier !</h1>
         <Content :content="content"/>
         <Achievement 
             :theme="theme" 

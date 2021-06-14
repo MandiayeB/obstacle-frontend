@@ -36,7 +36,7 @@ option:not(:first-of-type) {
 }
 
 /* Homepage.vue */
-.homepage {
+.page_container {
   display: block;
   max-width: 900px;
   margin: 100px auto;
@@ -46,17 +46,16 @@ option:not(:first-of-type) {
   background-color: rgb(25, 39, 52);
 }
 
-#homepage_title {
+.title {
     text-align: center;
 }
-#homepage_title span {
+.title span {
     font-size: inherit;
     color: rgb(43, 140, 189, 1);
     font-weight: 600;
 }
+
 /* DailyContent.vue */
-
-
 .daily_content_center{
     max-width: 900px;
 }
@@ -90,29 +89,18 @@ option:not(:first-of-type) {
     padding: 0px;
     margin: 20px auto;
 }
-.daily_content_h1{
-    text-align: center;
-}
 .tailleInput{
     font-size: 17px;
     padding: 14px 16px;
     width: 330px;
     border-radius: 6px;
 }
-/* Componsant achievments */
-.achievements {
-    display: block;
-    max-width: 900px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgb(56, 68, 77);
-    background-color: rgb(25, 39, 52);
-}
+/* Componsant achievements */
 .input_duration_achievement{
     padding-top: 3px;
     padding-bottom: 6px;
 }
+
 /* Login.vue */
 #show_obj {
   padding-left: 30px;
@@ -333,20 +321,16 @@ span{
   
 .passwordForget {
     display: block;
-    width: 167px;
+    text-decoration: none;
+    text-align: center;
     margin-top: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    border-bottom: 1px solid rgb(106, 108, 119);
+    font-size: 14px;
+    font-weight: 500;
     color: rgb(106, 108, 119);
 }
 
 .passwordForget a {
-    color: rgb(106, 108, 119);
-    font-size: 14px;
-    font-weight: 500;
-    margin-left: auto;
-    margin-right: auto;
+    color: inherit;
 }
 
 .cadreInput .tailleInput {

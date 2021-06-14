@@ -51,7 +51,9 @@
                     </div>
                 </form>
             <div class="passwordForget">
-                <a href=""> Mot de passe oublié&nbsp;?</a>
+                <router-link to="/login">
+                    Mot de passe oublié ?
+                </router-link>
             </div>
             <div class="separateur"></div>
                 <router-link class="router_link_no_underline" to="/signin">

@@ -30,7 +30,7 @@ export default {
             theme: String,
         };
     },
-    mounted(){
+    mounted() {
         this.goal_id = this.$route.params.goal_id;
         axios
             .post('http://localhost:3000/dailycontent', 
@@ -40,7 +40,6 @@ export default {
                 this.content = response.data.content;
                 this.gdc_id = response.data.content.gdc_id;
                 this.theme = response.data.theme;
-                console.log(response);
             })
             .catch((error) => console.log(error));
     }

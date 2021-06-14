@@ -66,6 +66,22 @@ option:not(:first-of-type) {
     width: 100%;
     justify-content: space-evenly;
 } 
+.achievement_content{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgb(56, 68, 77);
+    width: 500px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 7px;
+    margin: 30px auto;
+}
+.achievement_content h1{
+    font-size: 23px;
+    font-weight: 400;
+    color:#e5e5e8;
+}
 .duration_feeling_achievement{
     max-width: 364px;
 }
@@ -91,6 +107,7 @@ option:not(:first-of-type) {
     margin: 20px auto;
 }
 .daily_content_h1{
+    color:#e5e5e8;
     text-align: center;
 }
 .tailleInput{

@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="achievement_content">
         <h1>{{ content.content }}</h1>
+        <img id="achievement_img" :src="content.image">
     </div>
 </template>
 
@@ -8,7 +9,8 @@
 export default {
     name: 'Content',
     props: {
-        content: Object
+        content: Object,
+        image: String,
     }
 }
 </script>

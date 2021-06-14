@@ -1,9 +1,10 @@
 <template>
     <div class="achievements">
-        <h1 class="daily_content_h1">Bienvenue sur votre défi journalier !</h1>
+        <h1 class="daily_content_h1">Voici votre défi du jour :</h1>
         <Content 
             :content="content"
             :image="image"
+            :count="count.count"
         />
         <Achievement 
             :theme="theme" 
@@ -32,6 +33,7 @@ export default {
             content: Object,
             image: String,
             theme: String,
+            count: Number,
         };
     },
     mounted(){
@@ -45,6 +47,7 @@ export default {
                 this.image = response.data.image;
                 this.gdc_id = response.data.content.gdc_id;
                 this.theme = response.data.theme;
+                this.count = response.data.count;
                 console.log(response);
             })
             .catch((error) => console.log(error));

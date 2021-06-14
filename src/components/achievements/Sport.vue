@@ -10,7 +10,7 @@
                     name="duration"
                     min="0"
                     max="90"
-                    placeholder="Durée"
+                    placeholder="Durée en minutes"
                     autocomplete="off"
                     required
                 />
@@ -29,7 +29,7 @@
                 class="inputCadre tailleInput"
                 name="observation"
                 maxlength="272"
-                placeholder="Remarque"
+                placeholder="Remarque (optionnel)"
                 autocomplete="off"
             />
         </div>

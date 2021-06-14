@@ -34,12 +34,12 @@ const routes = [
         component: Goal
     },
     {
-        path: '/profile/edit',
+        path: '/profilediting',
         name: 'ProfileEditing',
         component: ProfileEditing
     },
     {
-        path: '/profile/edit/password',
+        path: '/profilepassword',
         name: 'ProfilePassword',
         component: ProfilePassword
     }

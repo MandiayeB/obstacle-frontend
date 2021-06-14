@@ -1,51 +1,53 @@
 <template>
-    <div class="homepage">
-        <h1 id="homepage_title">Profil</h1>
+    <div class="container_profile">
+        <h1>Profil</h1>
         <div class="separateur"></div>
-            <div class="picture_profil">
+            <div class="picture_profile">
                 <img :src="state.user.image" :alt="state.user.firstname" />
             </div>
-            <input type ="file" @change="onFileSelected">
-            <img id="myImg" src="#">
-        <div class ="cadreCredentials">
-            <div class="cadreInput">
-                <h3 class ="ajustementCredentials">Prénom </h3>
-                <input
-                    type="text"
-                    class="inputCadre tailleInput adjumentmentInputPrenom"
-                    name="fistname"
-                    :placeholder="state.user.firstname"
-                    v-model="state.fnQuery"
-                />
-                <span class="name_span" v-if="v$.fnQuery.$error">
-                    {{ v$.fnQuery.$errors[0].$message }}
-                </span>
+        <div class ="profile_editing_frame">
+            <div class="profile_editing_credentials">
+                <h3>Prénom </h3>
+                <h3>Nom </h3>
+                <h3>Email </h3>
             </div>
-            <div class="cadreInput">
-                <h3 class="ajustementCredentials">Nom </h3>
-                <input
-                    type="text"
-                    class="inputCadre tailleInput adjumentmentInputNom"
-                    name="lastname"
-                    :placeholder="state.user.lastname"
-                    v-model="state.lnQuery"
-                />
-                <span class="name_span" v-if="v$.lnQuery.$error">
-                    {{ v$.lnQuery.$errors[0].$message }}
-                </span>
-            </div>
-            <div class="cadreInput">
-                <h3 class="ajustementCredentials">Email </h3>
-                <input
-                    type="text"
-                    class="inputCadre tailleInput adjumentmentInputEmail"
-                    name="email"
-                    :placeholder="state.user.email"
-                    v-model="state.emailQuery"
-                />
-                <span v-if="v$.emailQuery.$error">
-                    {{ v$.emailQuery.$errors[0].$message }}
-                </span>
+            <div class="profile_editing_credentials">
+                <div class="profile_input_frame">
+                    <input
+                        type="text"
+                        class="inputCadre tailleInput"
+                        name="fistname"
+                        :placeholder="state.user.firstname"
+                        v-model="state.fnQuery"
+                    />
+                    <span class="name_span" v-if="v$.fnQuery.$error">
+                        {{ v$.fnQuery.$errors[0].$message }}
+                    </span>
+                </div>
+                <div class="profile_input_frame">
+                    <input
+                        type="text"
+                        class="inputCadre tailleInput"
+                        name="lastname"
+                        :placeholder="state.user.lastname"
+                        v-model="state.lnQuery"
+                    />
+                    <span class="name_span" v-if="v$.lnQuery.$error">
+                        {{ v$.lnQuery.$errors[0].$message }}
+                    </span>
+                </div>
+                <div class="profile_input_frame">
+                    <input
+                        type="text"
+                        class="inputCadre tailleInput"
+                        name="email"
+                        :placeholder="state.user.email"
+                        v-model="state.emailQuery"
+                    />
+                    <span v-if="v$.emailQuery.$error">
+                        {{ v$.emailQuery.$errors[0].$message }}
+                    </span>
+                </div>
             </div>
         </div>
         <div class="emplacementButton">
@@ -56,7 +58,7 @@
             </form>
         </div>
         <div class="passwordForget">
-            <router-link :to="'/profile/edit/password'">
+            <router-link :to="'/profilepassword'">
                 <a> Changer le mot de passe </a>
             </router-link>
         </div>
@@ -66,7 +68,7 @@
 <script>
 import axios from "axios";
 import useValidate from '@vuelidate/core';
-import { required, minLength, maxLength, sameAs, helpers } from '@vuelidate/validators';
+import { minLength, maxLength, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
  
 const firstnameRegex = value => {
@@ -122,7 +124,6 @@ export default {
         return{
             state, 
             v$,
-            selectedFile: null,
         }
     },
     beforeCreate() {
@@ -130,27 +131,8 @@ export default {
             this.$router.push("/login");
         }
     },
-    created() {
-        
-    },
     methods: {
-        onFileSelected(event) {
-            console.log(event.target.files[0]);
-            this.selectedFile = event.target.files[0];
-        },
-        changePicture() {
-
-               if(this.files && this.files[0]) {
-                   var img = document.querySelector('img');
-                   img.onload=() => {
-                       URL.revokeObjectURL(img.src);
-                   }
-                   img.src = URL.createObjectURL(this.files[0]);
-                   console.log('LALSASLASLA')
-               }
-        },
         editing(){
-           
             this.v$.$validate()
             if(!this.v$.$error){
                 axios
@@ -159,7 +141,6 @@ export default {
                         firstname: this.state.fnQuery,
                         lastname: this.state.lnQuery,
                         email: this.state.emailQuery,
-                        
                     })
                     .catch((error) => {
                         if(error.response.status === 308){

@@ -2,7 +2,7 @@
     <div class="container_profile">
         <div id="profile_header">
             <h1 id="profile_title">Profil</h1>
-            <router-link id="profile_setting_wheel" :to="'/profile/edit'">
+            <router-link id="profile_setting_wheel" :to="'/profilediting'">
                 <img id="profile_setting_wheel_img" src="../assets/images/settings.png" />
             </router-link>
         </div>

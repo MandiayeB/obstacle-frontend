@@ -92,7 +92,7 @@ option:not(:first-of-type) {
   display: flex;
   padding: 6px 0;
   font-size: 17px;
-  width: 364px;
+  width: 500px;
   margin-left:15px;
 }
 
@@ -383,17 +383,25 @@ span{
 .adjumentmentInputEmail{
     margin-left:45px;
 }
-
+.adjumentmentPassword {
+    margin:auto;
+}
 .adjumentmentCredentials {
     margin-left: 40px;
+    margin: auto
 }
 
 .emplacementButton{
-    margin:0px 280px 0px 280px;
+    width: 350px;
+    margin: auto;
 }
 
 .cadreCredentials{
-    margin:0px 200px 0px 230px;
+    width:500px;
+    margin: auto;
+}
+.cadreoldPassword {
+    width:500px;
 }
 
 /* UserGoal.vue */
@@ -453,6 +461,13 @@ span{
     border-radius: 7px;
     border: 1px solid rgb(56, 68, 77);
     padding-bottom: 5px;
+}
+.ajustementCredentials{
+    size: 200px;
+    max-width: 190px;
+}
+.cadreProfil {
+    width:500px;
 }
 .credentials {
     margin: 15px 0 10px 20px;

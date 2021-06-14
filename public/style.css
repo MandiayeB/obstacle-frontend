@@ -332,10 +332,13 @@ span{
 }
   
 .passwordForget {
-  margin-top: 16px;
-  color: rgb(106, 108, 119);
-  width: 100%;
-  display: flex;
+    display: block;
+    width: 167px;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid rgb(106, 108, 119);
+    color: rgb(106, 108, 119);
 }
 
 .passwordForget a {

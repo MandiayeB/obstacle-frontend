@@ -50,9 +50,9 @@ const router = createRouter({
     routes
 });
 
-router.beforeEach((to, from, next) => {
-    if (to.name !== 'Login' && !sessionStorage.getItem('isAuthenticated')) next({ name: 'Login' }); 
-    else next();
-});
+// router.beforeEach((to, from, next) => {
+//     if (to.name !== 'Login' && !sessionStorage.getItem('isAuthenticated')) next({ name: 'Login' }); 
+//     else next();
+// });
 
 export default router;

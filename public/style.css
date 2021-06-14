@@ -77,6 +77,10 @@ option:not(:first-of-type) {
     border-radius: 7px;
     margin: 30px auto;
 }
+#achievement_img{
+    width: 475px;
+    height: 268px;
+}
 .achievement_content h1{
     font-size: 23px;
     font-weight: 400;
@@ -127,6 +131,7 @@ option:not(:first-of-type) {
     border-radius: 10px;
     border: 1px solid rgb(56, 68, 77);
     background-color: rgb(25, 39, 52);
+    overflow: hidden;
 }
 .input_duration_achievement{
     padding-top: 3px;

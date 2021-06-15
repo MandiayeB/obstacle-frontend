@@ -8,7 +8,7 @@
         </div>
         <div class="separateur"></div>
             <div class="profile_picture">
-                <img :src="user.image" :alt="user.firstname" />
+                <img src="../assets/images/exempleProfilAnonyme.png" :alt="user.firstname" />
             </div>
         <div class ="profile_frame">
             <div class="profile_credential_frame">
@@ -41,7 +41,7 @@ export default {
             lastname: sessionStorage.getItem('lastname'),
             email: sessionStorage.getItem('email'),
             role: sessionStorage.getItem('role'),
-            image: 'https://photos.lci.fr/images/613/344/kanyewest2020afp-5b6354-0@1x.jpeg'
+
         };
     },
 }

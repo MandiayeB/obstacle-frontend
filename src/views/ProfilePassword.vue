@@ -110,7 +110,6 @@ export default {
         editing(){
             this.v$.$validate();
             if(!this.v$.$error){
-                console.log('Hello?');
                 axios
                     .put("http://localhost:3000/profile/editPassword", {
                         emailsession: sessionStorage.getItem("email"),

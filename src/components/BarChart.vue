@@ -1,0 +1,50 @@
+<script>
+import { Bar } from "vue3-chart-v2";
+
+export default {
+    name: 'BarChart',
+    extends: Bar,
+    props: {
+        achievements: Array,
+        options: Object
+    },
+    mounted() {
+        const datasets = [];
+        const dates = [];
+        const colors = [
+            '#F0FFFF',
+            '#5F9EA0',
+            '#008B8B',
+            '#8B008B',
+            '#E9967A',
+            '#8FBC8F',
+            '#483D8B',
+            '#DAA520',
+            '#CD5C5C',
+            '#ADD8E6'
+        ]
+
+        this.achievements.forEach((achievement, index) => {
+            
+            achievement.forEach(acm => {
+                if (!dates.includes(acm.date)) {
+                    dates.push(acm.date);
+                }
+            })
+            
+            const durations = achievement.map(d => d.duration);
+            datasets.push({
+                label: achievement[0].title,
+                backgroundColor: colors[index],
+                data: durations
+            });
+        });
+
+        this.renderChart({
+            labels: dates,
+            datasets: datasets
+        },
+        this.options);
+    }
+}
+</script>

@@ -36,26 +36,26 @@ option:not(:first-of-type) {
 }
 
 /* Homepage.vue */
-.homepage {
-    display: block;
-    max-width: 900px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgb(56, 68, 77);
-    background-color: rgb(25, 39, 52);
+.page_container {
+  display: block;
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgb(56, 68, 77);
+  background-color: rgb(25, 39, 52);
 }
-#homepage_title {
+
+.title {
     text-align: center;
 }
-#homepage_title span {
+.title span {
     font-size: inherit;
     color: rgb(43, 140, 189, 1);
     font-weight: 600;
 }
+
 /* DailyContent.vue */
-
-
 .daily_content_center{
     max-width: 900px;
 }
@@ -136,6 +136,7 @@ option:not(:first-of-type) {
     padding-top: 3px;
     padding-bottom: 6px;
 }
+
 /* Login.vue */
 #show_obj {
   padding-left: 30px;
@@ -351,18 +352,17 @@ span{
 }
   
 .passwordForget {
-  margin-top: 16px;
-  color: rgb(106, 108, 119);
-  width: 100%;
-  display: flex;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(106, 108, 119);
 }
 
 .passwordForget a {
-    color: rgb(106, 108, 119);
-    font-size: 14px;
-    font-weight: 500;
-    margin-left: auto;
-    margin-right: auto;
+    color: inherit;
 }
 
 .cadreInput .tailleInput {
@@ -976,4 +976,10 @@ span{
 .screen_display .difficulty .difficile {
     color: rgb(255, 51, 0);
     text-shadow: rgb(230, 79, 53)1px 0 10px;
+}
+
+/* Dashboard */
+
+#barchart {
+    margin-top: 40px;
 }

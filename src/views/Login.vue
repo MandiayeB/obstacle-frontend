@@ -51,16 +51,16 @@
                     </div>
                 </form>
             <div class="passwordForget">
-                <a href=""> Mot de passe oublié&nbsp;?</a>
+                <router-link to="/login">
+                    Mot de passe oublié ?
+                </router-link>
             </div>
             <div class="separateur"></div>
-            <div class="unButton">
-                <form @submit.prevent="redirectToSignin" action="" method="post">
-                    <button value="" class="designButton" type="submit">
+                <router-link class="router_link_no_underline" to="/signin">
+                    <button class="designButton">
                         Créer un compte
                     </button>
-                </form>
-            </div>
+                </router-link>
         </div>
     </div>
 </template>
@@ -145,9 +145,6 @@ export default {
             } else {
                 console.log(this.v$.errors);
             }
-        },
-        redirectToSignin() {
-            this.$router.push("/signin");
         }
     },
 };

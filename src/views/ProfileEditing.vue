@@ -57,8 +57,8 @@
                 </button>
             </form>
         </div>
-        <div id="profile_forget_password">
-            <router-link class="forget_password" :to="'/profilepassword'">
+        <div class="passwordForget">
+            <router-link to="/profilepassword">
                 Changer le mot de passe
             </router-link>  
         </div>

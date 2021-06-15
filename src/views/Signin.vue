@@ -127,7 +127,9 @@
                     </div>
                 </form>
             <div class="passwordForget">
-                <a href="/login"> Déjà inscrit ? Se connecter </a>
+                <router-link to="/login">
+                    Déjà inscrit ? Se connecter
+                </router-link>
             </div>
         </div>
     </div>

@@ -37,22 +37,17 @@ export default {
                 {
                     text: "Dashboard",
                     path: "/dashboard",
-                    icon: "ion-ios-home",
-                },
-                {
-                    text: "Profil",
-                    path: "/profile",
-                    icon: "ion-ios-person",
+                    icon: "ion-ios-stats",
                 },
                 {
                     text: "Objectifs",
                     path: "/goal",
-                    icon: "ion-ios-podium",
+                    icon: "ion-ios-basketball",
                 },
                 {
                     text: "Déconnexion",
                     path: "/login",
-                    icon: "ion-ios-podium",
+                    icon: "ion-ios-log-out",
                 }
             ],
             connected: sessionStorage.getItem('isAuthenticated')
@@ -61,13 +56,12 @@ export default {
     mounted() {
         window.addEventListener('isAuthenticated-sessionStorage-changed', (event) => {
             this.connected = event.detail.storage;
-            console.log(event.detail.storage);
         });
     },
     computed: {
         isAuthenticated() {
             return this.connected;
-        },
+        }
     },
-};
+}
 </script>

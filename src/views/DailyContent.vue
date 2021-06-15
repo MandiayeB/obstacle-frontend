@@ -36,7 +36,7 @@ export default {
             count: Number,
         };
     },
-    mounted(){
+    mounted() {
         this.goal_id = this.$route.params.goal_id;
         axios
             .post('http://localhost:3000/dailycontent', 

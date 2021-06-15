@@ -506,6 +506,11 @@ span{
     position: relative;
 }
 
+#profile_file_input file{
+    width: 300px;
+    height: 20px;
+    margin: 0px auto 10px auto;
+}
 .password_span {
     position: absolute;
     top: 55px;

@@ -3,7 +3,7 @@
         <h1 id="profile_editing_title">Profil</h1>
         <div class="separateur"></div>
             <div class="profile_picture">
-                <img :src="state.user.image" :alt="state.user.firstname" />
+                <img id="profile_picture" :src="state.user.image" :alt="state.user.firstname" />
             </div>
         <div class ="profile_editing_frame">
             <div class="profile_editing_credentials">
@@ -62,7 +62,6 @@
                 Changer le mot de passe
             </router-link>  
         </div>
-
     </div>
 </template>
 
@@ -104,7 +103,7 @@ export default {
             },
             fnQuery: "",
             lnQuery:"",
-            emailQuery:""
+            emailQuery:"",
         })     
         const rules = computed(() => {
             return {
@@ -136,12 +135,16 @@ export default {
         editing(){
             this.v$.$validate()
             if(!this.v$.$error){
+
                 axios
                     .put("http://localhost:3000/profile/editCredentials", {
                         emailsession: sessionStorage.getItem("email"),
                         firstname: this.state.fnQuery,
                         lastname: this.state.lnQuery,
                         email: this.state.emailQuery,
+                    })
+                    .then(res => {
+                        console.log(res);
                     })
                     .catch((error) => {
                         if(error.response.status === 308){

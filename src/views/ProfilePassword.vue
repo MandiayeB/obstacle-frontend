@@ -2,45 +2,49 @@
     <div class="homepage">
         <h1 id="homepage_title">Changer votre mot de passe</h1>
         <div class="separateur"></div>
-        <div class ="cadreCredentials">
-            <div class="cadreoldPassword cadreProdil cadreInput">
-                <h3 class ="ajustementCredentials">Ancien mot de passe </h3>
-                <input
-                    type="password"
-                    class="inputCadre tailleInput adjumentmentPassword"
-                    name="password"
-                    placeholder="Ancien mot de passe"
-                    v-model="state.password.oldPassword"
-                />
-                <span v-if="v$.password.oldPassword.$error">
-                    {{ v$.password.oldPassword.$errors[0].$message }}
-                </span>
+        <div class ="edit_password">
+            <div class ="ajustementCredentials">
+                <h3>Ancien mot de passe </h3>
+                <h3>Confirmer votre nouveau mot de passe </h3>
+                <h3>Nouveau mot de passe </h3>
             </div>
-            <div class="cadreProfil cadreInput">
-                <h3 class="ajustementCredentials">Nouveau mot de passe </h3>
-                <input
-                    type="password"
-                    class="inputCadre tailleInput adjumentmentPassword"
-                    name="newPassword"
-                    placeholder="Nouveau mot de passe"
-                    v-model="state.password.newPassword"
-                />
-                <span v-if="v$.password.newPassword.$error">
-                    {{ v$.password.newPassword.$errors[0].$message }}
-                </span>
-            </div>
-            <div class="cadreProfil cadreInput">
-                <h3 class="ajustementCredentials">Confirmer votre nouveau mot de passe </h3>
-                <input
-                    type="password"
-                    class="inputCadre tailleInput adjumentmentPassword"
-                    name="newpassword"
-                    placeholder="Confirmer votre nouveau mot de passe"
-                    v-model="state.password.confirmPassword"
-                />
-                <span v-if="v$.password.confirmPassword.$error">
-                    {{ v$.password.confirmPassword.$errors[0].$message }}
-                </span>
+            <div class ="password_input">
+                <div class="cadreInput">
+                    <input
+                        type="password"
+                        class="size_password inputCadre"
+                        name="password"
+                        placeholder="Ancien mot de passe"
+                        v-model="state.password.oldPassword"
+                    />
+                    <span v-if="v$.password.oldPassword.$error">
+                        {{ v$.password.oldPassword.$errors[0].$message }}
+                    </span>
+                </div>
+                <div class="cadreInput">
+                    <input
+                        type="password"
+                        class="size_password inputCadre"
+                        name="newPassword"
+                        placeholder="Nouveau mot de passe"
+                        v-model="state.password.newPassword"
+                    />
+                    <span v-if="v$.password.newPassword.$error">
+                        {{ v$.password.newPassword.$errors[0].$message }}
+                    </span>
+                </div>
+                <div class="cadreInput">
+                    <input
+                        type="password"
+                        class="size_password inputCadre "
+                        name="newpassword"
+                        placeholder="Confirmer votre nouveau mot de passe"
+                        v-model="state.password.confirmPassword"
+                    />
+                    <span v-if="v$.password.confirmPassword.$error">
+                        {{ v$.password.confirmPassword.$errors[0].$message }}
+                    </span>
+                </div>
             </div>
         </div>
         <div class="emplacementButton">

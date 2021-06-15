@@ -3,7 +3,7 @@
         <h1 id="profile_editing_title">Profil</h1>
         <div class="separateur"></div>
             <div class="profile_picture">
-                <img id="profile_picture" :src="state.user.image" :alt="state.user.firstname" />
+                <img src="../assets/images/exempleProfilAnonyme.png" :alt="state.user.firstname" />
             </div>
         <div class ="profile_editing_frame">
             <div class="profile_editing_credentials">
@@ -99,7 +99,6 @@ export default {
                 lastname: sessionStorage.getItem("lastname"),
                 email: sessionStorage.getItem("email"),
                 role: sessionStorage.getItem("role"),
-                image:"https://photos.lci.fr/images/613/344/kanyewest2020afp-5b6354-0@1x.jpeg",
             },
             fnQuery: "",
             lnQuery:"",

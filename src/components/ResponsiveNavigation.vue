@@ -33,7 +33,7 @@
         </div>
         <div class="profile_header_icon">
             <router-link :to="'/profile'" >
-                <img src="../assets/images/exempleProfil.jpg" />
+                <img src="../assets/images/exempleProfilAnonyme.png" />
             </router-link>
         </div>
     </div>

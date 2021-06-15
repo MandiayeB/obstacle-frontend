@@ -1,14 +1,14 @@
 <template>
-    <div class="homepage">
-        <h1 id="homepage_title">Changer votre mot de passe</h1>
+    <div class="container_profile">
+        <h1 id="profile_password_title">Changer votre mot de passe</h1>
         <div class="separateur"></div>
-        <div class ="edit_password">
-            <div class ="ajustementCredentials">
-                <h3>Ancien mot de passe </h3>
-                <h3>Confirmer votre nouveau mot de passe </h3>
-                <h3>Nouveau mot de passe </h3>
+        <div class="edit_password">
+            <div class="profile_password_h3">
+                <h3>Ancien mot de passe :</h3>
+                <h3>Nouveau mot de passe :</h3>
+                <h3>Confirmer mot de passe :</h3>
             </div>
-            <div class ="password_input">
+            <div class="password_input">
                 <div class="cadreInput">
                     <input
                         type="password"
@@ -17,7 +17,7 @@
                         placeholder="Ancien mot de passe"
                         v-model="state.password.oldPassword"
                     />
-                    <span v-if="v$.password.oldPassword.$error">
+                    <span class="password_span" v-if="v$.password.oldPassword.$error">
                         {{ v$.password.oldPassword.$errors[0].$message }}
                     </span>
                 </div>
@@ -29,7 +29,7 @@
                         placeholder="Nouveau mot de passe"
                         v-model="state.password.newPassword"
                     />
-                    <span v-if="v$.password.newPassword.$error">
+                    <span class="password_span" v-if="v$.password.newPassword.$error">
                         {{ v$.password.newPassword.$errors[0].$message }}
                     </span>
                 </div>
@@ -38,16 +38,16 @@
                         type="password"
                         class="size_password inputCadre "
                         name="newpassword"
-                        placeholder="Confirmer votre nouveau mot de passe"
+                        placeholder="Confirmer mot de passe"
                         v-model="state.password.confirmPassword"
                     />
-                    <span v-if="v$.password.confirmPassword.$error">
+                    <span class="password_span" v-if="v$.password.confirmPassword.$error">
                         {{ v$.password.confirmPassword.$errors[0].$message }}
                     </span>
                 </div>
             </div>
         </div>
-        <div class="emplacementButton">
+        <div class="profile_button">
             <form @submit.prevent="editing" action="" method="post">
                 <button class="designButton" type="submit"> 
                     Modifier

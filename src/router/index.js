@@ -6,6 +6,8 @@ import Login from '../views/Login';
 import Goal from '../views/Goal';
 import Dashboard from '../views/Dashboard';
 import DailyContent from '../views/DailyContent';
+import ProfileEditing from '../views/ProfileEditing';
+import ProfilePassword from '../views/ProfilePassword';
 
 const routes = [
     {
@@ -42,6 +44,16 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: Profile
+    },
+    {
+        path: '/profilediting',
+        name: 'ProfileEditing',
+        component: ProfileEditing
+    },
+    {
+        path: '/profilepassword',
+        name: 'ProfilePassword',
+        component: ProfilePassword
     }
 ]
 

@@ -68,13 +68,6 @@ export default {
         isAuthenticated() {
             return this.connected;
         },
-        location() {
-            if (this.$route.name === 'Login' || this.$route.name === 'Signin') {
-                console.log('Location : ' + this.$route.name);
-                return true;
-            }
-            return false;
-        }
     },
 };
 </script>

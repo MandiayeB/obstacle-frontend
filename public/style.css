@@ -37,15 +37,14 @@ option:not(:first-of-type) {
 
 /* Homepage.vue */
 .homepage {
-  display: block;
-  max-width: 900px;
-  margin: 100px auto;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid rgb(56, 68, 77);
-  background-color: rgb(25, 39, 52);
+    display: block;
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
 }
-
 #homepage_title {
     text-align: center;
 }
@@ -178,10 +177,10 @@ option:not(:first-of-type) {
 /* Login.vue */
 
 .cadreInput {
-  display: inline-block;
+  display: flex;
   padding: 6px 0;
   font-size: 17px;
-  width: 364px;
+  width: 500px;
   margin-left:15px;
 }
 
@@ -238,10 +237,6 @@ span{
 
 .birthdate_signin, .gender_signin{
     margin-left: 15px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-.feeling_achievement {
     padding-top: 6px;
     padding-bottom: 6px;
 }
@@ -432,7 +427,9 @@ span{
 .logo_form .logo_form img{
     width: 430px;
 }
+
 /* Profile.vue */
+
 .profile {
     display: table;
     max-width: 1200px;
@@ -445,6 +442,226 @@ span{
 
 #profile_names {
     text-align: center;
+}
+
+/* Profile.vue */
+
+.container_profile {
+    display: block;
+    max-width: 600px;
+    min-width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
+}
+
+.profile_header{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+#profile_setting_wheel_img{
+    width: 30px;
+    height: 30px;
+}
+
+#profile_setting_wheel{
+    position: absolute;
+    bottom: 10px;
+    left: 575px;
+    align-self: flex-end;
+}
+
+#profile_title{
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#profile_editing_title{
+    width: 76px;
+    margin: 0 auto;
+}
+
+#profile_password_title {
+    text-align: center;
+}
+
+.profile_picture{
+    width: 225px;
+    height: 225px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.profile_picture img{ 
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+.profile_frame{
+    display: flex;
+    width: 354px;
+    margin: 0 auto;
+}
+
+.profile_credential_frame{
+    display: grid;
+}
+
+.profile_page_h3{
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 0px;
+    margin-right: 12px;
+}
+
+.profile_page_p{
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
+    color: rgb(102 143 225);
+    font-size: 23px;
+    margin-bottom: 0px;
+    margin-top: 17px;
+    padding: 7px 7px 7px 10px;
+}
+
+.profile_editing_frame{
+    display: flex;
+    width: 368px;
+    margin: 0 auto;
+}
+
+.profile_editing_credentials{
+    display: grid;
+    max-height: 280px;
+    
+}
+
+/* Profile Editing */
+
+.profile_input{
+    background: rgb(43, 48, 58) url(/rsrc.php/v3/yO/r/YQNfPR9MJfx.png) repeat-x;
+    border: 1px solid #6c6f72;
+    color: #c9d0ddc2;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 22px;
+    line-height: 16px;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 200px;
+    border-radius: 6px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.profile_input_frame{
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.profile_input_frame .name_span{
+    position: absolute;
+    top: 50px;
+}
+
+.picture_profil img { 
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+.password_input{
+    width: 390px;
+    max-height: 350px;
+    display: grid;
+}
+
+.password_input .cadreInput {
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 300px;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+#profile_file_input file{
+    width: 300px;
+    height: 20px;
+    margin: 0px auto 10px auto;
+}
+.password_span {
+    position: absolute;
+    top: 55px;
+}
+
+.edit_password {
+    width: 500px;
+    height: 350px;
+    display: flex;
+    margin: 50px auto 0px auto;
+}
+
+.profile_editing_credentials .profile_page_h3{
+    margin-top: 9px;
+    margin-bottom: 40px;
+    margin-right: 0px;
+    width: 130px;
+}
+
+.picture_profile{
+    width: 225px;
+    height: 225px;
+    margin-left: 345px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.profile_button{
+    width: 300px;
+    margin: 0px auto 15px auto;
+}
+
+.profile_button .designButton{
+    margin-left: 0px;
+    width: 300px;
+}
+.adjumentmentInputNom{
+    margin-left: 50px;
+}
+.adjumentmentInputPrenom{
+    margin-left:25px;
+}
+.adjumentmentInputEmail{
+    margin-left:45px;
+}
+.adjumentmentPassword {
+    margin:auto;
+}
+.adjumentmentCredentials {
+    margin-left: 40px;
+    margin: auto
+}
+
+.emplacementButton{
+    width: 350px;
+    margin: auto;
+}
+
+.cadreCredentials{
+    width:500px;
+    margin: auto;
 }
 
 /* UserGoal.vue */
@@ -499,27 +716,95 @@ span{
     justify-content: space-evenly;
 }
 
-/* ProfileBody.vue */
-.container {
-    display: flex;
-    width: 1000px;
-    margin-top: 20px;
-    border-radius: 7px;
+/* Profile.vue */
+.container_profile {
+    display: block;
+    max-width: 600px;
+    min-width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
     border: 1px solid rgb(56, 68, 77);
-    padding-bottom: 5px;
+    background-color: rgb(25, 39, 52);
+}
+
+.size_password {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 250px;
+    border-radius: 6px;
+}
+
+.profile_password_h3 {
+    max-height: 335px;
+}
+
+.profile_password_h3 h3{
+    width: 230px;
+    margin-top: 10px;
+    margin-bottom: 95px;
+
+}
+
+#profile_header{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+#profile_setting_wheel_img{
+    width: 30px;
+    height: 30px;
+}
+
+#profile_setting_wheel{
+    position: absolute;
+    bottom: 10px;
+    left: 575px;
+    align-self: flex-end;
+}
+
+#profile_title{
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.profile_picture{
+    width: 225px;
+    height: 225px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#profile_picture { 
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+.profile_frame{
+    display: flex;
+    width: 354px;
+    margin: 0 auto;
+}
+
+.profile_credential_frame{
+    display: grid;
+}
+
+/* ProfileBody.vue */
+
+.cadreProfil {
+    width:500px;
 }
 .credentials {
     margin: 15px 0 10px 20px;
 }
 
 /* ProfileHeader.vue */
-.profile_header {
-    display: flex;
-    width: 550px;
-    overflow: hidden;
-    border-radius: 7px;
-    border: 1px solid rgb(56, 68, 77);
-}
+
 
 #profile_names {
     white-space: nowrap;

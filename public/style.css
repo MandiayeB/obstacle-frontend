@@ -655,3 +655,9 @@ span{
     color: rgb(255, 51, 0);
     text-shadow: rgb(230, 79, 53)1px 0 10px;
 }
+
+/* Dashboard */
+
+#barchart {
+    margin-top: 40px;
+}

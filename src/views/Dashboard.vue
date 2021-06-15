@@ -1,50 +1,55 @@
 <template>
     <div class="page_container">
         <h1 class="title">Bienvenue sur votre tableau de bord !</h1>
-        <Chart 
-            v-if="goals" 
-            @mounted="setDataSets" 
-            :goals="goals"
-            :feeling="feeling"
-            :duration="duration"
-        />
+        <BarChart
+            v-if="achievements.length > 0"
+            :achievements="achievements" 
+            :options="chartOptions"
+            id="barchart"
+        >
+        </BarChart>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-import Chart from '../components/Chart.vue';
+import BarChart from '../components/BarChart.vue';
+import moment from 'moment';
 
 export default {
     name: 'Dashboard',
     components: {
-        Chart
+        BarChart
     },
     data() {
         return {
-            goals: [],
-            feeling: [],
-            duration: []
+            achievements: [],
+            chartOptions: {
+                responsive: true,
+                maintainAspectRatio: false,
+            }
         }
     },
     mounted() {
         axios
             .get('http://localhost:3000/dashboard',
                 { withCredentials: true })
-            .then(response => { this.goals = response.data; })
-            .catch((error) => console.log(error));
-    },
-    methods: {
-        setDataSets() {
-            console.log(this.goals);
-            console.log("test");
-            this.goals.forEach(goal => {
-                goal.forEach(acm => {
-                    this.feeling.push(acm.theme.fields.feeling);
-                    this.duration.push(acm.theme.fields.duration);
+            .then(response => { 
+                response.data.forEach(goal => {
+                    let challenge = [];
+                    goal.forEach(acm => {
+                        const date = moment(acm.created_at, "YYYYMMDD").format("DD/MM");
+                        challenge.push({ 
+                            title: acm.title,
+                            date, 
+                            feeling: acm.achievement.theme.fields.feeling, 
+                            duration: acm.achievement.theme.fields.duration 
+                        });
+                    });
+                    this.achievements.push(challenge);
                 });
-            });
-        }
+            })
+            .catch((error) => console.log(error));
     }
 }
 </script>

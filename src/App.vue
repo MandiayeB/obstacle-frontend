@@ -68,5 +68,5 @@ export default {
             return this.connected;
         }
     },
-};
+}
 </script>

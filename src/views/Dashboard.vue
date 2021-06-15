@@ -1,7 +1,13 @@
 <template>
     <div class="page_container">
         <h1 class="title">Bienvenue sur votre tableau de bord !</h1>
-        <Chart :goals="goals"/>
+        <Chart 
+            v-if="goals" 
+            @mounted="setDataSets" 
+            :goals="goals"
+            :feeling="feeling"
+            :duration="duration"
+        />
     </div>
 </template>
 
@@ -16,15 +22,29 @@ export default {
     },
     data() {
         return {
-            goals: []
+            goals: [],
+            feeling: [],
+            duration: []
         }
     },
     mounted() {
         axios
             .get('http://localhost:3000/dashboard',
                 { withCredentials: true })
-            .then((response) => { this.goals = response.data; console.log(response.data); })
+            .then(response => { this.goals = response.data; })
             .catch((error) => console.log(error));
+    },
+    methods: {
+        setDataSets() {
+            console.log(this.goals);
+            console.log("test");
+            this.goals.forEach(goal => {
+                goal.forEach(acm => {
+                    this.feeling.push(acm.theme.fields.feeling);
+                    this.duration.push(acm.theme.fields.duration);
+                });
+            });
+        }
     }
 }
 </script>

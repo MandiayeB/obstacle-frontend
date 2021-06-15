@@ -1,21 +1,21 @@
 <template>
     <div class="container_profile">
-        <h1>Profil</h1>
+        <h1 id="profile_editing_title">Profil</h1>
         <div class="separateur"></div>
-            <div class="picture_profile">
+            <div class="profile_picture">
                 <img :src="state.user.image" :alt="state.user.firstname" />
             </div>
         <div class ="profile_editing_frame">
             <div class="profile_editing_credentials">
-                <h3>Prénom </h3>
-                <h3>Nom </h3>
-                <h3>Email </h3>
+                <h3 class="profile_page_h3">Prénom :</h3>
+                <h3 class="profile_page_h3">Nom :</h3>
+                <h3 class="profile_page_h3">Email :</h3>
             </div>
             <div class="profile_editing_credentials">
                 <div class="profile_input_frame">
                     <input
                         type="text"
-                        class="inputCadre tailleInput"
+                        class="profile_input"
                         name="fistname"
                         :placeholder="state.user.firstname"
                         v-model="state.fnQuery"
@@ -27,7 +27,7 @@
                 <div class="profile_input_frame">
                     <input
                         type="text"
-                        class="inputCadre tailleInput"
+                        class="profile_input"
                         name="lastname"
                         :placeholder="state.user.lastname"
                         v-model="state.lnQuery"
@@ -39,7 +39,7 @@
                 <div class="profile_input_frame">
                     <input
                         type="text"
-                        class="inputCadre tailleInput"
+                        class="profile_input"
                         name="email"
                         :placeholder="state.user.email"
                         v-model="state.emailQuery"
@@ -50,18 +50,19 @@
                 </div>
             </div>
         </div>
-        <div class="emplacementButton">
+        <div class="profile_button">
             <form @submit.prevent="editing" action="" method="post">
                 <button class="designButton" type="submit"> 
                     Modifier
                 </button>
             </form>
         </div>
-        <div class="passwordForget">
-            <router-link :to="'/profilepassword'">
-                <a> Changer le mot de passe </a>
-            </router-link>
+        <div id="profile_forget_password">
+            <router-link class="forget_password" :to="'/profilepassword'">
+                Changer le mot de passe
+            </router-link>  
         </div>
+
     </div>
 </template>
 

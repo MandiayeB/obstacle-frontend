@@ -1,6 +1,6 @@
 <template>
     <div class="container_profile">
-        <div id="profile_header">
+        <div class="profile_header">
             <h1 id="profile_title">Profil</h1>
             <router-link id="profile_setting_wheel" :to="'/profilediting'">
                 <img id="profile_setting_wheel_img" src="../assets/images/settings.png" />
@@ -8,7 +8,7 @@
         </div>
         <div class="separateur"></div>
             <div class="profile_picture">
-                <img id="profile_picture" :src="user.image" :alt="user.firstname" />
+                <img :src="user.image" :alt="user.firstname" />
             </div>
         <div class ="profile_frame">
             <div class="profile_credential_frame">

@@ -31,8 +31,8 @@ export default {
             goal_id: Number,
             gdc_id: Number,
             content: Object,
-            image: String,
-            theme: String,
+            image: "",
+            theme: "",
             count: Number,
         };
     },
@@ -48,7 +48,6 @@ export default {
                 this.gdc_id = response.data.content.gdc_id;
                 this.theme = response.data.theme;
                 this.count = response.data.count;
-                console.log(response);
             })
             .catch((error) => console.log(error));
     }

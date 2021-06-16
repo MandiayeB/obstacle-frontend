@@ -513,10 +513,10 @@ span{
 }
 
 .profile_page_h3{
+    width: 120px;
     font-weight: 500;
     font-size: 25px;
     margin-bottom: 0px;
-    margin-right: 12px;
 }
 
 .profile_page_p{
@@ -772,8 +772,6 @@ span{
     width: 225px;
     height: 225px;
     margin: 30px auto;
-    overflow: hidden;
-    border-radius: 50%;
 }
 
 #profile_picture { 

@@ -27,6 +27,13 @@ export default {
             chartOptions: {
                 responsive: true,
                 maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
         }
     },

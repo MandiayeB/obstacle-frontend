@@ -12,14 +12,14 @@ export default {
         const datasets = [];
         const dates = [];
         const colors = [
-            '#F0FFFF',
             '#5F9EA0',
-            '#008B8B',
             '#8B008B',
             '#E9967A',
+            '#008B8B',
             '#8FBC8F',
             '#483D8B',
             '#DAA520',
+            '#F0FFFF',
             '#CD5C5C',
             '#ADD8E6'
         ]

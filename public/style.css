@@ -590,6 +590,7 @@ span{
     width: 300px;
     margin-bottom: 0px;
     position: relative;
+    display: flex;
 }
 
 #profile_file_input file{

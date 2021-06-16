@@ -30,9 +30,10 @@ export default {
                 if (!dates.includes(acm.date)) {
                     dates.push(acm.date);
                 }
-            })
+            });
             
             const durations = achievement.map(d => d.duration);
+            
             datasets.push({
                 label: achievement[0].title,
                 backgroundColor: colors[index],

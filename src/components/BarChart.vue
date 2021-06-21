@@ -26,26 +26,29 @@ export default {
 
         this.achievements.forEach((achievement, index) => {
             
-            achievement.forEach(acm => {
+            for (const acm of achievement) {
                 if (!dates.includes(acm.date)) {
                     dates.push(acm.date);
                 }
-            });
+            }
             
             const durations = achievement.map(d => d.duration);
-            
+
             datasets.push({
                 label: achievement[0].title,
                 backgroundColor: colors[index],
-                data: durations
+                data: durations,
             });
         });
 
-        this.renderChart({
-            labels: dates,
-            datasets: datasets
-        },
-        this.options);
+        console.log(datasets);
+        this.renderChart(
+            {
+                labels: dates,
+                datasets: datasets
+            },
+            this.options
+        );
     }
 }
 </script>

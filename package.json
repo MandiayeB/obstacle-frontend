@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "heroku-prebuild": "npm install -g @vue/cli-service && npm install -g @vue/cli-plugin-babel && npm install -g @vue/babel-preset-app",
-    "start": "npm run serve",
-    "serve": "./node_modules/.bin/vue-cli-service serve",
-    "build": "./node_modules/.bin/vue-cli-service build"
+    "start": "node server.js",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "@vue/cli": "^5.0.0-alpha.8",
@@ -15,7 +14,9 @@
     "axios": "^0.21.1",
     "chart.js": "^3.3.2",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "moment": "^2.29.1",
+    "serve-static": "^1.14.1",
     "vue": "^3.0.11",
     "vue-chartjs": "^3.5.1",
     "vue-router": "^4.0.6",

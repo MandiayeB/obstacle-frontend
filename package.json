@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "heroku-prebuild": "npm install -g @vue/cli-service && npm install -g @vue/cli-plugin-babel",
+    "heroku-prebuild": "npm install -g @vue/cli-service && npm install -g @vue/cli-plugin-babel && npm install -g @vue/babel-preset-app",
     "start": "npm run serve",
     "serve": "./node_modules/.bin/vue-cli-service serve",
     "build": "./node_modules/.bin/vue-cli-service build"

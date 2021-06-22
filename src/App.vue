@@ -48,14 +48,25 @@ export default {
                     text: "Déconnexion",
                     path: "/login",
                     icon: "ion-ios-log-out",
-                }
+                },
             ],
-            connected: sessionStorage.getItem('isAuthenticated')
+            connected: sessionStorage.getItem('isAuthenticated'),
+            isAdmin: false,
         }
     },
     mounted() {
-        window.addEventListener('isAuthenticated-sessionStorage-changed', (event) => {
+        window.addEventListener('authentification-changed', (event) => {
             this.connected = event.detail.storage;
+            this.isAdmin = event.detail.role;
+            if (this.isAdmin) {
+                if (this.navLinks.filter(nav => nav.text === "Nouveau Challenge").length < 1) {
+                    this.navLinks.splice(3, 0, {
+                        text: "Nouveau Challenge",
+                        path: "/addChallenge",
+                        icon: "ion-ios-basketball",
+                    });
+                }
+            }
         });
     },
     computed: {

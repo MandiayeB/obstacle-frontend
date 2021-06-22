@@ -8,6 +8,7 @@ import Dashboard from '../views/Dashboard';
 import DailyContent from '../views/DailyContent';
 import ProfileEditing from '../views/ProfileEditing';
 import ProfilePassword from '../views/ProfilePassword';
+import AddChallenge from '../views/AddChallenge';
 
 const routes = [
     {
@@ -54,6 +55,11 @@ const routes = [
         path: '/profilepassword',
         name: 'ProfilePassword',
         component: ProfilePassword
+    },
+    {
+        path: '/addChallenge',
+        name: 'AddChallenge',
+        component: AddChallenge
     }
 ]
 

@@ -65,9 +65,10 @@ export default {
                 .delete('http://localhost:3000/disconnection', { withCredentials: true })
                 .catch((error) => console.log(error));
                 sessionStorage.removeItem('isAuthenticated');
-                window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
+                window.dispatchEvent(new CustomEvent('authentification-changed', {
                     detail: {
-                        storage: sessionStorage.getItem('isAuthenticated')
+                        storage: sessionStorage.getItem('isAuthenticated'),
+                        role: false
                     }
                 }));
             }

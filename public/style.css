@@ -281,7 +281,7 @@ span{
 .select_gender, .select_feeling{
     width: 363px;
 }
-.select_gender, .select_day_birth, .select_month_birth, .select_year_birth, .select_feeling{
+.select_gender, .select_day_birth, .select_month_birth, .select_year_birth, .select_feeling, .select_challenge{
     padding: 14px 16px;
     color: #afafaf;
     background-color: rgb(43, 48, 58);
@@ -974,6 +974,86 @@ span{
     text-shadow: rgb(230, 79, 53)1px 0 10px;
 }
 
+/* Add Challenge */
+
+#add_challenge_title {
+    
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.button_challenge {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.challenge_input {
+  padding: 6px 0;
+  font-size: 17px;
+  width: 364px;
+  margin-left:15px;
+  display: grid;
+
+}
+
+.select_challenge {
+    margin-bottom: 30px;
+}
+
+.add_challenge_container {
+    display: block;
+    max-width: 1100px;
+    min-width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
+}
+
+.add_challenge_header {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+.challenge_container {
+    width: 500px;
+    display: flex;
+    margin: 50px auto 0px auto;
+}
+.challenge_h3 {
+    display: grid;
+    margin-bottom: 50px;
+}
+.h3_challenge {
+    max-height: 200px;
+    width: 100px;
+}
+.size_challenge {
+    font-size: 17px;
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.new_difficulty {
+    border: 1px solid rgb(80, 89, 99);
+    border-radius: 10px;
+}
+
+.h3_difficulty {
+    display: flex;
+    width: 1100px;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+.input_difficulty {
+    display: flex;
+    justify-content: space-around;
+}
 /* Dashboard */
 
 #barchart {

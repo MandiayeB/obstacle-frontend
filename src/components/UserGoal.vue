@@ -10,7 +10,7 @@
 <script>
 
 export default {
-    name: 'Goal',
+    name: 'UserGoal',
     props: {
         goal: { type: Object }
     }

@@ -1,12 +1,14 @@
 <template>
     <div class="achievements">
         <h1 class="daily_content_h1">Voici votre défi du jour :</h1>
-        <Content 
+        <Content
+            v-if="content.content"
             :content="content"
             :image="image"
-            :count="count.count"
+            :count="parseInt(count.count, 10)"
         />
         <Achievement 
+            v-if="content.content"
             :theme="theme" 
             :goal_id="goal_id" 
             :gdc_id="gdc_id"
@@ -31,13 +33,13 @@ export default {
             goal_id: Number,
             gdc_id: Number,
             content: Object,
-            image: "",
-            theme: "",
+            image: String,
+            theme: String,
             count: Number,
         };
     },
     mounted() {
-        this.goal_id = this.$route.params.goal_id;
+        this.goal_id = parseInt(this.$route.params.goal_id, 10);
         axios
             .post('http://localhost:3000/dailycontent', 
                 { goal_id: this.goal_id },

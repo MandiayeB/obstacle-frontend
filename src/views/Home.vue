@@ -28,7 +28,7 @@ export default {
     mounted() {
         axios
             .get('http://localhost:3000/', { withCredentials: true })
-            .then(response => {this.goals = response.data;})
+            .then(response => { this.goals = response.data; })
             .catch((error) => {
                 console.log(error);
             });

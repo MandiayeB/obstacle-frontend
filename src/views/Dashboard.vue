@@ -1,20 +1,19 @@
 <template>
     <div class="page_container">
         <h1 class="title">Bienvenue sur votre tableau de bord !</h1>
-        <BarChart
-            v-if="achievements.length > 0"
-            :achievements="achievements" 
-            :options="chartOptions"
-            id="barchart"
-        >
-        </BarChart>
+        <div class="chart">
+            <BarChart
+                v-if="achievements.length > 0"
+                :achievements="achievements"
+            >
+            </BarChart>
+        </div>
     </div>
 </template>
 
 <script>
 import axios from "axios";
 import BarChart from '../components/BarChart.vue';
-import moment from 'moment';
 
 export default {
     name: 'Dashboard',
@@ -23,30 +22,19 @@ export default {
     },
     data() {
         return {
-            achievements: [],
-            chartOptions: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
+            achievements: []
         }
     },
     mounted() {
         axios
             .get('http://localhost:3000/dashboard',
                 { withCredentials: true })
-            .then(response => { 
+            .then(response => {
                 response.data.forEach(goal => {
                     let challenge = [];
                     goal.forEach(acm => {
-                        const date = moment(acm.created_at, "YYYYMMDD").format("DD/MM");
-                        challenge.push({ 
+                        const date = new Date(acm.created_at);
+                        challenge.push({
                             title: acm.title,
                             date, 
                             feeling: acm.achievement.theme.fields.feeling, 

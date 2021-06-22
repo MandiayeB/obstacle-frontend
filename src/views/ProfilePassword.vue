@@ -60,7 +60,7 @@
 <script>
 import axios from "axios";
 import useValidate from '@vuelidate/core';
-import { required, minLength, maxLength, sameAs, helpers } from '@vuelidate/validators';
+import { required, sameAs, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
 
 const passwordRegex = value => {

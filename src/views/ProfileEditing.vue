@@ -5,6 +5,7 @@
             <div class="profile_picture">
                 <img src="../assets/images/exempleProfilAnonyme.png" :alt="state.user.firstname" />
             </div>
+        <UploadingFile />
         <div class ="profile_editing_frame">
             <div class="profile_editing_credentials">
                 <h3 class="profile_page_h3">Prénom :</h3>
@@ -66,6 +67,7 @@
 </template>
 
 <script>
+import UploadingFile from '../components/UploadingFile.vue';
 import axios from "axios";
 import useValidate from '@vuelidate/core';
 import { minLength, maxLength, helpers } from '@vuelidate/validators';
@@ -92,6 +94,9 @@ const mailAdressRegex = value => {
 
 export default {
     name: "Setting",
+    components: {
+        UploadingFile,
+    },
     setup() {
         const state = reactive({
             user: {

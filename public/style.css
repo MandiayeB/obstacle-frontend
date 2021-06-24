@@ -988,6 +988,12 @@ span{
     justify-content: space-around;
 }
 
+.button_admin{
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+}
+
 .challenge_input {
   padding: 6px 0;
   font-size: 17px;

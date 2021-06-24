@@ -89,7 +89,7 @@
 import axios from "axios";
 
 export default {
-    name: 'Challenge',
+    name: 'AddChallenge',
     data () {
         return {
             challenge: [],
@@ -102,13 +102,15 @@ export default {
         axios.get('http://localhost:3000/addChallenge')
             .then(response => {
                 for(let i=0; i<response.data.length; i++){
-                    console.log(response.data);
                     const theme = [response.data[i].name];
-                    const acti = [response.data[i].activity[0].name];
-                    this.activite.push(acti);
-                    this.challenge.push(theme);
+                    this.challenge.push(theme); 
+                    for(let y=0; y<response.data[i].activity.length; y++){
+                        console.log(response.data);
+                        const acti = [response.data[i].activity[y].name];
+                        this.activite.push(acti);
+                    } 
                 }
-            })
+        })
     },
     methods: {
         add() {

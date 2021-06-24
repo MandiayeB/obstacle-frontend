@@ -59,10 +59,10 @@ export default {
             this.connected = event.detail.storage;
             this.isAdmin = event.detail.role;
             if (this.isAdmin) {
-                if (this.navLinks.filter(nav => nav.text === "Nouveau Challenge").length < 1) {
+                if (this.navLinks.filter(nav => nav.text === "Admin/Coach").length < 1) {
                     this.navLinks.splice(3, 0, {
-                        text: "Nouveau Challenge",
-                        path: "/addChallenge",
+                        text: "Admin/Coach",
+                        path: "/Challenge",
                         icon: "ion-ios-basketball",
                     });
                 }

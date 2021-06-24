@@ -9,7 +9,7 @@ import DailyContent from '../views/DailyContent';
 import ProfileEditing from '../views/ProfileEditing';
 import ProfilePassword from '../views/ProfilePassword';
 import AddChallenge from '../views/AddChallenge';
-import Challenge from '../views/Challenge';
+import AdminCoach from '../views/AdminCoach';
 import Difficulty from '../views/Difficulty';
 
 const routes = [
@@ -59,14 +59,14 @@ const routes = [
         component: ProfilePassword
     },
     {
-        path: '/addChallenge',
+        path: '/addchallenge',
         name: 'AddChallenge',
         component: AddChallenge
     },
     {
-        path: '/challenge',
-        name: 'Challenge',
-        component: Challenge
+        path: '/admincoach',
+        name: 'AdminCoach',
+        component: AdminCoach
     },
     {
         path: '/difficulty',

@@ -62,7 +62,7 @@ export default {
                 if (this.navLinks.filter(nav => nav.text === "Admin/Coach").length < 1) {
                     this.navLinks.splice(3, 0, {
                         text: "Admin/Coach",
-                        path: "/Challenge",
+                        path: "/admincoach",
                         icon: "ion-ios-basketball",
                     });
                 }

@@ -15,7 +15,7 @@
                     $event.currentTarget.style.background = background || '#fff'
                 "
             >
-                <div @click="disconnect(link.text)">
+                <div @click="interact(link.text)">
                     <router-link :to="link.path" :style="{ color: linkColor || '#DDD' }">
                         {{ link.text }}
                         <i :class="link.icon" />
@@ -42,6 +42,8 @@
 
 <script>
 import axios from "axios";
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 export default {
     name: 'ResponsiveNavigation',
@@ -59,7 +61,7 @@ export default {
             const nav = this.$refs.nav.classList;
             nav.contains("active") ? nav.remove("active") : nav.add("active");
         },
-        disconnect(text) {
+        interact(text) {
             if (text === "Déconnexion") {
                 axios
                 .delete('http://localhost:3000/disconnection', { withCredentials: true })
@@ -70,6 +72,17 @@ export default {
                         storage: sessionStorage.getItem('isAuthenticated')
                     }
                 }));
+            } else if (text === "Dashboard") {
+                createToast(
+                    { 
+                        title: 'Constate ton avancement 🏅', 
+                        description: 'Bah dis-donc, t\'es fortiche toi !'
+                    },
+                    {
+                        type: 'info',
+                        position: 'bottom-right'
+                    }
+                );
             }
         },
     },

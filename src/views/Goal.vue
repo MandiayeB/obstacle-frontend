@@ -25,6 +25,8 @@
 import Theme from '../components/Theme';
 import Screen from '../components/Screen.vue';
 import axios from "axios";
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 export default {
     name: 'Goal',
@@ -77,7 +79,33 @@ export default {
                         withCredentials: true 
                     }
                 )
+                .then(() => {
+                    createToast(
+                        { 
+                            title: 'Objectif enregistré !', 
+                            description: 'On te souhaite du courage 🔥'
+                        },
+                        {
+                            timeout: 3000,
+                            showIcon: true,
+                            type: 'success',
+                            position: 'bottom-right'
+                        }
+                    );
+                })
                 .catch((error) => {
+                    createToast(
+                        { 
+                            title: 'Pas plus d\'un objectif par challenge.', 
+                            description: 'Tout doux cowboy...'
+                        },
+                        {
+                            timeout: 3000,
+                            showIcon: true,
+                            type: 'warning',
+                            position: 'bottom-right'
+                        }
+                    );
                     console.log(error);
                 });
         }

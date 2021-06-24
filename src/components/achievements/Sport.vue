@@ -44,6 +44,8 @@ import useValidate from '@vuelidate/core';
 import { required, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
 import axios from "axios";
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 export default {
     name: 'Sport',
@@ -95,7 +97,21 @@ export default {
                         },
                         { withCredentials: true }
                     )
-                    .then(() => this.$router.push('/'))
+                    .then(() => {
+                        createToast(
+                            { 
+                                title: 'Accomplissement enregistré !', 
+                                description: 'Tu te débrouilles super bien !'
+                            },
+                            {
+                                timeout: 3000,
+                                showIcon: true,
+                                type: 'success',
+                                position: 'bottom-right'
+                            }
+                        );
+                        this.$router.push('/');
+                    })
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
                             this.$router.push("/login");

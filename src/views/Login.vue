@@ -70,6 +70,8 @@ import axios from "axios";
 import useValidate from '@vuelidate/core';
 import { required, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 const mailAdressRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
@@ -134,7 +136,20 @@ export default {
                                     storage: sessionStorage.getItem('isAuthenticated')
                                 }
                             }));
-                            
+
+                            createToast(
+                                { 
+                                    title: 'Connecté !', 
+                                    description: 'Êtes-vous prêts à relever le défi ?'
+                                },
+                                {
+                                    timeout: 3000,
+                                    showIcon: true,
+                                    type: 'success',
+                                    position: 'bottom-right'
+                                }
+                            );
+
                             this.$router.push("/");
                             
                         } else {

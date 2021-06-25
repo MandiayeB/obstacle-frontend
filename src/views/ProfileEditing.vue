@@ -3,9 +3,11 @@
         <h1 id="profile_editing_title">Profil</h1>
         <div class="separateur"></div>
             <div class="profile_picture">
-                <img src="../assets/images/exempleProfilAnonyme.png" :alt="state.user.firstname" />
+                <img :src="state.user.picture" :alt="state.user.firstname" />
             </div>
-        <UploadingFile />
+        <UploadingFile  
+            
+        />
         <div class ="profile_editing_frame">
             <div class="profile_editing_credentials">
                 <h3 class="profile_page_h3">Prénom :</h3>
@@ -104,6 +106,7 @@ export default {
                 lastname: sessionStorage.getItem("lastname"),
                 email: sessionStorage.getItem("email"),
                 role: sessionStorage.getItem("role"),
+                picture: sessionStorage.getItem("profilePicture"),
             },
             fnQuery: "",
             lnQuery:"",

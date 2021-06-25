@@ -7,9 +7,13 @@
             </router-link>
         </div>
         <div class="separateur"></div>
-            <div class="profile_picture">
-                <img src="../assets/images/exempleProfilAnonyme.png" :alt="user.firstname" />
-            </div>
+        <div class="profile_picture">
+            <ProfilePicture
+                v-if="user.firstname"
+                :profilePicture="remoteUrl"
+                :firstname="user.firstname"
+            />
+        </div>
         <div class ="profile_frame">
             <div class="profile_credential_frame">
                 <h3 class ="profile_page_h3">Prénom :</h3>
@@ -26,12 +30,15 @@
 </template>
 
 <script>
+import ProfilePicture from '../components/ProfilePicture.vue';
 
 export default {
     name: 'Profile',
+    components: { ProfilePicture },
     data() {
         return {
-            user: Object
+            user: Object,
+            remoteUrl: sessionStorage.getItem('picture'),
         }
     },
     created() {
@@ -41,8 +48,14 @@ export default {
             lastname: sessionStorage.getItem('lastname'),
             email: sessionStorage.getItem('email'),
             role: sessionStorage.getItem('role'),
-
         };
+    },
+    mounted(){
+        window.addEventListener('profilePicture-changed', (event) => {
+            if (event.detail.profilePictureChanged){
+                this.remoteUrl = sessionStorage.getItem('picture');
+            }
+        });
     },
 }
 </script>

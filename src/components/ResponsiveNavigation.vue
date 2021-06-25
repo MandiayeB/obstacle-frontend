@@ -33,7 +33,11 @@
         </div>
         <div class="profile_header_icon">
             <router-link :to="'/profile'" >
-                <img src="../assets/images/exempleProfilAnonyme.png" />
+                <ProfilePicture
+                    v-if="firstname"
+                    :profilePicture="remoteUrl"
+                    :firstname="firstname"
+                />
             </router-link>
         </div>
     </div>
@@ -42,9 +46,17 @@
 
 <script>
 import axios from "axios";
+import ProfilePicture from './ProfilePicture.vue';
 
 export default {
     name: 'ResponsiveNavigation',
+    components: { ProfilePicture },
+    data(){
+        return{
+            remoteUrl: sessionStorage.getItem('picture'),
+            firstname: sessionStorage.getItem('firstname'),
+        }
+    },
     props: [
         "navLinks",
         "background",
@@ -54,6 +66,13 @@ export default {
         "imageProfile",
         "home",
     ],
+    mounted(){
+        window.addEventListener('profilePicture-changed', (event) => {
+            if (event.detail.profilePictureChanged){
+                this.remoteUrl = sessionStorage.getItem('picture');
+            }
+        });
+    },
     methods: {
         toggleNav() {
             const nav = this.$refs.nav.classList;

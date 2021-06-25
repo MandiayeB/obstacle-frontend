@@ -130,6 +130,7 @@ export default {
                             sessionStorage.setItem('firstname', error.response.data.firstname);
                             sessionStorage.setItem('lastname', error.response.data.lastname);
                             sessionStorage.setItem('gender', error.response.data.gender);
+                            sessionStorage.setItem('picture', error.response.data.picture);
                             
                             window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
                                 detail: {

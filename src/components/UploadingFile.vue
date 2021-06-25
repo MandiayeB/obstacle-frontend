@@ -1,37 +1,53 @@
 <template>
-    <div>
-            <div class="profile_picture">
-                <img :src="remoteUrl" />
-            </div>
+        <div class="profile_picture">
+            <ProfilePicture
+                v-if="firstname"
+                :profilePicture="remoteUrl"
+                :firstname="firstname"
+            />
+        </div>
         <input type="file"  @change="onFileSelected">
         <button @click="onUpload">Upload</button>
-    </div>
 </template>
 
 <script>
 import axios from 'axios';
+import ProfilePicture from './ProfilePicture.vue'
 const FormData = require('form-data')
 const fs = require('fs')
 const path = require('path')
 
 export default {
     name:'UploadingFile',
+    components: { ProfilePicture },
     data() {
         return {
-            selectedFile: null,
-            image: '',
-            remoteUrl: '',
+            selectedFile: Object,
+            image: String,
+            remoteUrl: sessionStorage.getItem('picture'),
+            
         }
+    },
+    props:{
+        firstname: String,
+    },
+    mounted(){
+        window.addEventListener('profilePicture-changed', (event) => {
+            if (event.detail.profilePictureChanged){
+                this.remoteUrl = sessionStorage.getItem('picture');
+            }
+        });
     },
     methods:{
         onFileSelected(event){
             const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
             this.selectedFile = event.target.files[0];
+            console.log(typeof(this.selectedFile));
             if(!allowedTypes.includes(this.selectedFile.type)){
                 console.log("only images are required !");
             }
-            if(this.selectedFile.size> 500000){
-                console.log("Too large, max size allowed is 500KB");
+            if(this.selectedFile.size> 2000000){
+                console.log("Too large, max size allowed is 2000KB");
             }
         },
         createBase64Image(fileObject) {
@@ -44,7 +60,6 @@ export default {
             read.readAsDataURL(fileObject);
         },
         onUpload(){
-            
             const picture = new FormData();
             picture.append('picture', this.selectedFile, this.selectedFile.name);
             console.log(picture.get('picture'));
@@ -57,26 +72,16 @@ export default {
                     }
                 )
                 .then(res => {
-                    console.log(res.data.url);
-                    this.remoteUrl = res.data.url;
+                    sessionStorage.setItem('picture', res.data.url);
+                    this.remoteUrl = sessionStorage.getItem('picture');
+                    window.dispatchEvent(new CustomEvent('profilePicture-changed', {
+                        detail: {
+                            profilePictureChanged: true
+                        }
+                    }));
                 })
                 .catch(error => console.log(error))
-            
         },
-        // onFileChange(e){
-
-        // },
-        // createImage(file){
-        //     let image = new Image();
-        //     let reader = new FileReader();
-        //     var vm = this;
-
-        //     read.onload = (e) => {
-        //         vm.image = e.target.resuilt;
-        //         vm.set('img');
-        //     };
-        //     reader.readAsDataURL(file);
-        // }
     }
 }
 </script>

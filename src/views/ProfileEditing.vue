@@ -2,11 +2,9 @@
     <div class="container_profile">
         <h1 id="profile_editing_title">Profil</h1>
         <div class="separateur"></div>
-            <div class="profile_picture">
-                <img :src="state.user.picture" :alt="state.user.firstname" />
-            </div>
         <UploadingFile  
-            
+            v-if="state.user.firstname"
+            :firstname="state.user.firstname"
         />
         <div class ="profile_editing_frame">
             <div class="profile_editing_credentials">
@@ -106,7 +104,6 @@ export default {
                 lastname: sessionStorage.getItem("lastname"),
                 email: sessionStorage.getItem("email"),
                 role: sessionStorage.getItem("role"),
-                picture: sessionStorage.getItem("profilePicture"),
             },
             fnQuery: "",
             lnQuery:"",

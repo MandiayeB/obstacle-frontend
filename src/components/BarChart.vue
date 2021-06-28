@@ -96,7 +96,7 @@ export default {
 
         this.renderChart(
             {
-                labels: dates.map(d => moment(d, "YYYYMMDD").format("DD/MM")),
+                labels: dates.map(d => moment(d, "YYYYMMDD").format("DD/MM")).sort(),
                 datasets: datasets
             },
             this.options

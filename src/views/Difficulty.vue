@@ -17,7 +17,10 @@ export default {
         this.challenge_id = this.$route.params.challenge_id
         axios.get('http://localhost:3000/addChallenge', 
             { challenge_id: this.challenge_id })
-        console.log(this.challenge_id);
+            .then(response => {
+                console.log(response.data);
+            })
+        console.log(this.challenge_id[0]);
 
     }
 }

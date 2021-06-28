@@ -5,18 +5,7 @@
         </div>
         <div class="separateur"></div>
         <div class="button_admin">
-            <div :key="challenges.id" v-for="challenges in challenges">
-                <router-link :to="{ name: 'Difficulty', params: { challenge_id: challenges.id } }">
-                    <button 
-                        class="designButton" 
-                        type="submit" 
-                        :key="challenges.id" 
-                        v-for="challenges in challenges" 
-                        :value="challenges.id"> 
-                        {{ challenges }}
-                    </button>
-                </router-link>
-            </div>
+            <Challenge v-if="challenges.length > 0" :challenges="challenges"/>
         </div>
         <div class="button_admin">
             <router-link :to="'/addChallenge'">
@@ -30,9 +19,13 @@
 
 <script>
 import axios from "axios";
+import Challenge from '../components/Admins';
 
 export default {
     name: 'Challenges',
+        components: {
+        Challenge,
+    },
     data () {
         return {
             challenges : [],

@@ -14,14 +14,14 @@ export default {
     name : 'AdminDailyContent',
     data () {
         return {
-            difficult_id: Number,
+            difficulty_id: Number,
         }
     },
     mounted() {
-        this.difficult_id = this.$route.params.difficult_id;
+        this.difficulty_id = this.$route.params.difficulty_id;
         axios.get('http://localhost:3000/addChallenge', 
-            { difficult_id: this.difficult_id })
-        console.log(this.difficult_id[0]);
+            { difficulty_id: this.difficulty_id })
+        console.log(this.difficulty_id[0]);
     }
 
 }

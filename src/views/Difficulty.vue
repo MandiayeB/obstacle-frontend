@@ -5,24 +5,24 @@
         </div>
         <div class ="separateur"></div>
         <div class="button_admin">
-            <Difficults v-if="difficults.length > 0" :difficults="difficults"/>
+            <AdminDifficultys v-if="difficultys.length > 0" :difficultys="difficultys"/>
         </div>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-import Difficults from '../components/Difficults.vue';
+import AdminDifficultys from '../components/AdminDifficultys.vue';
 
 export default {
     name: 'Difficulty',
     components: {
-        Difficults,
+        AdminDifficultys,
     },
     data () {
         return {
             challenge_id: Number,
-            difficults : [],
+            difficultys : [],
         }
 
     },
@@ -36,8 +36,8 @@ export default {
                         if(response.data[i].activity[0].challenge[u].name === this.challenge_id[0]){
                             for(let y=0; y<response.data[i].activity[0].challenge[u].difficulty.length; y++){
                                 console.log(response.data[i].activity[0].challenge[u].difficulty);
-                                const difficult = [response.data[i].activity[0].challenge[u].difficulty[y].title];
-                                this.difficults.push(difficult);
+                                const title = [response.data[i].activity[0].challenge[u].difficulty[y].title];
+                                this.difficultys.push(title);
                     
                             }
                         }

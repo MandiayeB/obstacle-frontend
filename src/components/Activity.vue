@@ -9,7 +9,9 @@
                 alt="expand"
             >
         </div>
-        <div v-show="displayChallenges" class="challenges">
+        <div 
+            v-if="displayChallenges && Object.entries(challenges).length !== 0" 
+            class="challenges">
             <Challenge
                 v-for="(challenge, index) in challenges"
                 :key="index"

@@ -1,10 +1,12 @@
 <template>
     <div class="goal_container">
-        <div>
+        <div class="goal_buttons">
             <Theme
                 v-for="(theme, index) in data"
                 :key="index"
+                @click="select(index)"
                 @display="display"
+                :selected="index === selectedBtn ? true : false"
                 :activities="theme.activity"
                 :styleObject="styleObject"
             >
@@ -12,11 +14,9 @@
             </Theme>
         </div>
         <Screen
-            @screen="screen"
             @create="create"
             :actualChallenge="actualChallenge"
             :displayScreen="displayScreen"
-            :smthDisplayed="smthDisplayed"
         />
     </div>
 </template>
@@ -37,12 +37,12 @@ export default {
     data() {
         return {
             displayScreen: false,
-            smthDisplayed: false,
             data: { type: Object },
             actualChallenge: { type: Object },
             styleObject: {
                 transform: 'initial'
-            }
+            },
+            selectedBtn: Number
         }
     },
     mounted() {
@@ -58,13 +58,12 @@ export default {
             });
     },
     methods: {
-        screen() {
-            this.displayScreen = this.displayScreen ? false : true;
-            if (!this.displayScreen) this.smthDisplayed = false;
-        },
         display(actualChallenge) {
-            this.smthDisplayed = true;
             this.actualChallenge = actualChallenge;
+            this.displayScreen = true;
+        },
+        select(id) {
+            this.selectedBtn = id;
         },
         create() {
             axios

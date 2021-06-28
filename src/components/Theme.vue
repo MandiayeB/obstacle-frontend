@@ -9,11 +9,11 @@
                 alt="expand"
             >
         </div>
-        <div v-show="displayActivities">
+        <div v-if="watch">
             <Activity 
                 v-for="(activity, index) in activities"
                 :key="index"
-                @toggle="toggle('activity', activity.name)"
+                @toggle="toggle('activity')"
                 @display="display"
                 :challenges="activity.challenge"
                 :displayChallenges="displayChallenges"
@@ -40,7 +40,18 @@ export default {
     },
     props: {
         activities: { type: Object },
-        styleObject: { type: Object }
+        styleObject: { type: Object },
+        selected: Boolean
+    },
+    computed: {
+        watch() {
+            if (!this.selected && this.displayActivities) {
+                this.displayActivities = false;
+                this.displayChallenges = false;
+                return false;
+            } 
+            return (this.selected && this.displayActivities);
+        }
     },
     methods: {
         toggle(category) {

@@ -2,7 +2,7 @@
     <div class="cadre">
         <div class="screen">
             <img 
-                v-show="displayScreen && !smthDisplayed"
+                v-show="!displayScreen"
                 src="https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif"
                 alt="Screen" 
             />
@@ -12,15 +12,16 @@
             />
         </div>
         <div class="buttons">
-            <img 
-                @click="() => { this.$emit('screen') }" 
-                class="power" 
-                src="../assets/images/power_settings_new_white_24dp.svg" 
-                alt="power"
+            <div
+                :style="
+                    displayScreen ? ledStyle : { 'background-color' : '' }
+                " 
+                class="led"
             >
+            </div>
             <div
                 @click="() => { this.$emit('create') }" 
-                v-show="displayScreen && smthDisplayed" 
+                v-show="displayScreen" 
                 class="designButton">
                 Démarrer
             </div>
@@ -36,8 +37,15 @@ export default {
     components: { ScreenDisplay },
     props: {
         actualChallenge: { type: Object },
-        displayScreen: { type: Boolean },
-        smthDisplayed: { type: Boolean }
+        displayScreen: { type: Boolean }
     },
+    data() {
+        return {
+            ledStyle: {
+                'background-color': 'green',
+                'filter': 'drop-shadow(0px 0px 10px rgb(99, 241, 63))'
+            }
+        }
+    }
 }
 </script>

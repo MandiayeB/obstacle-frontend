@@ -11,6 +11,7 @@ import ProfilePassword from '../views/ProfilePassword';
 import AddChallenge from '../views/AddChallenge';
 import AdminCoach from '../views/AdminCoach';
 import Difficulty from '../views/Difficulty';
+import AdminDailyContent from '../views/AdminDailyContent';
 
 const routes = [
     {
@@ -72,6 +73,11 @@ const routes = [
         path: '/difficulty',
         name: 'Difficulty',
         component: Difficulty
+    },
+    {
+        path: '/AdminDailyContent',
+        name: 'AdminDailyContent',
+        component: AdminDailyContent
     }
 ]
 

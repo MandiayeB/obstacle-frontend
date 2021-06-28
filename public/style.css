@@ -994,6 +994,24 @@ span{
     justify-content: center;
 }
 
+.button_admin_add{
+    padding: inherit;
+    margin: 0;
+    display: grid;
+    justify-content: center;
+}
+
+.admin_container {
+    display: block;
+    max-width: 600px;
+    min-width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
+}
+
 .challenge_input {
   padding: 6px 0;
   font-size: 17px;

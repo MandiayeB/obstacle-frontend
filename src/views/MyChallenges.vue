@@ -5,10 +5,10 @@
         </div>
         <div class="separateur"></div>
         <div class="button_admin">
-            <Challenge v-if="challenges.length > 0" :challenges="challenges"/>
+            <CoachChallenges v-if="challenges.length > 0" :challenges="challenges"/>
         </div>
         <div class="button_admin_add">
-            <router-link :to="'/addChallenge'">
+            <router-link :to="'/createchallenge'">
                 <button class="designButton" type="submit">
                     Crée un challenge
                 </button>
@@ -19,13 +19,13 @@
 
 <script>
 import axios from "axios";
-import Challenge from '../components/Admins';
+import CoachChallenges from '../components/CoachChallenges';
 
 export default {
     
-    name: 'Challenges',
+    name: 'MyChallenges',
         components: {
-        Challenge,
+        CoachChallenges,
     },
     data () {
         return {
@@ -33,7 +33,9 @@ export default {
         }
     },
     mounted() {
-        axios.get('http://localhost:3000/addChallenge')
+        axios
+            .get('http://localhost:3000/create',
+                { withCredentials: true })
             .then(response => {
                 for(let i=0; i<response.data.length; i++){
                     for(let u=0; u<response.data[i].activity[0].challenge.length; u++){

@@ -89,7 +89,7 @@
 import axios from "axios";
 
 export default {
-    name: 'AddChallenge',
+    name: 'CreateChallenge',
     data () {
         return {
             challenge: [],
@@ -99,7 +99,9 @@ export default {
 
     },
     mounted() {
-        axios.get('http://localhost:3000/addChallenge')
+        axios
+            .get('http://localhost:3000/create',
+                { withCredentials: true })
             .then(response => {
                 for(let i=0; i<response.data.length; i++){
                     const theme = [response.data[i].name];
@@ -114,15 +116,17 @@ export default {
     },
     methods: {
         add() {
-            axios.post('http://localhost:3000/addChallenge', {
-                theme: this.theme,
-                typeDifficulty: this.typeDifficulty,
-                gif: this.gif,
-                duree: this.duree,
-                titleDifficulty: this.titleDifficulty,
-                titleChallenge: this.titleChallenge,
-                activiter: this.activiter,
-            })
+            axios
+                .post('http://localhost:3000/create', {
+                    theme: this.theme,
+                    typeDifficulty: this.typeDifficulty,
+                    gif: this.gif,
+                    duree: this.duree,
+                    titleDifficulty: this.titleDifficulty,
+                    titleChallenge: this.titleChallenge,
+                    activiter: this.activiter,
+                },
+                { withCredentials: true });
         }
     } 
 }

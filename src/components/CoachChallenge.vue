@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ name: 'Difficulty', params: { challenge_id: challenge } }">
+    <router-link :to="{ name: 'MyDifficulties', params: { challenge_id: challenge } }">
         <button 
             class="designButton" 
             type="submit" 
@@ -14,7 +14,7 @@
 <script>
 
 export default {
-    name: 'Admin',
+    name: 'CoachChallenge',
     props: {
         challenge: { type: Object }
     }

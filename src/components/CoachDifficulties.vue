@@ -1,22 +1,20 @@
 <template>
     <div :key="difficulty" v-for="difficulty in difficultys">
-        <AdminDifficulty :difficulty="difficulty"/>
+        <CoachDifficulty :difficulty="difficulty"/>
     </div>  
 </template>
 
 <script>
-import AdminDifficulty from './AdminDifficulty';
+import CoachDifficulty from './CoachDifficulty';
 
 export default {
-
-    name: 'Difficultys',
+    name: 'CoachDifficulties',
     components: {
-        AdminDifficulty,
+        CoachDifficulty,
     },
     props: {
         difficultys: { type: Object }
     },
-
 }
 
 </script>

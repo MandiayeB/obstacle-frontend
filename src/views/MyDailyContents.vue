@@ -11,7 +11,7 @@
 import axios from 'axios';
 
 export default {
-    name : 'AdminDailyContent',
+    name : 'MyDailyContents',
     data () {
         return {
             difficulty_id: Number,
@@ -19,9 +19,14 @@ export default {
     },
     mounted() {
         this.difficulty_id = this.$route.params.difficulty_id;
-        axios.get('http://localhost:3000/addChallenge', 
-            { difficulty_id: this.difficulty_id })
-        console.log(this.difficulty_id[0]);
+        axios
+            .post('http://localhost:3000/create/dailycontent', 
+                { difficulty_id: this.difficulty_id },
+                { withCredentials: true })
+            .then(response => {
+                console.log(response.data)
+            })
+
     }
 
 }

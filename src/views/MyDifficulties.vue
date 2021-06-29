@@ -5,19 +5,19 @@
         </div>
         <div class ="separateur"></div>
         <div class="button_admin">
-            <AdminDifficultys v-if="difficultys.length > 0" :difficultys="difficultys"/>
+            <CoachDifficulties v-if="difficultys.length > 0" :difficultys="difficultys"/>
         </div>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-import AdminDifficultys from '../components/AdminDifficultys.vue';
+import CoachDifficulties from '../components/CoachDifficulties.vue';
 
 export default {
-    name: 'Difficulty',
+    name: 'MyDifficulties',
     components: {
-        AdminDifficultys,
+        CoachDifficulties,
     },
     data () {
         return {
@@ -27,25 +27,26 @@ export default {
 
     },
     mounted() {
-        this.challenge_id = this.$route.params.challenge_id
-        axios.get('http://localhost:3000/addChallenge', 
-            { challenge_id: this.challenge_id })
-            .then(response => {
+        this.challenge_id = this.$route.params.challenge_id;
+        axios
+            .get('http://localhost:3000/create', 
+                { withCredentials: true })
+            .then(response => { 
                 for(let i=0; i<response.data.length; i++){
                     for(let u=0; u<response.data[i].activity[0].challenge.length; u++){
                         if(response.data[i].activity[0].challenge[u].name === this.challenge_id[0]){
                             for(let y=0; y<response.data[i].activity[0].challenge[u].difficulty.length; y++){
-                                console.log(response.data[i].activity[0].challenge[u].difficulty);
-                                const title = [response.data[i].activity[0].challenge[u].difficulty[y].title];
+                                const title = [response.data[i].activity[0].challenge[u].difficulty[y]];
                                 this.difficultys.push(title);
-                    
                             }
                         }
                         
                     }
                 }
             })
-        console.log(this.challenge_id[0]);
+            .catch(error => {
+              console.log(error);      
+            });
 
     }
 }

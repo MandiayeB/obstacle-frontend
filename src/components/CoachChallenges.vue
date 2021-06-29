@@ -1,19 +1,19 @@
 <template>
     <div class="button_admin">
         <div :key="challenge" v-for="challenge in challenges">
-            <Admin :challenge="challenge"/>
+            <CoachChallenge :challenge="challenge"/>
         </div>
     </div>
 </template>
 
 <script>
-import Admin from './Admin';
+import CoachChallenge from './CoachChallenge';
 
 export default {
 
-    name: 'Admins',
+    name: 'CoachChallenges',
     components: {
-        Admin,
+        CoachChallenge,
     },
     props: {
         challenges: { type: Object }

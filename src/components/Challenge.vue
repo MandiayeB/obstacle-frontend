@@ -1,10 +1,10 @@
 <template>
     <div
-        v-for="difficulty in challenge"
+        v-for="difficulty in difficulties"
         :key="difficulty.id"
         @click="click(difficulty)" 
         class="designButton"
-        :style="clickId === difficulty.id ? clickStyle : { 'background-color': '' }"
+        :style="difficulty.selected ? clickStyle : { 'background-color': '' }"
     >
         <h1>{{ difficulty.title }}</h1>
     </div>
@@ -15,20 +15,24 @@ export default {
     name: 'Challenge',
     emits: ['display'],
     props: {
-        challenge: { type: Object },
+        difficulties: { type: Object },
     },
     data() {
         return {
-            clickId: Number,
             clickStyle: {
-                'background-color': 'rgb(47, 71, 94)'
+                'background-color': 'rgb(51, 100, 92)'
             }
         }
     },
     methods: {
         click(difficulty) {
-            this.$emit('display', difficulty); 
-            this.clickId = difficulty.id;
+            this.$emit('display', difficulty);
+            for (const diff in this.difficulties) {
+                if (this.difficulties[diff].id === difficulty.id)
+                    this.difficulties[diff].selected = true;
+                else
+                    this.difficulties[diff].selected = false;
+            }
         }
     }
 }

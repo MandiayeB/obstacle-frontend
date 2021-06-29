@@ -15,7 +15,7 @@
             <Challenge
                 v-for="(challenge, index) in challenges"
                 :key="index"
-                :challenge="challenge.difficulty"
+                :difficulties="challenge.difficulty"
                 @display="display"
             />
         </div>

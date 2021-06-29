@@ -79,6 +79,7 @@ export default {
                         description: 'Bah dis-donc, t\'es fortiche toi !'
                     },
                     {
+                        timeout: 3000,
                         type: 'info',
                         position: 'bottom-right'
                     }

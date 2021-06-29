@@ -70,7 +70,7 @@ export default {
                 .post(
                     'http://localhost:3000/goal',
                     {
-                        creation_date: Date.now(), 
+                        creation_date: Date.now(),
                         supposed_end_date: Date.now() + this.actualChallenge.length * 24*60*60*1000,
                         difficulty_id: this.actualChallenge.id
                     }, 

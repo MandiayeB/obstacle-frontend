@@ -15,14 +15,11 @@
 
 <script>
 import axios from 'axios';
-import ProfilePictureEditing from './ProfilePictureEditing.vue'
 const FormData = require('form-data')
-const fs = require('fs')
 const path = require('path')
 
 export default {
     name:'UploadingFile',
-    components: { ProfilePictureEditing },
     data() {
         return {
             selectedFile: Object,

@@ -203,7 +203,6 @@ export default {
                 email: { 
                     required: helpers.withMessage('*Champ obligatoire.',required), 
                     mailAdressRegex: helpers.withMessage("*L'adresse email n'est pas valide.", mailAdressRegex),
-                    // verifydisponibility: helpers.withMessage("*Cette adresse email est déjà utilisée.", verifydisponibility),
                 },
                 password: {
                     password: { 

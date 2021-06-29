@@ -114,12 +114,13 @@ figure.image-obstacle img{
 
 .profile_header_icon{
     float: right;
-    margin: 10px 10px 10px 0;
+    margin: 7px 25px 10px 0;
 }
 
 .profile_header_icon img{ 
-    width: 60px;
-    clip-path: circle();//
+    width: 45px;
+    height: 45px;
+    clip-path: circle();
 }
 //Transition Between Pages
 .page{

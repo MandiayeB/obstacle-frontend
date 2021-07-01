@@ -49,13 +49,13 @@ export default {
             const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
             this.selectedFile = event.target.files[0];
             this.selectedFileTest = false;
-            if(!allowedTypes.includes(this.selectedFile.type)){
+            if (!allowedTypes.includes(this.selectedFile.type)) {
                 this.error = "* Nous ne prenons que les images.";
                 this.displayError = true;
-            } else if(this.selectedFile.size> 2000000){
+            } else if (this.selectedFile.size> 2000000){
                 this.error = "* La taille max du fichier est de 2000KB.";
                 this.displayError = true;
-            } else if (this.selectedFile == Object) {
+            } else if (this.selectedFile === Object) {
                 this.error = "* Veuillez selectionner une photo."
                 this.displayError = true;
             } else {
@@ -73,7 +73,6 @@ export default {
         },
         onUpload(){ 
             this.displayError = false;
-            console.log(this.selectedFile);
             const picture = new FormData();
             picture.append('picture', this.selectedFile, this.selectedFile.name);
             axios
@@ -81,8 +80,7 @@ export default {
                     (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/upload',
                         picture, 
                     {
-                        headers: { 'Content-Type': 'multipart/form-data' },
-                        withCredentials: true,
+                        withCredentials: true
                     }
                 )
                 .then(res => {
@@ -94,7 +92,7 @@ export default {
                         }
                     }));
                 })
-                .catch(error => console.log(error))
+                .catch(error => console.log(error));
         },
     }
 }

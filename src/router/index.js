@@ -12,6 +12,8 @@ import CreateChallenge from '../views/CreateChallenge';
 import MyChallenges from '../views/MyChallenges';
 import MyDifficulties from '../views/MyDifficulties';
 import MyDailyContents from '../views/MyDailyContents';
+import UpdateDailyContent from '../views/UpdateDailyContent';
+import NewDailyContent from '../views/NewDailyContent';
 
 const routes = [
     {
@@ -78,6 +80,18 @@ const routes = [
         path: '/mydailycontents',
         name: 'MyDailyContents',
         component: MyDailyContents
+    },
+    {
+        path: '/updatedailycontent',
+        name: 'UpdateDailyContent',
+        component: UpdateDailyContent
+
+    },
+    {
+        path: '/newdailycontent',
+        name: 'NewDailyContent',
+        component: NewDailyContent
+
     }
 ]
 

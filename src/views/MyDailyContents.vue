@@ -1,9 +1,45 @@
 <template>
-     <div class="admin_container">
+     <div class="add_challenge_container">
         <div class="add_challenge_header">
-            <h1 id="add_challenge_title">Daily Content</h1>
+            <h1 id="add_challenge_title">Daily Content: {{order_id[index]}}/{{order_id.length}} </h1>
         </div>
-        <div class ="separateur"></div>
+        <div class ="create_daily_container">
+            <div class="h3_daily">
+                <h3 class="create_daily_h3">{{content[index]}} </h3>
+            </div>
+            <div class="screen_daily">
+                <img 
+                    class="daily_screen"
+                    :src= gif[index]
+                />
+            </div>
+        </div>
+        <div class="button_challenge">
+            <form @submit.prevent="avant" action="" method="post">
+                <input
+                    type="submit"
+                    class="designButton create_submit"
+                    v-model="precedent"
+                />
+            </form>
+            <router-link :to="{ name: 'UpdateDailyContent', params: { daily_content_id: index, difficulty_id: this.difficulty_id } }">
+                <button class="designButton" type="submit">
+                    Modifier
+                </button>
+            </router-link>
+            <router-link :to="{ name: 'NewDailyContent', params: { difficulty_id: this.difficulty_id } }">
+                <button class="designButton" type="submit">
+                    Ajouter
+                </button>
+            </router-link>
+            <form @submit.prevent="next" action="" method="post">
+                <input
+                    type="submit"
+                    class="designButton create_submit"
+                    v-model="suivant"
+                />
+            </form>
+        </div> 
     </div>
 </template>
 
@@ -15,6 +51,11 @@ export default {
     data () {
         return {
             difficulty_id: Number,
+            order_id :[],
+            content: [],
+            gif: [],
+            index: 0,
+            max:"",
         }
     },
     mounted() {
@@ -25,8 +66,33 @@ export default {
                 { withCredentials: true })
             .then(response => {
                 console.log(response.data)
+                for(let i=0; i<response.data.length; i++) {
+                    const order = response.data[i].order_index;
+                    const contents = response.data[i].content;
+                    const gifs = response.data[i].image;
+                    this.max = response.data[i].order_index;
+                    this.order_id.push(order);
+                    this.content.push(contents);
+                    this.gif.push(gifs);
+                }
+                if(this.content.length === 0) {
+                    this.content.push("Il n'y a pas de defi journalier");
+                    this.gif.push("https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif");
+                }
             })
 
+    },
+    methods: {
+        next() {
+            if(this.index!==this.max-1){
+                this.index++;
+            }
+        },
+        avant() {
+            if(this.index!==0) {
+                this.index--;
+            }
+        }
     }
 
 }

@@ -128,6 +128,7 @@ export default {
                             sessionStorage.setItem('firstname', error.response.data.firstname);
                             sessionStorage.setItem('lastname', error.response.data.lastname);
                             sessionStorage.setItem('gender', error.response.data.gender);
+                            sessionStorage.setItem('id', error.response.data.user_id);
                             
                             window.dispatchEvent(new CustomEvent('authentification-changed', {
                                 detail: {

@@ -16,7 +16,7 @@
                         <option disabled selected>Theme</option>
                         <option :key="challenge" v-for="challenge in challenge" :value="challenge">{{ challenge[0] }}</option>
                     </select>
-                    <select v-model="activiter" class="select_challenge" required>
+                    <select v-model="activity" class="select_challenge" required>
                         <option disabled value>Activité</option>
                         <option :key="activite" v-for="activite in activite" :value="activite">{{ activite[0] }}</option>
                         
@@ -110,6 +110,7 @@ export default {
                         console.log(response.data);
                         const acti = [response.data[i].activity[y].name];
                         this.activite.push(acti);
+                        console.log(acti);
                     } 
                 }
         })
@@ -117,16 +118,20 @@ export default {
     methods: {
         add() {
             axios
-                .post('http://localhost:3000/create', {
+                .post('http://localhost:3000/create/newchallenge', {
                     theme: this.theme,
                     typeDifficulty: this.typeDifficulty,
                     gif: this.gif,
                     duree: this.duree,
                     titleDifficulty: this.titleDifficulty,
                     titleChallenge: this.titleChallenge,
-                    activiter: this.activiter,
+                    activity: this.activity,
+                    author_id: sessionStorage.getItem("id"),
                 },
-                { withCredentials: true });
+                { withCredentials: true })
+                .catch(error => {
+                    console.log(error);
+                })
         }
     } 
 }

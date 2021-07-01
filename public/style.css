@@ -974,12 +974,65 @@ span{
     text-shadow: rgb(230, 79, 53)1px 0 10px;
 }
 
-/* Add Challenge */
+/* Create */
 
 #add_challenge_title {
     
     margin: 0 auto;
     overflow: hidden;
+}
+
+.create_daily_h3 {
+    text-align: center;
+    margin-top: 55px;
+}
+
+.h3_daily {
+    margin: auto;
+    height: 150px;
+    width: 500px;
+    border: 1px solid rgb(80, 89, 99);
+    border-radius: 10px;
+}
+
+.screen_daily {
+    margin: auto;
+}
+.create_submit {
+    width: 50px;
+}
+
+.create_daily_container {
+    display:flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+}
+
+.create_updatedaily_container {
+    width: 700px;
+    display: flex;
+    margin: 50px auto 0px auto;
+}
+
+.input_update_daily{
+    padding: 6px 0;
+    font-size: 17px;
+    width: 550px;
+    display: grid;
+    margin: 0 auto;
+}
+
+.h3_update_daily {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.daily_screen {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 350px;
 }
 
 .button_challenge {
@@ -1036,11 +1089,22 @@ span{
     background-color: rgb(25, 39, 52);
 }
 
+.add_dailycontent_container {
+    max-width: 750px;
+}
+
 .add_challenge_header {
     display: flex;
     position: relative;
     width: 100%;
     height: 40px;
+}
+
+.size_daily {
+    font-size: 17px;
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin-bottom: 30px;
 }
 
 .challenge_container {

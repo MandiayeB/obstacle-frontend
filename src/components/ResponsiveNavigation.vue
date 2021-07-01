@@ -22,7 +22,6 @@
                     </router-link>
                 </div>
             </li>
-
         </ul>
         <div class="image-obstacle">
             <figure class="image-obstacle">

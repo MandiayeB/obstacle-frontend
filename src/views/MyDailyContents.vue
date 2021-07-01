@@ -61,12 +61,13 @@ export default {
     mounted() {
         this.difficulty_id = this.$route.params.difficulty_id;
         axios
-            .post('http://localhost:3000/create/dailycontent', 
+            .post('http://localhost:3000/dailycontent/daily', 
                 { difficulty_id: this.difficulty_id },
                 { withCredentials: true })
             .then(response => {
                 console.log(response.data)
                 for(let i=0; i<response.data.length; i++) {
+                    console.log(response.data);
                     const order = response.data[i].order_index;
                     const contents = response.data[i].content;
                     const gifs = response.data[i].image;
@@ -84,7 +85,7 @@ export default {
     },
     methods: {
         next() {
-            if(this.index!==this.max-1){
+            if(this.index!==this.max-1 && this.max != 0){
                 this.index++;
             }
         },

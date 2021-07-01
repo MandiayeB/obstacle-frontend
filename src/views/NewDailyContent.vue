@@ -11,7 +11,7 @@
             <div class="input_update_daily">
                 <input
                         type="text"
-                        v-model="contente"
+                        v-model="content"
                         class="inputCadre size_daily"
                         name="content"
                         :placeholder="contents"
@@ -20,7 +20,7 @@
                     />
                <input
                         type="text"
-                        v-model="gifs"
+                        v-model="gif"
                         class="inputCadre size_daily"
                         name="content"
                         :placeholder="gifs"
@@ -62,7 +62,7 @@ export default {
         this.difficulty_id = this.$route.params.difficulty_id;
         this.daily_content_id = this.$route.params.daily_content_id;
         axios
-            .post('http://localhost:3000/create/dailycontent', 
+            .post('http://localhost:3000/dailycontent/daily', 
                 { difficulty_id: this.difficulty_id },
                 { withCredentials: true })
             .then(response => {
@@ -76,9 +76,16 @@ export default {
     },
     methods: {
         add() {
-            console.log('LALA');
-        }
+            axios
+                .post('http://localhost:3000/create/dailycontent', {
+                    content: this.content,
+                    gif: this.gif,
+                    difficulty_id: this.difficulty_id, 
+                    },
+                    {withCredentials: true })
+                this.$router.push('/mychallenges');
+        },
+        
     }
-
 }
 </script>

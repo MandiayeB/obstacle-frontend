@@ -27,7 +27,10 @@ export default {
     },
     mounted() {
         axios
-            .get('http://localhost:3000/', { withCredentials: true })
+            .get(
+                (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com'), 
+                { withCredentials: true }
+            )
             .then(response => { this.goals = response.data; })
             .catch((error) => {
                 console.log(error);

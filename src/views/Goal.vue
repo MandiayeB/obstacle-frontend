@@ -68,7 +68,7 @@ export default {
         create() {
             axios
                 .post(
-                    'http://localhost:3000/goal',
+                    (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/goal',
                     {
                         creation_date: Date.now(),
                         supposed_end_date: Date.now() + this.actualChallenge.length * 24*60*60*1000,

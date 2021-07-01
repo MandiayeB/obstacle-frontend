@@ -83,14 +83,18 @@ export default {
         interact(text) {
             if (text === "Déconnexion") {
                 axios
-                .delete('http://localhost:3000/disconnection', { withCredentials: true })
-                .catch((error) => console.log(error));
-                sessionStorage.removeItem('isAuthenticated');
-                window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
-                    detail: {
-                        storage: sessionStorage.getItem('isAuthenticated')
-                    }
-                }));
+                    .delete(
+                        (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/disconnection', 
+                        { withCredentials: true }
+                    )
+                    .catch((error) => console.log(error));
+                    
+                    sessionStorage.removeItem('isAuthenticated');
+                    window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
+                        detail: {
+                            storage: sessionStorage.getItem('isAuthenticated')
+                        }
+                    }));
             } else if (text === "Dashboard") {
                 createToast(
                     { 

@@ -111,12 +111,15 @@ export default {
             this.v$.$validate();
             if(!this.v$.$error){
                 axios
-                    .put("http://localhost:3000/profile/editPassword", {
-                        emailsession: sessionStorage.getItem("email"),
-                        oldPassword: this.state.password.oldPassword,
-                        newPassword: this.state.password.newPassword,
-                        confirmPassword: this.state.password.confirmPassword
-                    })
+                    .put(
+                        (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/profile/editPassword', 
+                        {
+                            emailsession: sessionStorage.getItem("email"),
+                            oldPassword: this.state.password.oldPassword,
+                            newPassword: this.state.password.newPassword,
+                            confirmPassword: this.state.password.confirmPassword
+                        }
+                    )
                     .catch((error) => {
                         if(error.response.status === 308){
                             this.$router.push('/profile');

@@ -41,9 +41,11 @@ export default {
     mounted() {
         this.goal_id = parseInt(this.$route.params.goal_id, 10);
         axios
-            .post('http://localhost:3000/dailycontent', 
+            .post(
+                (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/dailycontent', 
                 { goal_id: this.goal_id },
-                { withCredentials: true })
+                { withCredentials: true }
+            )
             .then((response) => {
                 this.content = response.data.content;
                 this.image = response.data.image;

@@ -141,12 +141,15 @@ export default {
             if(!this.v$.$error){
 
                 axios
-                    .put("http://localhost:3000/profile/editCredentials", {
-                        emailsession: sessionStorage.getItem("email"),
-                        firstname: this.state.fnQuery,
-                        lastname: this.state.lnQuery,
-                        email: this.state.emailQuery,
-                    })
+                    .put(
+                        (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + "/profile/editCredentials", 
+                        {
+                            emailsession: sessionStorage.getItem("email"),
+                            firstname: this.state.fnQuery,
+                            lastname: this.state.lnQuery,
+                            email: this.state.emailQuery,
+                        }
+                    )
                     .then(res => {
                         console.log(res);
                     })

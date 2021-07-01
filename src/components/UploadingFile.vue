@@ -77,7 +77,8 @@ export default {
             const picture = new FormData();
             picture.append('picture', this.selectedFile, this.selectedFile.name);
             axios
-                .put('http://localhost:3000/upload',
+                .put(
+                    (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/upload',
                         picture, 
                     {
                         headers: { 'Content-Type': 'multipart/form-data' },

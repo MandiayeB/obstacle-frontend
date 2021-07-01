@@ -114,7 +114,8 @@ export default {
             this.v$.$validate();
             if(!this.v$.$error){
                 axios
-                    .post("http://localhost:3000/login", 
+                    .post(
+                        (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/login', 
                         {
                             email: this.state.email,
                             password: this.state.password,

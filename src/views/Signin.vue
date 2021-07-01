@@ -249,15 +249,17 @@ export default {
             if(!this.v$.$error){
                 const birthdate = `${this.state.year}-${this.getMonth(this.state.month, this.state.months)}-${this.getDay(this.state.day)}`;
                 axios
-                    .post("http://localhost:3000/signin", {
-                        firstname: this.state.firstname,
-                        lastname: this.state.lastname,
-                        email: this.state.email,
-                        password: this.state.password.password,
-                        confirm: this.state.password.confirm,
-                        gender: this.state.gender,
-                        birthdate: birthdate,
-                    })
+                    .post(
+                        (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/signin', 
+                        {
+                            firstname: this.state.firstname,
+                            lastname: this.state.lastname,
+                            email: this.state.email,
+                            password: this.state.password.password,
+                            confirm: this.state.password.confirm,
+                            gender: this.state.gender,
+                            birthdate: birthdate,
+                        })
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
                             this.$router.push("/login");

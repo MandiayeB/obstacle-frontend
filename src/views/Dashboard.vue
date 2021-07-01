@@ -27,7 +27,8 @@ export default {
     },
     mounted() {
         axios
-            .get('http://localhost:3000/dashboard',
+            .get(
+                (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/dashboard',
                 { withCredentials: true })
             .then(response => {
                 response.data.forEach(goal => {

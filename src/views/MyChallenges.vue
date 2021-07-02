@@ -34,14 +34,13 @@ export default {
     },
     mounted() {
         axios
-            .get('http://localhost:3000/create',
+            .post('http://localhost:3000/create/mychallenge',
+                { author: sessionStorage.getItem("id")},
                 { withCredentials: true })
             .then(response => {
                 for(let i=0; i<response.data.length; i++){
-                    for(let u=0; u<response.data[i].activity[0].challenge.length; u++){
-                        const acti = [response.data[i].activity[0].challenge[u].name];
-                        this.challenges.push(acti);
-                    }
+                    const acti = [response.data[i].name];
+                    this.challenges.push(acti);
                 }
             })
     },

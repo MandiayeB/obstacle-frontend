@@ -1,7 +1,23 @@
 <template>
-     <div class="add_challenge_container">
-        <div class="add_challenge_header">
-            <h1 id="add_challenge_title">Daily Content: {{order_id[index]}}/{{order_id.length}} </h1>
+     <div class="title_daily add_challenge_container">
+        <div class ="top_container">
+            <button class="button_img designButton" v-on:click="avant">
+                <img
+                    class="transforme_prev"
+                    src="../assets/images/expand_more_white_24dp.svg" 
+                    alt="expand"
+                >
+            </button>
+            <div class="add_challenge_header">
+                <h1 id="add_challenge_title">Les défis journalier: {{order_id[index]}}/{{order_id.length}} </h1>
+            </div>
+            <button class="button_img designButton" v-on:click="next">
+                <img
+                    class="transforme_next"
+                    src="../assets/images/expand_more_white_24dp.svg" 
+                    alt="expand"
+                >
+            </button>
         </div>
         <div class ="create_daily_container">
             <div class="h3_daily">
@@ -15,14 +31,8 @@
             </div>
         </div>
         <div class="button_challenge">
-            <form @submit.prevent="avant" action="" method="post">
-                <input
-                    type="submit"
-                    class="designButton create_submit"
-                    v-model="precedent"
-                />
-            </form>
-            <router-link :to="{ name: 'UpdateDailyContent', params: { daily_content_id: index, difficulty_id: this.difficulty_id } }">
+            
+            <router-link :to="{ name: 'UpdateDailyContent', params: { daily_content_id: index, difficulty_id: this.difficulty_id, id_daily: this.id} }">
                 <button class="designButton" type="submit">
                     Modifier
                 </button>
@@ -32,13 +42,6 @@
                     Ajouter
                 </button>
             </router-link>
-            <form @submit.prevent="next" action="" method="post">
-                <input
-                    type="submit"
-                    class="designButton create_submit"
-                    v-model="suivant"
-                />
-            </form>
         </div> 
     </div>
 </template>
@@ -54,6 +57,7 @@ export default {
             order_id :[],
             content: [],
             gif: [],
+            id: [],
             index: 0,
             max:"",
         }
@@ -65,9 +69,8 @@ export default {
                 { difficulty_id: this.difficulty_id },
                 { withCredentials: true })
             .then(response => {
-                console.log(response.data)
+                console.log(response.data);
                 for(let i=0; i<response.data.length; i++) {
-                    console.log(response.data);
                     const order = response.data[i].order_index;
                     const contents = response.data[i].content;
                     const gifs = response.data[i].image;
@@ -75,6 +78,8 @@ export default {
                     this.order_id.push(order);
                     this.content.push(contents);
                     this.gif.push(gifs);
+                    this.id.push(response.data[i].id);
+
                 }
                 if(this.content.length === 0) {
                     this.content.push("Il n'y a pas de defi journalier");

@@ -83,7 +83,7 @@ export default {
                     difficulty_id: this.difficulty_id, 
                     },
                     {withCredentials: true })
-                this.$router.push('/mychallenges');
+                this.$router.push({ name: 'MyDailyContents', params: { difficulty_id: this.difficulty_id } });
         },
         
     }

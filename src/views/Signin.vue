@@ -234,7 +234,6 @@ export default {
         },
     },
     methods: {
-
         getMonth(month, months) {
             let index = months.indexOf(month) + 1;
             let m = index < 10 ? '0' + index.toString() : index;
@@ -246,7 +245,7 @@ export default {
         },
         handleSubmit() {
             this.v$.$validate()
-            if(!this.v$.$error){
+            if (!this.v$.$error) {
                 const birthdate = `${this.state.year}-${this.getMonth(this.state.month, this.state.months)}-${this.getDay(this.state.day)}`;
                 axios
                     .post(
@@ -259,7 +258,8 @@ export default {
                             confirm: this.state.password.confirm,
                             gender: this.state.gender,
                             birthdate: birthdate,
-                        })
+                        }
+                    )
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
                             this.$router.push("/login");
@@ -272,7 +272,6 @@ export default {
             } else {
                 console.log(this.v$.$errors);
             }
-
         },
     },
 }

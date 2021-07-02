@@ -139,7 +139,6 @@ export default {
         editing(){
             this.v$.$validate()
             if(!this.v$.$error){
-
                 axios
                     .put(
                         (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + "/profile/editCredentials", 
@@ -150,19 +149,16 @@ export default {
                             email: this.state.emailQuery,
                         }
                     )
-                    .then(res => {
-                        console.log(res);
-                    })
                     .catch((error) => {
-                        if(error.response.status === 308){
+                        if (error.response.status === 308) {
                             this.$router.push('/profile');
-                            if(this.state.emailQuery!==""){
+                            if (this.state.emailQuery !== "") {
                                 sessionStorage.setItem('email', this.state.emailQuery);
                             }
-                            if(this.state.fnQuery!==""){
+                            if (this.state.fnQuery !== "") {
                                 sessionStorage.setItem('firstname', this.state.fnQuery);
                             }
-                            if(this.state.lnQuery!==""){
+                            if (this.state.lnQuery !== "") {
                                 sessionStorage.setItem('lastname', this.state.lnQuery);
                             }
                         }

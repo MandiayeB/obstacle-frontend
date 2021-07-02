@@ -124,6 +124,7 @@ export default {
                             withCredentials: true 
                         }
                     )
+                    .then(() => console.log(process.env.VUE_APP_URL))
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
 

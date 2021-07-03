@@ -22,10 +22,8 @@
                 <h1 class="guide_achievements_h1">Guide</h1>
             </div>
             <Guide
-                v-if="content.content"
-                :theme="theme"
-                :goal_id="goal_id"
-                :gdc_id="gdc_id"
+                v-if="content.guide"
+                :guide="content.guide"
             />
         </div>
     </div>

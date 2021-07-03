@@ -93,45 +93,100 @@ option:not(:first-of-type) {
     height: 113px;
     resize: none;
 }
+
 .input_container{
     width: 100%;
     height: 90px;
     justify-content: space-between;
 }
+
 .input_title_achievement{
     color: #c7c7c7;
     font-size: 17px;
     margin-bottom: 5px;
 }
+
 .daily_content_center .designButton{
     display: block;
     max-width: inherit;
     padding: 0px;
     margin: 20px auto;
 }
+
+.daily_content_div{
+    width: 520px;
+    margin: 0 auto;
+}
+
 .daily_content_h1{
     color:#e5e5e8;
     margin-left: 20px;
-    border-bottom: 1px solid;
-    width: 337px;
+    border: 2px solid #38444D;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 457px;
 }
+
 .tailleInput{
     font-size: 17px;
     padding: 14px 16px;
     width: 330px;
     border-radius: 6px;
 }
+
 /* Componsant achievments */
+
+.container_achievements{
+    display: flex;
+}
+
 .achievements {
     display: block;
-    max-width: 900px;
-    margin: 100px auto;
+    max-width: 800px;
+    margin: 100px 10px 100px auto;
     padding: 20px;
     border-radius: 10px;
     border: 1px solid rgb(56, 68, 77);
     background-color: rgb(25, 39, 52);
     overflow: hidden;
 }
+
+.guide_achievements{
+    display: block;
+    max-width: 400px;
+    margin: 100px auto 100px 5px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(56, 68, 77);
+    background-color: rgb(25, 39, 52);
+    overflow: hidden;
+}
+
+.guide_achievements_div{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.guide_achievements_h1{
+    color:#e5e5e8;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #38444D;
+    border-radius: 5px;
+}
+
+.daily_guide_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.daily_guide_center .homepage_text{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
 .input_duration_achievement{
     padding-top: 3px;
     padding-bottom: 6px;
@@ -629,62 +684,10 @@ span{
     height: 20px;
     width: 20px;
 }
+
 .custom-file-input{
     display: none;
 }
-
-
-/* .custom-file-input::-webkit-file-upload-button {
-    visibility: hidden;
-}
-
-.custom-file-input::before {
-    content: 'Oui';
-    text-align: justify;
-    align-items: flex-start;
-    height: 225px;
-    width: 225px;
-    display: inline-block;
-    background: rgb(36, 54, 71);
-    padding: 16px 16px;
-    border-radius: 50%;
-    outline: none;
-    white-space: nowrap;
-    cursor: pointer;
-    color: white;
-    font-size: 13px;
-}
-
-.custom-file-input:hover::before {
-    background: rgb(40, 68, 95);
-}
-
-.custom-file-input:active::before {
-    background: rgb(36, 54, 71);
-}
-
-.custom_file_button{
-    height: 55px;
-    width: 294px;
-    margin-top: 20px;
-    background: rgb(36, 54, 71);
-    border: 0px;
-    border-radius: 6px;
-    outline: none;
-    white-space: nowrap;
-    cursor: pointer;
-    color: white;
-    font-size: 13px;
-    box-shadow: 0 5px 15px #193047;
-}
-
-.custom-file-button:hover {
-    background: rgb(40, 68, 95);
-}
-
-.custom-file-button:active {
-    background: rgb(40, 68, 95);
-} */
 
 #span_error_file_upload{
     display: flex;
@@ -846,17 +849,6 @@ span{
 }
 
 /* Profile.vue */
-.container_profile {
-    display: block;
-    max-width: 600px;
-    min-width: 350px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgb(56, 68, 77);
-    background-color: rgb(25, 39, 52);
-}
-
 .size_password {
     font-size: 17px;
     padding: 14px 16px;

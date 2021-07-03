@@ -1,25 +1,38 @@
 <template>
-    <div class="achievements">
-        <h1 class="daily_content_h1">Voici votre défi du jour :</h1>
-        <Content
-            v-if="content.content"
-            :content="content"
-            :image="image"
-            :count="parseInt(count.count, 10)"
-        />
-        <Achievement 
-            v-if="content.content"
-            :theme="theme"
-            :goal_id="goal_id" 
-            :gdc_id="gdc_id"
-        />
+    <div class="container_achievements">
+        <div class="achievements">
+            <div class="daily_content_div">
+                <h1 class="daily_content_h1">Voici votre défi du jour </h1>
+            </div>
+            <Content
+                v-if="content.content"
+                :content="content"
+                :image="image"
+                :count="parseInt(count.count, 10)"
+            />
+            <Achievement
+                v-if="content.content"
+                :theme="theme"
+                :goal_id="goal_id"
+                :gdc_id="gdc_id"
+            />
+        </div>
+        <div class="guide_achievements">
+            <div class="guide_achievements_div">
+                <h1 class="guide_achievements_h1">Guide</h1>
+            </div>
+            <Guide
+                v-if="content.guide"
+                :guide="content.guide"
+            />
+        </div>
     </div>
 </template>
 
 <script>
-
 import Achievement from "../components/Achievement.vue";
 import Content from "../components/Content.vue";
+import Guide from "../components/Guide.vue";
 import axios from "axios";
 
 export default {
@@ -27,6 +40,7 @@ export default {
     components: {
         Achievement,
         Content,
+        Guide,
     },
     data(){
         return{

@@ -22,7 +22,6 @@
                     </router-link>
                 </div>
             </li>
-
         </ul>
         <div class="image-obstacle">
             <figure class="image-obstacle">
@@ -81,7 +80,6 @@ export default {
             nav.contains("active") ? nav.remove("active") : nav.add("active");
         },
         interact(text) {
-            console.log(text);
             if (text === "Déconnexion") {
                 axios
                     .delete(

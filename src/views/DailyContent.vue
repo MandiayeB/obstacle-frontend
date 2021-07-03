@@ -9,7 +9,7 @@
         />
         <Achievement 
             v-if="content.content"
-            :theme="theme" 
+            :theme="theme"
             :goal_id="goal_id" 
             :gdc_id="gdc_id"
         />
@@ -48,7 +48,7 @@ export default {
             )
             .then((response) => {
                 this.content = response.data.content;
-                this.image = response.data.image;
+                this.image = response.data.content.image;
                 this.gdc_id = response.data.content.gdc_id;
                 this.theme = response.data.theme;
                 this.count = response.data.count;

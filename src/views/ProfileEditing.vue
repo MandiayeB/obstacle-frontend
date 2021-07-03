@@ -72,6 +72,8 @@ import axios from "axios";
 import useValidate from '@vuelidate/core';
 import { minLength, maxLength, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
  
 const firstnameRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
@@ -161,8 +163,17 @@ export default {
                             if (this.state.lnQuery !== "") {
                                 sessionStorage.setItem('lastname', this.state.lnQuery);
                             }
+                            createToast(
+                                { 
+                                    title: 'Informations mises à jour.'
+                                },
+                                {
+                                    timeout: 3000,
+                                    type: 'success',
+                                    position: 'bottom-right'
+                                }
+                            );
                         }
-                        
                     });
             } else {
                 console.log(this.v$.$errors);

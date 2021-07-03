@@ -15,8 +15,9 @@
 
 <script>
 import axios from 'axios';
-const FormData = require('form-data')
-const path = require('path')
+const FormData = require('form-data');
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 export default {
     name:'UploadingFile',
@@ -91,6 +92,18 @@ export default {
                             profilePictureChanged: true
                         }
                     }));
+                    createToast(
+                        { 
+                            title: 'Photo de profil mise à jour !', 
+                            description: 'Honnêtement ça vous correspond bien.'
+                        },
+                        {
+                            timeout: 3000,
+                            showIcon: true,
+                            type: 'success',
+                            position: 'bottom-right'
+                        }
+                    );
                 })
                 .catch(error => console.log(error));
         },

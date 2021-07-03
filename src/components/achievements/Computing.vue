@@ -99,6 +99,7 @@ export default {
                         { withCredentials: true }
                     )
                     .then(() => {
+                        this.$router.push('/');
                         createToast(
                             { 
                                 title: 'Accomplissement enregistré !', 
@@ -112,7 +113,6 @@ export default {
                             }
                         );
                     })
-                    .then(() => this.$router.push('/'))
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
                             this.$router.push("/login");

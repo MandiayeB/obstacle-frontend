@@ -81,6 +81,7 @@ export default {
             nav.contains("active") ? nav.remove("active") : nav.add("active");
         },
         interact(text) {
+            console.log(text);
             if (text === "Déconnexion") {
                 axios
                     .delete(
@@ -100,6 +101,18 @@ export default {
                     { 
                         title: 'Constate ton avancement 🏅', 
                         description: 'Bah dis-donc, t\'es fortiche toi !'
+                    },
+                    {
+                        timeout: 3000,
+                        type: 'info',
+                        position: 'bottom-right'
+                    }
+                );
+            } else if (text === "Objectifs") {
+                createToast(
+                    { 
+                        title: 'Choisis un défi et donne toi à fond ! 🔥', 
+                        description: 'C\'est la première étape pour atteindre ton objectif.'
                     },
                     {
                         timeout: 3000,

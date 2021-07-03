@@ -140,6 +140,8 @@ import axios from "axios";
 import useValidate from '@vuelidate/core';
 import { required, minLength, maxLength, sameAs, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
  
 const firstnameRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
@@ -262,6 +264,18 @@ export default {
                     )
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {
+                            createToast(
+                                { 
+                                    title: 'Inscription validée !', 
+                                    description: 'Bienvenue parmi nous !'
+                                },
+                                {
+                                    timeout: 3000,
+                                    showIcon: true,
+                                    type: 'success',
+                                    position: 'bottom-right'
+                                }
+                            );
                             this.$router.push("/login");
                         } else {
                             console.log(error);

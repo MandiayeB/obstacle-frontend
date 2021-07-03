@@ -62,6 +62,8 @@ import axios from "axios";
 import useValidate from '@vuelidate/core';
 import { required, sameAs, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 const passwordRegex = value => {
     if (typeof value === 'undefined' || value === null || value === '') {
@@ -123,6 +125,16 @@ export default {
                     .catch((error) => {
                         if(error.response.status === 308){
                             this.$router.push('/profile');
+                            createToast(
+                                { 
+                                    title: 'Mot de passe mis à jour.'
+                                },
+                                {
+                                    timeout: 3000,
+                                    type: 'success',
+                                    position: 'bottom-right'
+                                }
+                            );
                         }
                         
                     });

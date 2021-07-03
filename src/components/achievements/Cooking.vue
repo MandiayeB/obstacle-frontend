@@ -99,6 +99,7 @@ export default {
                         { withCredentials: true }
                     )
                     .then(() => {
+                        this.$router.push('/');   
                         createToast(
                             { 
                                 title: 'Accomplissement enregistré !', 
@@ -110,8 +111,7 @@ export default {
                                 type: 'success',
                                 position: 'bottom-right'
                             }
-                        );
-                        this.$router.push('/');                    
+                        );          
                     })
                     .catch((error) => {
                         if (error.response.status === 308 || error.response.status === 307) {

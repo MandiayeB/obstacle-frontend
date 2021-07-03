@@ -1,7 +1,10 @@
 <template>
     <div class="user_goals">
         <div :key="goal.id" v-for="goal in goals">
-            <UserGoal :goal="goal"/>
+            <UserGoal 
+                @deleteGoalEvent="deleteGoal"
+                :goal="goal"
+            />
         </div>
     </div>
 </template>
@@ -11,11 +14,17 @@ import UserGoal from './UserGoal'
 
 export default {
     name: 'UserGoals',
+    emits: ['deleteGoalEvent'],
     components: {
         UserGoal,
     },
     props: {
-        goals: { type: Object }
+        goals: { type: Array }
     },
+    methods: {
+        deleteGoal(goal_id) {
+            this.$emit('deleteGoalEvent', goal_id);
+        }
+    }
 }
 </script>

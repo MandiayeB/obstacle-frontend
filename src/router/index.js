@@ -8,6 +8,12 @@ import Dashboard from '../views/Dashboard';
 import DailyContent from '../views/DailyContent';
 import ProfileEditing from '../views/ProfileEditing';
 import ProfilePassword from '../views/ProfilePassword';
+import CreateChallenge from '../views/CreateChallenge';
+import MyChallenges from '../views/MyChallenges';
+import MyDifficulties from '../views/MyDifficulties';
+import MyDailyContents from '../views/MyDailyContents';
+import UpdateDailyContent from '../views/UpdateDailyContent';
+import NewDailyContent from '../views/NewDailyContent';
 
 const routes = [
     {
@@ -54,6 +60,38 @@ const routes = [
         path: '/profilepassword',
         name: 'ProfilePassword',
         component: ProfilePassword
+    },
+    {
+        path: '/createchallenge',
+        name: 'CreateChallenge',
+        component: CreateChallenge
+    },
+    {
+        path: '/mychallenges',
+        name: 'MyChallenges',
+        component: MyChallenges
+    },
+    {
+        path: '/mydifficulties',
+        name: 'MyDifficulties',
+        component: MyDifficulties
+    },
+    {
+        path: '/mydailycontents',
+        name: 'MyDailyContents',
+        component: MyDailyContents
+    },
+    {
+        path: '/updatedailycontent',
+        name: 'UpdateDailyContent',
+        component: UpdateDailyContent
+
+    },
+    {
+        path: '/newdailycontent',
+        name: 'NewDailyContent',
+        component: NewDailyContent
+
     }
 ]
 

@@ -134,10 +134,12 @@ export default {
                             sessionStorage.setItem('lastname', error.response.data.lastname);
                             sessionStorage.setItem('gender', error.response.data.gender);
                             sessionStorage.setItem('picture', error.response.data.picture);
+                            sessionStorage.setItem('id', error.response.data.user_id);
                             
-                            window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
+                            window.dispatchEvent(new CustomEvent('authentification-changed', {
                                 detail: {
-                                    storage: sessionStorage.getItem('isAuthenticated')
+                                    storage: sessionStorage.getItem('isAuthenticated'),
+                                    role: error.response.data.role === "Admin" ? true : false
                                 }
                             }));
 

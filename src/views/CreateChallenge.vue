@@ -97,10 +97,8 @@ export default {
                     const theme = [response.data[i].name];
                     this.challenge.push(theme); 
                     for(let y=0; y<response.data[i].activity.length; y++){
-                        console.log(response.data);
                         const acti = [response.data[i].activity[y].name];
                         this.activite.push(acti);
-                        console.log(acti);
                     } 
                 }
         })

@@ -27,26 +27,25 @@ export default {
 
     },
     mounted() {
-        this.challenge_id = this.$route.params.challenge_id;
-        axios
-            .get('http://localhost:3000/create', 
-                { withCredentials: true })
-            .then(response => { 
-                for(let i=0; i<response.data.length; i++){
-                    for(let u=0; u<response.data[i].activity[0].challenge.length; u++){
-                        if(response.data[i].activity[0].challenge[u].name === this.challenge_id[0]){
-                            for(let y=0; y<response.data[i].activity[0].challenge[u].difficulty.length; y++){
-                                const title = [response.data[i].activity[0].challenge[u].difficulty[y]];
-                                this.difficultys.push(title);
-                            }
-                        }
-                        
+        if(this.$route.params.challenge_id){
+            this.challenge_id = this.$route.params.challenge_id;
+            axios
+                .post('http://localhost:3000/create/difficulty', {
+                        challenge: this.challenge_id,
+                    },
+                    { withCredentials: true })
+                .then(response => { 
+                    for(let i=0; i<response.data.length; i++){
+                        const title = [response.data[i]];
+                        this.difficultys.push(title);   
                     }
-                }
-            })
-            .catch(error => {
-              console.log(error);      
-            });
+                })
+                .catch(error => {
+                console.log(error);      
+                });
+        } else {
+            this.$router.push('mychallenges');
+        }
 
     }
 }

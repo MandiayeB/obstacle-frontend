@@ -1,19 +1,19 @@
 <template>
     <div class="add_challenge_container">
         <div class="add_challenge_header">
-            <h1 id="add_challenge_title">Crée un Challenge</h1>
+            <h1 id="add_challenge_title">Créer un Challenge</h1>
         </div>
         <div class="separateur"></div>
         <form @submit.prevent="add" action="" method="post">
             <div class="challenge_container">
                 <div class="h3_challenge">
-                    <h3 class="challenge_h3">Theme :</h3>
+                    <h3 class="challenge_h3">Thème :</h3>
                     <h3 class="challenge_h3">Activité :</h3>
                     <h3 class="challenge_h3">Challenge :</h3>
                 </div>
                 <div class="challenge_input">
                     <select v-model="theme" class="select_challenge" required>
-                        <option disabled selected>Theme</option>
+                        <option disabled selected>Thème</option>
                         <option :key="challenge" v-for="challenge in challenge" :value="challenge">{{ challenge[0] }}</option>
                     </select>
                     <select v-model="activity" class="select_challenge" required>
@@ -48,7 +48,7 @@
                         v-model="titleDifficulty"
                         class="inputCadre size_challenge"
                         name="difficulty"
-                        placeholder="Titre du Difficulté"
+                        placeholder="Nom de la difficulté"
                         autocomplete="off"
                         required
                     >
@@ -57,7 +57,7 @@
                         v-model="duree"
                         class="inputCadre size_challenge"
                         name="duree"
-                        placeholder="Durée en jour"
+                        placeholder="Durée en jours"
                         autocomplete="off"
                         required
                     >
@@ -94,7 +94,7 @@ export default {
         return {
             challenge: [],
             activite: [],
-            difficulter: ['Facile', 'Moyen', 'intermédiaire', 'Dur', 'Expert'],
+            difficulter: ['Facile', 'Moyen', 'Intermédiaire', 'Difficile', 'Expert'],
         }
 
     },

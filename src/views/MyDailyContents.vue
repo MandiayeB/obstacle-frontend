@@ -32,7 +32,7 @@
         </div>
         <div class="button_challenge">
             
-            <router-link :to="{ name: 'UpdateDailyContent', params: { daily_content_id: index, difficulty_id: this.difficulty_id, id_daily: this.id} }">
+            <router-link v-if="pourModifier" :to="{ name: 'UpdateDailyContent', params: { daily_content_id: index, difficulty_id: this.difficulty_id, id_daily: this.id, content: this.content[index], gif: this.gif[index]} }">
                 <button class="designButton" type="submit">
                     Modifier
                 </button>
@@ -60,33 +60,37 @@ export default {
             id: [],
             index: 0,
             max:"",
+            pourModifier: true,
         }
     },
     mounted() {
-        this.difficulty_id = this.$route.params.difficulty_id;
-        axios
-            .post('http://localhost:3000/dailycontent/daily', 
-                { difficulty_id: this.difficulty_id },
-                { withCredentials: true })
-            .then(response => {
-                console.log(response.data);
-                for(let i=0; i<response.data.length; i++) {
-                    const order = response.data[i].order_index;
-                    const contents = response.data[i].content;
-                    const gifs = response.data[i].image;
-                    this.max = response.data[i].order_index;
-                    this.order_id.push(order);
-                    this.content.push(contents);
-                    this.gif.push(gifs);
-                    this.id.push(response.data[i].id);
+        if(this.$route.params.difficulty_id) {
+            this.difficulty_id = this.$route.params.difficulty_id;
+            axios
+                .post('http://localhost:3000/dailycontent/daily', 
+                    { difficulty_id: this.difficulty_id },
+                    { withCredentials: true })
+                .then(response => {
+                    for(let i=0; i<response.data.length; i++) {
+                        const order = response.data[i].order_index;
+                        const contents = response.data[i].content;
+                        const gifs = response.data[i].image;
+                        this.max = response.data[i].order_index;
+                        this.order_id.push(order);
+                        this.content.push(contents);
+                        this.gif.push(gifs);
+                        this.id.push(response.data[i].id);
 
-                }
-                if(this.content.length === 0) {
-                    this.content.push("Il n'y a pas de defi journalier");
-                    this.gif.push("https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif");
-                }
-            })
-
+                    }
+                    if(this.content.length === 0) {
+                        this.content.push("Il n'y a pas de défi journalier.");
+                        this.gif.push("https://media.giphy.com/media/kHsUiJD0pOLItuf0Cb/giphy.gif");
+                        this.pourModifier = false;
+                    }
+                })
+        } else {
+            this.$router.push('mychallenges');
+        }
     },
     methods: {
         next() {

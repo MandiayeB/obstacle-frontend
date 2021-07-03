@@ -10,7 +10,7 @@
         <div class="button_admin_add">
             <router-link :to="'/createchallenge'">
                 <button class="designButton" type="submit">
-                    Crée un challenge
+                    Créer un challenge
                 </button>
             </router-link>
         </div> 

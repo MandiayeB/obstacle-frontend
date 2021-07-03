@@ -28,7 +28,6 @@ nav{
     }
     ul{
         border-top: 1px solid rgb(56, 68, 77);
-        
         margin-block-start: 0;
         margin-block-end: 0;
         padding-inline-start:0;
@@ -127,31 +126,85 @@ figure.image-obstacle img{
     position: fixed;
     width: inherit;
 }
+
 .router-anim-enter-active {
     animation: coming .3s;
     animation-delay: .1s;
     opacity: 0;
-  }
-  .router-anim-leave-active {
+}
+
+.router-anim-leave-active {
     animation: going .3s;
-  }
+}
   
-  @keyframes going {
+@keyframes going {
     from {
-      transform: translateX(0);
+        transform: translateX(0);
     }
     to {
-      transform: translateX(-50px);
-      opacity: 0;
+        transform: translateX(-50px);
+        opacity: 0;
     }
-  }
-  @keyframes coming {
+}
+
+@keyframes coming {
     from {
-      transform: translateX(-50px);
-      opacity: 0;
+        transform: translateX(-50px);
+        opacity: 0;
     }
     to {
-      transform: translateX(0);
-      opacity: 1;
+        transform: translateX(0);
+        opacity: 1;
     }
-  }
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 220%;
+    z-index: 98;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgb(25, 39, 52);
+    border: 1px solid rgb(56, 68, 77);
+    border-radius: 5px; 
+    padding: 25px;
+    h1 {
+        color: #B0C4DE;
+        font-size: 32px;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform .5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateY(-50%) translateX(100vw);
+}

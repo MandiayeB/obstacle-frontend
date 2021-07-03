@@ -1,18 +1,18 @@
 html, body {  
-  font-family: Segoe UI;
+    font-family: Segoe UI;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: #15202b;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #15202b;
 }
 
 h1, h2, h3, h4 {
-  font-weight: 400;
-  line-height: 1.2;
-  color: #B0C4DE;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #B0C4DE;
 }
 
 input::-webkit-input-placeholder{
@@ -801,6 +801,46 @@ span{
     text-decoration: none;
 }
 
+#space_between_modal{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#delete_goal_div{
+    margin-left: 83.4%;
+    width: 30px;
+}
+
+#delete_goal_cross{
+    width: 23x;
+    height: 23px;
+}
+
+#delete_goal_button{
+    margin-top: 21px;
+    padding: 0px;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    position: absolute;
+    background: transparent;
+    border: none !important;
+}
+
+#delete_goal_button:hover{
+    --tw-bg-opacity: 0.1;
+    background-color: rgba(176, 196, 222, var(--tw-bg-opacity));
+}
+
+.red_button{
+    background-color: rgb(122, 40, 40);
+}
+
+.red_button:hover{
+    background-color: rgb(177, 42, 42);
+}
+
 .user_goal {
     border: 1px solid rgb(56, 68, 77);
     width: 350px;
@@ -809,6 +849,11 @@ span{
     border-radius: 7px;
     margin-bottom: 50px;
 }
+
+.user_goal #delete_goal_button{
+    visibility: hidden;
+}
+
 .user_goal:hover {
     background-color: rgb(36, 54, 71);
     box-shadow: rgb(136 153 166 / 10%) 0px 0px 15px,
@@ -828,6 +873,10 @@ span{
 .user_goal:hover #goal_img {
     height: 240px;
     width: 390px;
+}
+
+.user_goal:hover #delete_goal_button{
+    visibility: visible;
 }
 
 #goal_text {
@@ -944,10 +993,10 @@ span{
 
 .goal_container {
     display: flex;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 200px auto auto auto;
     padding: 30px;
-    position: relative;
     border-radius: 10px;
     border: 1px solid rgb(56, 68, 77);
     background-color: rgb(25, 39, 52);

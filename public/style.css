@@ -1267,6 +1267,12 @@ span{
     justify-content: center;
 }
 
+.h3_youtube {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
 .button_admin_add{
     padding: inherit;
     margin: 0;
@@ -1292,6 +1298,10 @@ span{
   margin-left:15px;
   display: grid;
 
+}
+
+.width_difficulty {
+    width: 300px;
 }
 
 .select_challenge {
@@ -1337,7 +1347,7 @@ span{
 }
 .challenge_h3 {
     display: grid;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
 }
 .h3_challenge {
     max-height: 200px;

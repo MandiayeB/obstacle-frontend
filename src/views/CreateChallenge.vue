@@ -7,15 +7,10 @@
         <form @submit.prevent="add" action="" method="post">
             <div class="challenge_container">
                 <div class="h3_challenge">
-                    <h3 class="challenge_h3">Thème :</h3>
                     <h3 class="challenge_h3">Activité :</h3>
                     <h3 class="challenge_h3">Challenge :</h3>
                 </div>
                 <div class="challenge_input">
-                    <select v-model="theme" class="select_challenge" required>
-                        <option disabled selected>Thème</option>
-                        <option :key="challenge" v-for="challenge in challenge" :value="challenge">{{ challenge[0] }}</option>
-                    </select>
                     <select v-model="activity" class="select_challenge" required>
                         <option disabled value>Activité</option>
                         <option :key="activite" v-for="activite in activite" :value="activite">{{ activite[0] }}</option>
@@ -45,7 +40,7 @@
                     <input 
                         type="text"
                         v-model="titleDifficulty"
-                        class="inputCadre size_challenge"
+                        class="inputCadre size_challenge width_difficulty"
                         name="difficulty"
                         placeholder="Nom de la difficulté"
                         autocomplete="off"
@@ -54,13 +49,13 @@
                     <input 
                         type="text"
                         v-model="gif"
-                        class="inputCadre size_challenge"
+                        class="inputCadre size_challenge width_difficulty"
                         name="gif"
                         placeholder="URL du gif"
                         autocomplete="off"
                         required
                     >
-                    <select v-model="typeDifficulty" class="select_challenge" required>
+                    <select v-model="typeDifficulty" class="select_challenge width_difficulty" required>
                         <option disabled value >Type de Difficulté</option>
                         <option :key="difficulter" v-for="difficulter in difficulter" :value="difficulter">{{ difficulter }}</option> 
                     </select>

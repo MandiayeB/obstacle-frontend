@@ -3,6 +3,7 @@
         <div class="add_challenge_header">
             <h1 id="add_challenge_title">Ajouter un défi journalier</h1>
         </div>
+        <div class="separateur"></div>
         <div class ="create_updatedaily_container">
             <div class="h3_update_daily">
                 <h3 class="challenge_h3">Contenu :</h3>
@@ -33,6 +34,34 @@
                     <span class="name_span" v-if="v$.gifQuery.$error">
                         {{ v$.gifQuery.$errors[0].$message }}
                     </span>
+            </div>
+        </div>
+        <div class="separateur"></div>
+        <h3> Ajouter un guide : </h3>
+        <div class="new_difficulty">
+            <div class="h3_youtube">
+                <h3>Text</h3>
+                <h3>Youtube</h3>
+            </div>
+            <div class ="input_difficulty">
+                <input 
+                    type="text"
+                    v-model="textyoutube"
+                    class="inputCadre size_challenge width_difficulty"
+                    name="textyoutube"
+                    placeholder="Description de la vidéo"
+                    autocomplete="off"
+                    required
+                >
+                <input 
+                    type="text"
+                    v-model="youtube"
+                    class="inputCadre size_challenge width_difficulty"
+                    name="youtube"
+                    placeholder="Lien Youtube"
+                    autocomplete="off"
+                    required
+                >
             </div>
         </div>
         <div class="button_challenge">
@@ -116,6 +145,8 @@ export default {
                         content: this.state.contentQuery,
                         gif: this.state.gifQuery,
                         difficulty_id: this.state.user.difficulty_id, 
+                        textyoutube: this.textyoutube,
+                        youtube: this.youtube,
                         },
                         {withCredentials: true })
                     this.$router.push({ name: 'MyDailyContents', params: { difficulty_id: this.state.user.difficulty_id } });

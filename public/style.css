@@ -1371,10 +1371,20 @@ span{
     margin: 0 auto;
     justify-content: space-around;
 }
+
 .input_difficulty {
     display: flex;
     justify-content: space-around;
 }
+
+.add_dailycontent_container .new_difficulty {
+    padding-bottom: 20px;
+}
+
+.newdailycontent_guide .size_challenge {
+    margin-bottom: 5px;
+}
+
 /* Dashboard */
 
 .chart {

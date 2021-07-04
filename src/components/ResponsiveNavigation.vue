@@ -97,7 +97,7 @@ export default {
             } else if (text === "Dashboard") {
                 createToast(
                     { 
-                        title: 'Constate ton avancement 🏅', 
+                        title: 'Constate ton avancement 🏅',
                         description: 'Bah dis-donc, t\'es fortiche toi !'
                     },
                     {

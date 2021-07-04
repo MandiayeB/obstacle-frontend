@@ -1,7 +1,7 @@
 <template>
     <div class="admin_container">
         <div class="add_challenge_header">
-            <h1 id="add_challenge_title">Les challenges</h1>
+            <h1 id="add_challenge_title">Vos challenges</h1>
         </div>
         <div class="separateur"></div>
         <div class="button_admin">

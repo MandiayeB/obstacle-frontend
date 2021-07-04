@@ -44,24 +44,32 @@
                 <h3>Youtube</h3>
             </div>
             <div class ="input_difficulty">
-                <input 
-                    type="text"
-                    v-model="textyoutube"
-                    class="inputCadre size_challenge width_difficulty"
-                    name="textyoutube"
-                    placeholder="Description de la vidéo"
-                    autocomplete="off"
-                    required
-                >
-                <input 
-                    type="text"
-                    v-model="youtube"
-                    class="inputCadre size_challenge width_difficulty"
-                    name="youtube"
-                    placeholder="Lien Youtube"
-                    autocomplete="off"
-                    required
-                >
+                <div class="newdailycontent_guide">
+                    <input 
+                        type="text"
+                        v-model="state.textQuery"
+                        class="inputCadre size_challenge width_difficulty"
+                        name="textyoutube"
+                        placeholder="Description de la vidéo"
+                        autocomplete="off"
+                    >
+                    <span class="name_span" v-if="v$.textQuery.$error">
+                        {{ v$.textQuery.$errors[0].$message }}
+                    </span>
+                </div>
+                <div class="newdailycontent_guide">
+                    <input 
+                        type="text"
+                        v-model="state.youtubeQuery"
+                        class="inputCadre size_challenge width_difficulty"
+                        name="youtube"
+                        placeholder="Lien Youtube"
+                        autocomplete="off"
+                    >
+                    <span class="name_span" v-if="v$.youtubeQuery.$error">
+                        {{ v$.youtubeQuery.$errors[0].$message }}
+                    </span>
+                </div>
             </div>
         </div>
         <div class="button_challenge">
@@ -85,19 +93,6 @@ import useValidate from '@vuelidate/core';
 import { required, minLength, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
 
-const content = value => {
-    if (typeof value === 'undefined' || value === null || value === '' ) {
-        return true
-    }
-    return /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/.test(value)
-}
-const gif = value => {
-    if (typeof value === 'undefined' || value === null || value === '' ) {
-        return true
-    }
-    return /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/.test(value)
-}
-
 export default {
     name: 'UpdateDailyContent',
     setup() {
@@ -107,19 +102,26 @@ export default {
             },
         contentQuery: "",
             gifQuery:"",
+            textQuery:"",
+            youtubeQuery:"",
         });
         const rules = computed(() => {
             return {
                 contentQuery: { 
                     required: helpers.withMessage('*Champ obligatoire', required),
                     minLength: helpers.withMessage('*Votre défis dois faire 10 lettres au minimum.', minLength(10)),
-                    content: helpers.withMessage('*Il manque une majuscule au début du mot.', content),
-                   
                 },
                 gifQuery: {
                     required: helpers.withMessage('*Champ obligatoire', required),
                     minLength: helpers.withMessage('*Votre gif dois faire 10 lettres au minimum.', minLength(10)),
-                   
+                },
+                textQuery: {
+                    required: helpers.withMessage('*Champ obligatoire', required),
+                    minLength: helpers.withMessage('*Votre gif dois faire 5 lettres au minimum.', minLength(5)),
+                },
+                youtubeQuery: {
+                    required: helpers.withMessage('*Champ obligatoire', required),
+                    minLength: helpers.withMessage('*Votre gif dois faire 10 lettres au minimum.', minLength(10)),
                 },
             }
         });
@@ -145,8 +147,8 @@ export default {
                         content: this.state.contentQuery,
                         gif: this.state.gifQuery,
                         difficulty_id: this.state.user.difficulty_id, 
-                        textyoutube: this.textyoutube,
-                        youtube: this.youtube,
+                        textyoutube: this.state.textQuery,
+                        youtube: this.state.youtubeQuery,
                         },
                         {withCredentials: true })
                     this.$router.push({ name: 'MyDailyContents', params: { difficulty_id: this.state.user.difficulty_id } });

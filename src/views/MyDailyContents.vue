@@ -9,10 +9,10 @@
                 >
             </button>
             <div v-if="order_id" class="add_challenge_header">
-                <h1 id="add_challenge_title">Les défis journalier: {{order_id[index]}}/{{order_id.length}} </h1>
+                <h1 id="add_challenge_title"> Défi journalier : {{order_id[index]}}/{{order_id.length}} </h1>
             </div>
             <div v-if="order_id===false" class="add_challenge_header">
-                <h1 id="add_challenge_title">Les défis journalier</h1>
+                <h1 id="add_challenge_title"> Défi journalier : </h1>
             </div>
             <button class="button_img designButton" v-on:click="next">
                 <img

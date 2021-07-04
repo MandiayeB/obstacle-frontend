@@ -89,7 +89,7 @@ export default {
                     .catch((error) => console.log(error));
                     
                     sessionStorage.removeItem('isAuthenticated');
-                    window.dispatchEvent(new CustomEvent('isAuthenticated-sessionStorage-changed', {
+                    window.dispatchEvent(new CustomEvent('authentification-changed', {
                         detail: {
                             storage: sessionStorage.getItem('isAuthenticated')
                         }

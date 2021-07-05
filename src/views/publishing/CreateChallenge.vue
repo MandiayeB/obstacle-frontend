@@ -57,7 +57,7 @@
                     >
                     <select v-model="typeDifficulty" class="select_challenge width_difficulty" required>
                         <option disabled value >Type de Difficulté</option>
-                        <option :key="difficulter" v-for="difficulter in difficulter" :value="difficulter">{{ difficulter }}</option> 
+                        <option :key="difficulty" v-for="difficulty in difficulties" :value="difficulty">{{ difficulty }}</option> 
                     </select>
                 </div>
             </div>
@@ -79,7 +79,7 @@ export default {
         return {
             challenge: [],
             activite: [],
-            difficulter: ['Facile', 'Moyen', 'Intermédiaire', 'Difficile', 'Expert'],
+            difficulties: ['facile', 'moyen', 'intermédiaire', 'difficile', 'expert'],
         }
 
     },
@@ -88,13 +88,13 @@ export default {
             .get('http://localhost:3000/create',
                 { withCredentials: true })
             .then(response => {
-                for(let i=0; i<response.data.length; i++){
+                for (let i = 0; i < response.data.length; i++) {
                     const theme = [response.data[i].name];
                     this.challenge.push(theme); 
-                    for(let y=0; y<response.data[i].activity.length; y++){
+                    for (let y = 0; y < response.data[i].activity.length; y++) {
                         const acti = [response.data[i].activity[y].name];
                         this.activite.push(acti);
-                    } 
+                    }
                 }
         })
     },

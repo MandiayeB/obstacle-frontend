@@ -19,7 +19,7 @@
 
 <script>
 import axios from "axios";
-import CoachChallenges from '../components/CoachChallenges';
+import CoachChallenges from '../../components/coach/CoachChallenges.vue';
 
 export default {
     

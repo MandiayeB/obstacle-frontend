@@ -47,7 +47,7 @@
 import axios from "axios";
 import { createToast } from 'mosha-vue-toastify';
 import 'mosha-vue-toastify/dist/style.css'
-import ProfilePicture from './ProfilePicture.vue';
+import ProfilePicture from './profile/ProfilePicture.vue';
 
 export default {
     name: 'ResponsiveNavigation',

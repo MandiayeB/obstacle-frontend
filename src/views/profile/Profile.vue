@@ -3,7 +3,7 @@
         <div class="profile_header">
             <h1 id="profile_title">Profil</h1>
             <router-link id="profile_setting_wheel" :to="'/profilediting'">
-                <img id="profile_setting_wheel_img" src="../assets/images/settings.png" />
+                <img id="profile_setting_wheel_img" src="../../assets/images/settings.png" />
             </router-link>
         </div>
         <div class="separateur"></div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import ProfilePicture from '../components/ProfilePicture.vue';
+import ProfilePicture from '../../components/profile/ProfilePicture.vue';
 
 export default {
     name: 'Profile',

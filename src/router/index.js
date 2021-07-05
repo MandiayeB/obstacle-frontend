@@ -1,19 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Signin from '../views/Signin';
 import Home from '../views/Home';
-import Profile from '../views/Profile';
+import Profile from '../views/profile/Profile';
 import Login from '../views/Login';
 import Goal from '../views/Goal';
 import Dashboard from '../views/Dashboard';
 import DailyContent from '../views/DailyContent';
-import ProfileEditing from '../views/ProfileEditing';
-import ProfilePassword from '../views/ProfilePassword';
-import CreateChallenge from '../views/CreateChallenge';
-import MyChallenges from '../views/MyChallenges';
-import MyDifficulties from '../views/MyDifficulties';
-import MyDailyContents from '../views/MyDailyContents';
-import UpdateDailyContent from '../views/UpdateDailyContent';
-import NewDailyContent from '../views/NewDailyContent';
+import ProfileEditing from '../views/profile/ProfileEditing';
+import ProfilePassword from '../views/profile/ProfilePassword';
+import CreateChallenge from '../views/publishing/CreateChallenge';
+import MyChallenges from '../views/publishing/MyChallenges';
+import MyDifficulties from '../views/publishing/MyDifficulties';
+import MyDailyContents from '../views/publishing/MyDailyContents';
+import UpdateDailyContent from '../views/publishing/UpdateDailyContent';
+import CreateDailyContent from '../views/publishing/CreateDailyContent';
 
 const routes = [
     {
@@ -88,10 +88,9 @@ const routes = [
 
     },
     {
-        path: '/newdailycontent',
-        name: 'NewDailyContent',
-        component: NewDailyContent
-
+        path: '/createdailycontent',
+        name: 'CreateDailyContent',
+        component: CreateDailyContent
     }
 ]
 

@@ -1,7 +1,7 @@
 <template>
     <div id="delete_goal_div">
         <button id="delete_goal_button" @click="showModal = true">
-            <img id="delete_goal_cross" src="../assets/images/deleteGoal.png" alt="cross">
+            <img id="delete_goal_cross" src="../../assets/images/deleteGoal.png" alt="cross">
         </button>
         <transition name="fade" appear>
             <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>

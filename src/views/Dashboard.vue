@@ -7,13 +7,18 @@
                 :achievements="achievements"
             >
             </BarChart>
+            <LineChart
+                v-if="achievements.length > 0"
+                :achievements="achievements"
+            >
+            </LineChart>
         </div>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-import BarChart from '../components/BarChart.vue';
+import BarChart from '../components/charts/BarChart.vue';
 
 export default {
     name: 'Dashboard',

@@ -5,7 +5,7 @@
             <img 
                 class="expand_icon"
                 :style="[displayChallenges ? this.styleObject : '']" 
-                src="../assets/images/expand_more_white_24dp.svg" 
+                src="../../assets/images/expand_more_white_24dp.svg" 
                 alt="expand"
             >
         </div>

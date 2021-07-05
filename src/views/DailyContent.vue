@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import Achievement from "../components/Achievement.vue";
-import Content from "../components/Content.vue";
-import Guide from "../components/Guide.vue";
+import Achievement from "../components/achievement/Achievement.vue";
+import Content from "../components/dailycontent/Content.vue";
+import Guide from "../components/dailycontent/Guide.vue";
 import axios from "axios";
 
 export default {

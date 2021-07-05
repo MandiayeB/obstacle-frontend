@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import Theme from '../components/Theme';
-import Screen from '../components/Screen.vue';
+import Theme from '../components/goal/Theme';
+import Screen from '../components/goal/Screen.vue';
 import axios from "axios";
 import { createToast } from 'mosha-vue-toastify';
 import 'mosha-vue-toastify/dist/style.css'

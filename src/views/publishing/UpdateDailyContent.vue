@@ -61,7 +61,6 @@ const content = value => {
 }
 
 export default {
-
     name: 'UpdateDailyContent',
     setup() {
         const state = reactive({
@@ -98,7 +97,7 @@ export default {
         }
     },
     mounted() {
-        if(this.$route.params.difficulty_id) {
+        if (this.$route.params.difficulty_id) {
             this.state.user.difficulty_id = this.$route.params.difficulty_id;
             this.state.user.daily_content_id = this.$route.params.daily_content_id;
             this.state.user.contents = this.$route.params.content;

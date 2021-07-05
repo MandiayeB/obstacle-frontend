@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import UploadingFile from '../components/UploadingFile.vue';
+import UploadingFile from '../../components/profile/UploadingFile.vue';
 import axios from "axios";
 import useValidate from '@vuelidate/core';
 import { minLength, maxLength, helpers } from '@vuelidate/validators';

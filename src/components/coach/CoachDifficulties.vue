@@ -1,5 +1,5 @@
 <template>
-    <div :key="difficulty" v-for="difficulty in difficultys">
+    <div :key="difficulty" v-for="difficulty in difficulties">
         <CoachDifficulty :difficulty="difficulty"/>
     </div>  
 </template>
@@ -13,7 +13,7 @@ export default {
         CoachDifficulty,
     },
     props: {
-        difficultys: { type: Object }
+        difficulties: { type: Object }
     },
 }
 

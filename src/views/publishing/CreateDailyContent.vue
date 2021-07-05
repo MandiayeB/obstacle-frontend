@@ -40,7 +40,7 @@
         <h3> Ajouter un guide : </h3>
         <div class="new_difficulty">
             <div class="h3_youtube">
-                <h3>Text</h3>
+                <h3>Descriptif</h3>
                 <h3>Youtube</h3>
             </div>
             <div class ="input_difficulty">
@@ -94,13 +94,13 @@ import { required, minLength, helpers } from '@vuelidate/validators';
 import { reactive, computed } from 'vue';
 
 export default {
-    name: 'UpdateDailyContent',
+    name: 'CreateDailyContent',
     setup() {
         const state = reactive({
             user: {
                 difficulty_id: Number,
             },
-        contentQuery: "",
+            contentQuery: "",
             gifQuery:"",
             textQuery:"",
             youtubeQuery:"",
@@ -109,19 +109,19 @@ export default {
             return {
                 contentQuery: { 
                     required: helpers.withMessage('*Champ obligatoire', required),
-                    minLength: helpers.withMessage('*Votre défis dois faire 10 lettres au minimum.', minLength(10)),
+                    minLength: helpers.withMessage('*Votre défi doit comporter 10 lettres au minimum.', minLength(10)),
                 },
                 gifQuery: {
                     required: helpers.withMessage('*Champ obligatoire', required),
-                    minLength: helpers.withMessage('*Votre gif dois faire 10 lettres au minimum.', minLength(10)),
+                    minLength: helpers.withMessage('*Votre gif doit comporter 10 caractères au minimum.', minLength(10)),
                 },
                 textQuery: {
                     required: helpers.withMessage('*Champ obligatoire', required),
-                    minLength: helpers.withMessage('*Votre gif dois faire 5 lettres au minimum.', minLength(5)),
+                    minLength: helpers.withMessage('*Votre descriptif doit comporter 5 lettres au minimum.', minLength(5)),
                 },
                 youtubeQuery: {
                     required: helpers.withMessage('*Champ obligatoire', required),
-                    minLength: helpers.withMessage('*Votre gif dois faire 10 lettres au minimum.', minLength(10)),
+                    minLength: helpers.withMessage('*Votre gif doit comporter 10 caractères au minimum.', minLength(10)),
                 },
             }
         });
@@ -132,7 +132,7 @@ export default {
         }
     },
     mounted() {
-        if(this.$route.params.difficulty_id){
+        if (this.$route.params.difficulty_id) {
             this.state.user.difficulty_id = this.$route.params.difficulty_id;
         } else {
             this.$router.push('/mychallenges');
@@ -143,14 +143,16 @@ export default {
             this.v$.$validate()
             if (!this.v$.$error) {
                 axios
-                    .post('http://localhost:3000/create/dailycontent', {
-                        content: this.state.contentQuery,
-                        gif: this.state.gifQuery,
-                        difficulty_id: this.state.user.difficulty_id, 
-                        textyoutube: this.state.textQuery,
-                        youtube: this.state.youtubeQuery,
+                    .post('http://localhost:3000/create/dailycontent', 
+                        {
+                            content: this.state.contentQuery,
+                            gif: this.state.gifQuery,
+                            difficulty_id: this.state.user.difficulty_id, 
+                            textyoutube: this.state.textQuery,
+                            youtube: this.state.youtubeQuery,
                         },
-                        {withCredentials: true })
+                        { withCredentials: true }
+                    )
                     this.$router.push({ name: 'MyDailyContents', params: { difficulty_id: this.state.user.difficulty_id } });
             } else {
                 console.log(this.v$.$errors);

@@ -12,7 +12,7 @@
 
 <script>
 import axios from "axios";
-import UserGoals from '../components/UserGoals';
+import UserGoals from '../components/home/UserGoals';
 
 export default {
     name: 'Home',

@@ -21,6 +21,7 @@
 <script>
 import "/public/style.scss";
 import ResponsiveNavigation from "./components/ResponsiveNavigation.vue";
+import axios from "axios";
 
 export default {
     components: {
@@ -51,7 +52,7 @@ export default {
                 },
             ],
             connected: sessionStorage.getItem('isAuthenticated'),
-            isAdmin: false,
+            isAdmin: Boolean
         }
     },
     mounted() {
@@ -63,16 +64,32 @@ export default {
                     this.navLinks.splice(3, 0, {
                         text: "Publier du contenu",
                         path: "/mychallenges",
-                        icon: "ion-ios-basketball",
+                        icon: "ion-ios-lock",
                     });
                 }
             }
         });
+        axios
+            .get(
+                (process.env.VUE_APP_URL || 'https://obstacle-backend.herokuapp.com') + '/isAdmin',
+                { withCredentials: true }
+            )
+            .then((response) => { 
+                window.dispatchEvent(new CustomEvent('authentification-changed', {
+                    detail: {
+                        storage: sessionStorage.getItem('isAuthenticated'),
+                        role: response.data ? true : false
+                    }
+                }));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
     computed: {
         isAuthenticated() {
             return this.connected;
         }
-    },
+    }
 }
 </script>

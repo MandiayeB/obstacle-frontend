@@ -11,7 +11,7 @@
                 <h1>Êtes-vous sûr ?</h1>
                 <div id="space_between_modal">
                     <button class="designButton" @click="showModal = false">
-                        Continuer
+                        Retour
                     </button>
                     <button class="designButton red_button" @click="deleteGoal()">
                         Supprimer

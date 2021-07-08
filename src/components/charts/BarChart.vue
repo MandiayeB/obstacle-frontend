@@ -92,11 +92,13 @@ export default {
                 backgroundColor: colors[index],
                 data: durations
             });
-        });
+        }); 
 
         this.renderChart(
             {
-                labels: dates.map(d => moment(d, "YYYYMMDD").format("DD/MM")).sort(),
+                labels: dates.map(
+                    d => moment(d, "YYYYMMDD").format("DD/MM"))
+                        .sort((a, b) => b - a),
                 datasets: datasets
             },
             this.options

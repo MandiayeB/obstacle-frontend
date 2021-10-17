@@ -53,7 +53,7 @@ export default {
             if (!allowedTypes.includes(this.selectedFile.type)) {
                 this.error = "* Nous ne prenons que les images.";
                 this.displayError = true;
-            } else if (this.selectedFile.size> 2000000){
+            } else if (this.selectedFile.size > 2000000) {
                 this.error = "* La taille max du fichier est de 2000KB.";
                 this.displayError = true;
             } else if (this.selectedFile === Object) {

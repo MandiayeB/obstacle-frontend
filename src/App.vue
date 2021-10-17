@@ -36,7 +36,7 @@ export default {
                     icon: "ion-ios-home",
                 },
                 {
-                    text: "Dashboard",
+                    text: "Tableau de bord",
                     path: "/dashboard",
                     icon: "ion-ios-stats",
                 },
